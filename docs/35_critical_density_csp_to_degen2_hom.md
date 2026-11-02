@@ -170,3 +170,6 @@ If such a method is found, it would give a meaningful algorithmic result rather 
 
 
 **Multilevel factorization audit (2026-11-02):** [Fixed-partition rank loss and the growing-degree algorithmic criterion](38_multilevel_factorization_and_degree_uniformity.md). For random critical-density CSP graphs, independent pairwise rank factorization across any predetermined fine balanced partition with g/sqrt(log k) -> infinity has total interface rank (1-o(1))m. A naive multi-level refinement therefore loses its coarse-block savings. An alternative sufficient breakthrough is a *uniform-in-growing-degree* CSP counting theorem with exponent q^{O(f(Delta)n/sqrt(log n))} for f(Delta)=o(Delta); standard occurrence splitting would then give q^{o(k)} on the entire critical-density class. Neither a general compression nor this stronger degree theorem is proved.
+
+
+**Updated no-go (2026-11-02):** [Note 39](39_adaptive_block_rank_barrier.md) strengthens the raw-bucket/rank discussion: even graph-adaptive vertex partitions with every block $\le k^{1-\varepsilon}$ have pairwise maximum-matching interface budget $m-O(k)$ on typical critical-density graphs. This excludes a superconstant saving for pairwise minimum-vertex-cover factorization at that scale; it is not an arbitrary tensor-network lower bound.
