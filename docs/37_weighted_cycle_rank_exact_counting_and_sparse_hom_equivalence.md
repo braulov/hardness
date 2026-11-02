@@ -97,3 +97,20 @@ The rank-weighted cycle parameter supplies a more targeted algorithmic project t
 - Standard exact tree CSP sum-product and matrix rank factorization (folklore).
 - Original earlier rank/rectangle and fiber algorithms: note 36.
 - Conditional tensor upper bound: note 33.
+
+## 6. Randomized finite-field decision version (PROVED)
+
+For SAT rather than exact #SAT, use a random prime p rather than rational arithmetic. Let N=#SAT(I), so 0<=N<=q^v. Set P=max(100,ceil(C*v*ln(max(q,2))/eta)) for a large absolute constant C. Sample an almost-uniform prime p in [P,2P], using rejection sampling and primality testing; p is polynomial in v,q,1/eta. For N>0 at most ln N/ln P<=v ln q/ln P primes in that interval divide N. By the standard Omega(P/ln P) lower bound on primes in [P,2P],
+
+    Pr_p[p divides N] <= O(v ln q/P) <= eta.
+
+Compute each rank r_e(p) over F_p, take a maximum-rank spanning forest, factor all chord matrices over F_p and apply the same weighted forest dynamic programming. The output equals N modulo p. If N=0 the answer is always NO; if N>0, the answer is YES with probability >=1-eta. This is ONE-SIDED randomized SAT with cost
+
+    poly(L, log p) * product_{e notin F_p} r_e(p)
+      = 2^{mu_rank,p(I)} poly(L,log p).
+
+Ranks modulo p never exceed ranks over Q (all minors that vanish over Q also vanish mod p), so this is never slower in the stated exponential factor than the rational version. Exact counting still requires the rational method or enough moduli to reconstruct N. The error comes only from accidental divisibility of N by p, not any numerical approximation.
+
+## 7. Rank-weighted cycle excess is NOT a hardness measure (PROVED counterexample)
+
+Take any connected cubic expander with m=Theta(v), q labels and every edge relation a permutation matrix (a bijection between the endpoint domains). Each r_e=q over every field, so the maximum spanning forest leaves mu(G)=m-v+1=Theta(v) edges and mu_rank=Theta(v log q). The rank-mode algorithm uses q^{Theta(v)} modes. However a direct algorithm chooses any spanning tree, tries each of q root labels, uniquely propagates values through the permutation constraints along tree edges, and checks all chords; this is polynomial time in L and v. Thus rank-weighted cycle excess is an algorithmic upper-bound certificate, not a lower bound on SAT complexity. This is a stronger caution than merely noting equality matrices have high rank.
