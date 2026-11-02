@@ -1,5 +1,8 @@
 # Branch P — Permutation Clique to sparse polynomial-alphabet CSP
 
+> **2026-11-02 CONDITIONAL CLOSURE OF HARDNESS-TRANSFER TARGET.** If the *full* OpenAI Boolean tensor-contraction theorem is correct, any explicitly represented sparse polynomial-alphabet 2-CSP with \(r=k'+m'\) variables plus constraints can be solved in \(2^{O(r\sqrt{\log K})}\operatorname{poly}(K)\) when the output alphabet is \(K^{O(1)}\). Therefore, under the separately conjectured no-\(2^{o(K\log K)}\) PCC-hardness assumption, a polynomial-time PCC \(\to\) sparse 2-CSP compiler with \(r=o(K\sqrt{\log K})\), **including the O(K) stretch goal, cannot exist**: otherwise it gives a faster PCC algorithm. The downstream SPACH/rSPACH hardness claims are also conditionally refuted. **Keep the exact gadgets, PCP sampling lemmas, and structural barriers; do not claim the mathematical existence question has been disproved unconditionally.** The full tensor theorem is not part of the documented Lean scope. See [audit and branch triage](33_tensor_contraction_sparse_2csp_and_hardness_triage.md).
+
+
 **CRITICAL 2026-11-02 UPDATE:** See [the domain-uniform CSP alert](22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md). A brand-new UNVERIFIED independent preprint claims a uniform q^{O(v/sqrt(log v))} deterministic algorithm for ALL bounded-degree binary CSPs. **If correct, SPACH/rSPACH as formulated here are FALSE**, and under RPCC-H no O(k)-size (indeed no o(k sqrt(log k))-size) general polynomial-alphabet bounded-degree CSP compiler exists. All earlier PCP/encoding lemmas should be viewed through this conditional algorithmic upper bound; don't present a purported compiler as SPACH evidence.
 
 
