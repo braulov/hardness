@@ -62,6 +62,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 18. [Boolean biclique-cover compatibility](../41_boolean_biclique_cover_pcc_compatibility.md) — supplied r-biclique cover of forbidden candidate pairs gives deterministic 2^r·poly(K) PCC and exact O(Kr+KlogK) cubic 2-CSP; explicit families have Boolean r=O(logK) but ordinary matrix rank Θ(K²).
 
+19. [Ferrers/chain-cover PCC and rainbow boundary](../42_ferrers_chain_cover_and_rainbow_pcc.md) — r threshold/Ferrers forbidden factors give K^{O(r)} matching algorithm and O(Kr+KlogK) exact degree-3 CSP; a single factor can have Θ(K²) biclique-cover number and rank; one color-equality factor is NP-complete but yields a 2^{O(K)}-time hybrid.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
