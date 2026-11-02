@@ -180,6 +180,24 @@ ensures \(|R|\ge s\) and \(|V\setminus R|\ge s\). Therefore
 \]
 For \(\Delta=3\), this reduces to (2).
 
+## Overlapping tests: positive association rather than independence
+
+There is also a useful caution from the classical **Harris–FKG inequality**. Fix a prefix assignment \(x_S\) and any two (or finitely many) possibly overlapping groups \(U_1,\dots,U_t\subseteq V\setminus S\). Each event
+\[
+ A_{U_i}=\{\exists\, y\in[q]^{U_i}\text{ satisfying all internal and prefix-incident constraints}\}
+\]
+is **increasing** in the independently sampled Bernoulli relation-table entries: changing a forbidden tuple to allowed cannot destroy a local extension. Therefore the product Bernoulli measure implies
+\[
+ \boxed{
+ \Pr\left[\bigcap_{i=1}^{t}A_{U_i}\mid x_S\right]
+ \ge\prod_{i=1}^{t}\Pr[A_{U_i}\mid x_S].
+ }
+\tag{12}
+\]
+For *disjoint* \(U_i\), the events depend on disjoint edge tables and independence holds, giving equality and the valid note-40 upper bound. For overlapping groups, the events have **nonnegative correlation**, so naively multiplying their local survival probabilities is in general **too optimistic about pruning**, not a valid upper bound on actual survival probability. This is not an impossibility proof for overlapping lookahead: joint conditions still can reject more often than any individual test, and much more refined methods are needed to analyze them.
+
+Classical source: Harris (1960) / FKG (1971), positive association of increasing events under product measures.
+
 ## What is / is not closed
 
 **CLOSED negatively:**
