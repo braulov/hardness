@@ -91,3 +91,9 @@ Verified elementary rank identities and direct encodings **do not** establish a 
 ## PSCH research notebook (2026-11-02)
 
 A separate two-branch investigation of the **Polynomial-Size Clique Hypothesis** is archived at [docs/psch/README.md](docs/psch/README.md). Branch A studies whether a very fast polynomial-size Clique algorithm implies strong general circuit lower bounds; branch B studies conditional fine-grained reductions to CSP/HOM/SubISO and exact existential sparsification constructions (including Beneš/AllDifferent and Hamiltonian Path). These are working results requiring independent audit, not theorem announcements.
+
+## Log-width SAT and sparse polynomial-alphabet CSP (2026-11-02)
+
+A separate candidate **Sparse Polynomial-Alphabet CSP Hypothesis (SPACH)** and two non-equivalent width/size regimes for log-SAT (width O(log number-of-variables) with polynomially many clauses, versus width O(log input-length) with potentially superpolynomial length) are formalized in [`docs/13_log_width_sat_and_polynomial_alphabet_csp.md`](docs/13_log_width_sat_and_polynomial_alphabet_csp.md). The note gives the exact parsimonious binary 2-CSP -> CNF encoding and identifies why the 2024 Marx-style expander embedding does not automatically transfer new log-SAT hardness to cubic polynomial-alphabet CSP.
+
+The focused **Permutation k x k Clique -> cubic sparse 2-CSP** research branch is in [`docs/14_permutation_clique_sparse_2csp_branch.md`](docs/14_permutation_clique_sparse_2csp_branch.md). The direct translation into logarithmic-width SAT is elementary and complete; the nontrivial goal is an O(k)-constraint, degree-3, polynomial-alphabet existential compiler of arbitrary pairwise compatibility. Existing Beneš-network AllDifferent compression gives only a partial O(k log k)-constraint gadget. Both the candidate hardness and universal compression are OPEN; avoid identifying the former with PSCH or any still-unverified ETH replacement.
