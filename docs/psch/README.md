@@ -52,6 +52,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 13. [Short PCC-PCP alphabet/gap barrier from VC](../36_pcc_short_pcp_alphabet_gap_barrier.md) — VC(n) → PCC(K=n), and under NP⊄coNP/poly, an O(K)-symbol two-query PCC-PCP with Q≤K^α and rejection gap ≥K^{-γ} requires 2α+γ≥1; explains why naive repetition cannot hit the critical parameters.
 
+14. [PCC-PCP VC-dimension and Reed–Solomon two-query barriers](../37_pcc_pcp_vcdim_and_rs_testing_barriers.md) — epsilon-net plus VC→PCC compression forces ζ+γ+2α≥2 for any uniform VCdim O(K^ζ), and (conditionally on Nguyen + RPCC-H) forbids uniformly o(K√log K) VCdim; bare RS membership tests with two queries are vacuous.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
