@@ -1,5 +1,8 @@
 # Graphic Rank and Global-Obstruction Complexity
 
+**CRITICAL RESEARCH ALERT — 2026-11-02:** [Note 22](docs/22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md) examines a brand-new Nguyen preprint CLAIMING a uniform deterministic degree-3 binary-CSP algorithm in time L^{O(1)}q^{O(v/sqrt(log v))}. **If valid, original SPACH/rSPACH are FALSE**. Under independent randomized Permutation Clique hardness, any general polynomial-time randomized reduction to polynomial-alphabet bounded-degree CSP requires at least Omega(k sqrt(log k)) output variables in the little-o sense. Algorithm and Lean dependencies are NOT independently audited. Treat earlier SPACH-based conclusions as suspended, not established.
+
+
 **Research notebook — 2026-10-27.** Preliminary, not a theorem announcement. Independent review of the 2026 OpenAI ETH-refutation manuscript is ongoing.
 
 ## 2026-11-02: conditional tensor-contraction update and CLOSED hardness branches
