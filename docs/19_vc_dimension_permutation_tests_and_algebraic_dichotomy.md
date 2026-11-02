@@ -91,3 +91,7 @@ Related notes: docs/13_log_width_sat_and_polynomial_alphabet_csp.md ; docs/14_pe
 - Haussler--Welzl epsilon-net theorem; survey: https://www.math.tau.ac.il/~michas/enet.pdf
 - Schwartz--Zippel lemma (standard algebraic identity-testing bound).
 - Guruswami--Lin--Ren--Sun--Wu, STOC 2025: https://arxiv.org/abs/2404.08870
+
+## Two-layer follow-up
+
+[`20_two_layer_affine_nonlinear_pcc_audit.md`](20_two_layer_affine_nonlinear_pcc_audit.md) replaces vague 'linear consistency + nonlinear checks' with a quantitative formulation. Pure two-query affine consistency cannot be a positive-rate/positive-distance code; 3-ary affine checks are exactly compilable into linear-size cubic CSP. Fixed-decoder exact projection of ALL genuine PCC permutations demands tQ²=Omega(k⁴) input-dependent nonlinear table bits. The critical remaining subproblem is a robust globally sensitive nonlinear interface; low VC or good code distance alone does not solve it.
