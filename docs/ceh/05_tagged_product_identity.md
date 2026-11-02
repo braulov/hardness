@@ -1,5 +1,8 @@
 # Exact tagged-product identity as a topology-free normal form for sparse CSP
 
+> **HARDNESS BRANCH CLOSED (conditional on the November 2026 CSP counting theorems).** The Nguyen preprint claims a deterministic $q^{O(k/\sqrt{\log k})}\operatorname{poly}(L)$ algorithm for every fixed-degree binary CSP; the full OpenAI Boolean tensor theorem separately implies the same for sparse polynomial-alphabet CSP. Thus the **SPACH, rSPACH, CEH and randomized-CEH no-$q^{o(k)}$ hypotheses are conditionally refuted**, and their hardness consequences must not be used. This document is retained for its reductions/structural questions; neither the claimed algorithms nor the Lean dependency chains have been independently audited here. See the [closure registry](../34_csp_hypothesis_closure_registry_2026_11_02.md), [Nguyen audit](../22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md), and [tensor analysis](../33_tensor_contraction_sparse_2csp_and_hardness_triage.md).
+
+
 **Research checkpoint, 2026-11-02.** This is a new focused subprogram of the CEH branch. The elementary product identity is proved below; it is closely related to *permutation / multiset checks* used in algebraic proof systems (PLONK). **No linear-size fixed-expander compiler is constructed.** The objective remains the satisfiability-only SPACH→CEH reduction, not optimizing the exact matching compiler.
 
 ## 1. Exact reduction to local tests + ONE formal polynomial identity
