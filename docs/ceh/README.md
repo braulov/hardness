@@ -124,3 +124,12 @@ See [01_reductions.md](01_reductions.md), [02_matching_compiler_research_log.md]
 A new explicit **logarithmic-overhead**, fixed-topology reduction was reconstructed using a word-level oblivious sorting network (compare Feige–Jozeph 2012). Arbitrary $m=O(k)$ binary relations can be represented as $2m$ labeled occurrence records, sorted by variable label, with local equality checks on adjacent equal keys. This yields a fixed bounded-degree constraint graph of $O(k\log k)$ vertices and polynomial alphabet; overlaying a fixed expander and using an even-cycle port replacement yields **one predetermined simple bipartite cubic expander** of $K=O(k\log k)$ vertices. The reduction is polynomial-time, SAT-iff, and avoids searching for minors. See [04_universal_factor_graph_sorting_bridge.md](04_universal_factor_graph_sorting_bridge.md) for the construction, expansion argument, comparison with published UFG, and exact conditional runtime transfer.
 
 The $\Omega(k\log k)$ size bound for literal 2-by-2 switching/sorting networks is a barrier **only for that architecture**, not for nonlinear/algebraic or decision-only compilers. We still need $K=O(k)$ for full CEH–SPACH equivalence.
+
+
+## 8. New algebraic normal form: one tagged product identity (2026-11-02)
+
+Given arbitrary sparse binary CSP, create $t=2m=O(k)$ occurrence variables, retain the original $m$ pairwise local relations, and let $\sigma$ cycle the occurrences of each original variable. For a prime $p>tq$, use injective pair tags $h(i,a)=iq+a\in\mathbb F_p$. The complete copy-consistency condition is **exactly**
+\[
+\prod_i(X-h(i,a_i))\equiv\prod_i(X-h(\sigma(i),a_i))
+\]
+as a *formal univariate polynomial identity*. Thus all input-dependent topology is encoded in local tag constants; only one global algebraic identity remains. This does **not** by itself yield a fixed cubic expander reduction. Single-point grand-product evaluation has adaptive-witness false positives; a one-pass exact nondeterministic accumulator needs exponentially many states, while an expander may have enough distributed cut capacity. Full proof, explicit finite-field counterexample, caveats and the next exact verifier subproblem: [05_tagged_product_identity.md](05_tagged_product_identity.md).
