@@ -122,3 +122,6 @@ So simply replacing $\theta_e$ by matching-cover labels **does not improve the p
 
 
 **Source-level refinement (2026-11-02):** [Note 40](40_nguyen_grouping_overhead_and_random_csp_greedy.md) checks Nguyen's imported grouping formulas (17)-(18): with $g=3K^8$, the advertised upper-bound expression includes $2^{2gP/K}$ and the internal rate is only certified as $O(1/\sqrt{\log K})$. For fixed balanced groups on random critical graphs, $g=o(\sqrt{\log k})$ implies each pair has matching size at least half a group, hence the cover-interface row capacity $P=\Omega(k\log q)$ and $gP/K=\Omega(k\log q\cdot K^7)$. Thus naive group compression does not improve the **published bound**; this is not a lower bound on arbitrary implementations. The note also proves that dense random binary relation tables have a strong greedy extension property.
+
+
+**Updated group-cost audit:** [Note 41](41_uniform_coarse_partitions_and_row_sensitive_grouping.md) removes the input-oblivious restriction for balanced coarse partitions. All such partitions with $2\le g\le d/(100\log d)$ have pairwise matching sizes $\Omega(k/g)$ on a typical critical-density graph, so both total row capacity and $gP$ are $\Theta(gk\log q)$. It also states an unconditional *oracle-model* obstruction to cost bounds depending solely on external bond capacity U, without charging internal group weights.
