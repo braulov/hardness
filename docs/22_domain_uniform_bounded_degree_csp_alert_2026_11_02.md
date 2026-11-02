@@ -67,3 +67,32 @@ This proves a reduction to bounded-valence tensor contraction but DOES NOT by it
 - The historical ETH lower bound for cubic CSP is conditional on ETH and does not prevent a q^{o(v)} upper bound post-2026.
 - Unconditional correctness of RPCC-H is not established; the compression no-go is conditional on BOTH it and Nguyen's claimed theorem.
 - Check exact Lean proof dependencies and source correctness ASAP. If confirmed, archive SPACH/rSPACH as FALSE, formulate a weaker hypothesis compatible with q^{O(v/sqrt log v)}, and seek an efficient PCC algorithm or an appropriately weaker sparse-CSP/HOM hardness source.
+
+## F. Further source audit, 2026-11-02 (source descriptions only, no reproduced Lean build)
+
+The fuller indexed text of https://hub.valency.io/works/W_88675vdy states the decisive details in its introduction: Theorem 1.2 is UNIFORM in D=q, and counts arbitrary complete-table degree-Delta binary CSP in L^{p_Delta}D^{C_Delta k/sqrt(log k)} time. It explicitly warns that binary-encoding domain values into Boolean variables and applying 3SAT DOES NOT provide this bound: arbitrary binary relations require Omega(D² log D) Tseitin variables. It invokes signed tensor-network recursion from Anthropic with factorization capacities, and credits graph constructions to OpenAI.
+
+The indexed text lists formal endpoints DenseCSPTheorem.exists_counter and SparseNativeMachine.exists_native, Lean 4.33.1, 82 downstream modules and selected 633 upstream counting modules, and says the reported axiom dependencies are only propext, Classical.choice, Quot.sound. It gives the Anthropic revision 16a5ce41304fcdaea4e0be7c132e1c361dc26da5 and the OpenAI math revision 7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a. These are claims made in the manuscript; the current audit has NOT executed the build or manually reviewed the imported quantitative theorem.
+
+## G. Candidate surviving hardness for the HOM single-exponential objective
+
+Even if the new algorithm is valid, its cubic poly-alphabet running time is 2^{O(v sqrt(log v))}, which is super-single-exponential in v. Thus the following DIFFERENT working candidate is not refuted by the displayed upper bound:
+
+    NoSingleExpSparseCSP:
+    for some fixed c>=1, cubic sparse binary 2-CSP with v variables and q=ceil(v^c)
+    has NO uniform 2^{O(v)}poly(L) decision algorithm
+    (deterministic or bounded-error randomized variant specified separately).
+
+This is a much WEAKER hardness statement than SPACH/rSPACH and a new unproved hypothesis; no implication from RPCC-H or post-ETH results is established. A q^{Omega(v/log v)} lower bound with a definite positive constant is NOT enough to rule out every 2^{O(v)} algorithm; one must carefully distinguish no q^{o(v/log v)} from no q^{O(v/log v)} for arbitrary constants. For q=v^c, q^{O(v/log v)} = 2^{O(v)}.
+
+If an independently CHECKED reduction maps the assumed hard sparse CSP family into ordinary HOM(G,H), with |V(G)|=O(v), |V(H)|=v^{O(1)} and degenerate target H, then any hypothetical uniform HOM algorithm in 2^{O(|G|)}poly(|H|) would yield a forbidden sparse CSP algorithm. This is only a conditional template: the concrete HOM gadgets, target degeneracy, list elimination and size accounting must be rechecked. It is NOT a proved HOM lower bound.
+
+Separately the weaker no-q^{o(v/log v)} candidate is compatible with the new q^{O(v/sqrt log v)} upper bound, but it does not rule out 2^{O(v)} algorithms; at most it rules out 2^{o(v)} for q polynomial. Avoid conflating these statements.
+
+## H. Another direct consequence: arbitrary m-constraint binary CSP
+
+A general binary CSP with v variables, m binary constraints and domain q can be made maximum-degree-3 by splitting each source variable into occurrence copies connected via a path of equalities. The resulting CSP has v'=O(v+m), m'=O(v+m), the SAME q, and is satisfiable iff the original is. Hence, conditional on Nguyen, one gets an algorithm for ALL explicitly tabulated binary CSPs with
+
+    T=(L+v+m)^{O(1)} q^{O((v+m)/sqrt(log(v+m)))}.
+
+This is not useful on dense PCC itself because m=Theta(k²) and the bound is worse than brute force; it is useful on nearly-sparse CSP. The polynomial prefactor includes writing equality tables, which are q² in size, still polynomial in complete-table input.
