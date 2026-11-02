@@ -1,5 +1,8 @@
 # CEH / Fixed-Expander CSP — main research checkpoint (2026-11-02)
 
+> **STATUS UPDATE — 2026-11-02: CEH AND ITS SPACH MOTIVATION CONDITIONALLY REFUTED.** If the general Boolean tensor-contraction theorem in the October 25 OpenAI manuscript is correct, every fixed-cubic-expander instance below (indeed any sparse explicit polynomial-alphabet binary CSP) is deterministically solvable in \(q^{o(K)}\operatorname{poly}(|I|)\) time. **The CEH hardness conjecture and the CEH-based conditional lower bounds in §2 should therefore be regarded as CLOSED under this premise.** The fixed-topology compilation problem, reductions, and matching-compiler barriers are *not* disproved and are retained as historical constructions. The general tensor theorem itself is NOT among the results explicitly covered by the published Lean-scope note. Details: [tensor contraction and branch triage](../33_tensor_contraction_sparse_2csp_and_hardness_triage.md).
+
+
 > **Research log, not a theorem announcement.** This is the CEH branch of the 2026-11-01/02 HOM / hardness conversation. It is separate from the PCC/Circuit-SAT work elsewhere in the repository. A number of later linear-coding and separator claims were derived in chat but have **not** passed independent audit; see [03_audit_and_next_steps.md](03_audit_and_next_steps.md).
 
 ## 0. Main objective (the strong version only)
