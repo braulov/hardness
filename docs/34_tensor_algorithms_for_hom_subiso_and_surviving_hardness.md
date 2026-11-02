@@ -163,6 +163,12 @@ Now for any set \(U\) of quotient clusters, its lift \(S\) is a union of whole c
 
 **Scope:** this is a no-go for the *particular shortcut* "reduce functional constraints to source SCC roots, then perform low-treewidth DP." It is **not** a proof of a computational lower bound, nor a refutation of possible algebraic/special-purpose algorithms on the quotient. The expander may have trivially satisfiable relations. What survives is exactly the generic sparse-CSP difficulty we set out to accelerate.
 
+## 4c. A concrete, balanced expander-CSP hardness stress test
+
+The [new critical-expander CSP note](35_critical_expander_csp_poisson_and_arc_consistency.md) now contains a complete Chen–Stein argument, sharpening the earlier unaudited CEH random-instance claim. On any fixed simple 3-regular (optionally bipartite) \(\gamma\)-edge-expander, independently include each allowed pair on each edge with probability \(p=q^{-2/3}\). For \(q=k^c\) with \(c>3/\gamma\), the number of CSP solutions converges **in total variation** to \(\operatorname{Poisson}(1)\), hence \(\Pr[\mathrm{UNSAT}]\to e^{-1}\) and \(\Pr[\mathrm{SAT}]\to1-e^{-1}\). Simultaneously every value has local support on every edge with high probability; arc consistency does not reject. This is a **proved distributional construction, NOT a computational lower bound**.
+
+The proposed *average-case* Critical-Expander-CSP hardness at the \(\sqrt{\log}\) scale is an explicit, experimentally testable candidate. It is **strictly more speculative** than worst-case SqrtLog-SPACH and should be evaluated against global spectral/rank/coding algorithms; it does not follow from Poisson statistics or failure of local consistency.
+
 ## 5. Implications for project priorities
 
 - **ALREADY COVERED externally under stated assumptions:** sparse HC / FVS / connectivity-type algorithms (Guo 2026). Preserve attribution and the distinction between the full tensor theorem and the weaker Lean-scoped fixed-width theorem.
