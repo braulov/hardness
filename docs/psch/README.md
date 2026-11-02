@@ -42,6 +42,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 8. [Davenport zero-sum barrier for global linear sketches](2026-11-02_davenport_linear_sketch_barrier.md) — for arbitrary-existential CSP compilers whose local acceptance predicates depend on r input-oblivious affine F_p sketches, m·r·(p−1)≥binom(k,2); complements the DNF catalogue obstruction.
 
+9. [Universal deletion-certificate cover and a P-time counterexample](2026-11-02_universal_certificate_cover.md) — for any deterministic decision-only compiler, selected local checks must cover all clique-edge deletion certificates; a polynomial-time connected-component predicate simultaneously saturates the bound and needs exponentially many DNF terms.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
