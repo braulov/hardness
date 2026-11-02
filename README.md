@@ -2,6 +2,16 @@
 
 **Research notebook — 2026-10-27.** Preliminary, not a theorem announcement. Independent review of the 2026 OpenAI ETH-refutation manuscript is ongoing.
 
+## 2026-11-02: conditional tensor-contraction update and CLOSED hardness branches
+
+**Main new audit:** [Boolean tensor contraction for sparse binary CSP; proof, parameter checks, and branch triage](docs/33_tensor_contraction_sparse_2csp_and_hardness_triage.md). Assuming the **full**, currently independently unaudited Boolean tensor-contraction theorem in OpenAI's October 25 manuscript, any explicit binary CSP with \(k\) variables, \(O(k)\) constraints and polynomial alphabet \(q=k^{\Theta(1)}\) admits deterministic exact counting in \(q^{O(k/\sqrt{\log k})}\operatorname{poly}(|I|)\). The tensorization uses \(O(k\log q)\) bit wires. This is a conditional deduction, **not** covered by the specifically documented Lean formalization of fixed-width #CNF.
+
+**CLOSED under that premise:** the sparse polynomial-alphabet hardness conjecture **SPACH / rSPACH**, the fixed-cubic-expander hypothesis **CEH**, and CEH/SPACH-based \(q^{o(k)}\)-lower-bound routes for HOM, Set Cover, Independent Set, etc. Retain exact reductions and mathematical compiler constructions as archived work; the hypothesis supporting the claimed hardness is what fails.
+
+**CONDITIONALLY INCOMPATIBLE with Circuit-SAT hardness:** an input-efficient universal polynomial-time reduction from arbitrary \(s\)-input polynomial-size Circuit-SAT to binary CSP with \(k+m=O(s/\log s)\) and \(q=\operatorname{poly}(s)\) would give \(2^{o(s)}\) Circuit-SAT via the same tensor algorithm. More generally any uniform \(k+m=o(s/\sqrt{\log s})\) is incompatible with both the full tensor theorem and a no-\(2^{o(s)}\) Circuit-SAT hypothesis. Weaker \(k+m=o(s)\) targets above that threshold remain OPEN.
+
+**Not closed by this argument:** dense Permutation Clique / PSCH, LogSAT-A/B, full-span graphic/cographic rank feasibility, generic Circuit-SAT, and the structural fixed-expander compiler as a mathematical question. No actual Git research branches are deleted; status supersessions are recorded in the linked audit and original notes.
+
 ## Research question
 
 Can a *restricted*, fine-grained-preserving graphic-rank feasibility problem act as a single source of hardness for graph problems involving connectedness, acyclicity, covers, and tours? Can a circuit representation of its rank predicate instead yield genuinely new subexponential algorithms?
