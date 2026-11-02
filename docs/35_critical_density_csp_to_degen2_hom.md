@@ -131,3 +131,34 @@ For $1/2<\alpha<1$, (C) becomes a weaker bound $2^{o(n\log^{1-\alpha}n)}$; only 
 - Full tensor theorem analysis: [note 33](33_tensor_contraction_sparse_2csp_and_hardness_triage.md).
 - Earlier closure ledger: [note 34](34_csp_hypothesis_closure_registry_2026_11_02.md).
 - Original pinning and subdivision gadget, §4: https://arxiv.org/html/2607.09377.
+
+
+## 8. A concrete ALGORITHMIC attack: any superconstant savings in tensor wires would kill the critical hypothesis
+
+In the *critical* case $m=\Theta(k\sqrt{\log k})$, $q=k^c$ and $b=\Theta(\log k)$, the direct Boolean tensorization of [note 33](33_tensor_contraction_sparse_2csp_and_hardness_triage.md) uses
+\[
+M=\Theta((k+m)b)=\Theta(k(\log k)^{3/2})
+\]
+bit wires. The **externally claimed full Boolean tensor theorem** evaluates this in time
+\[
+2^{O(M/\sqrt{\log M})}
+=2^{O(k\log k)}
+=q^{O(k)}.
+\]
+This is exactly the threshold at which the new CSP counting bound stops refuting a no-$q^{o(k)}$ hypothesis.
+
+**Sufficient algorithmic breakthrough:** Find a uniform, polynomial-time **exact** tensorization of *every* such critical-density CSP with
+\[
+M'=o(k(\log k)^{3/2})
+\]
+bit wires and compatible polynomial-time local-entry queries, legal local degrees and modulus/precision. Then, *assuming the full tensor theorem*, the solver runs in
+\[
+2^{O(M'/\sqrt{\log M'})}=2^{o(k\log k)}=q^{o(k)},
+\]
+conditionally refuting the critical-density hypothesis.
+
+For example, an $\Omega(\log\log k)$-fold reduction in wire count, from $\Theta(k\log^{3/2}k)$ to $O(k\log^{3/2}k/\log\log k)$, would yield $q^{O(k/\log\log k)}$. (Polytime construction and input-size factors still need checking.)
+
+**Caveat:** This is an upper-bound research target, not a proven compression. Naive equality-copy trees already use $\Theta(m\log q)$ wires for independent relation interfaces, so savings must come from *joint constraint batching*, implicit multilinear tensors or more sophisticated grouped support. Merely hiding a superpolynomial tensor table inside one high-degree vertex is invalid. The repository's prior [projected-support / edge-bucket experiment](12_projected_support_edge_buckets.md) is relevant structurally, but does not already provide this universal reduction.
+
+If such a method is found, it would give a meaningful algorithmic result rather than a new hardness assumption, and by the §4 gadget it might improve algorithms on a structured family of 2-degenerate HOM instances.
