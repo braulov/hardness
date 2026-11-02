@@ -32,6 +32,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 3. [Universal-selector quantified CSP compilation (Nov 2)](2026-11-02_universal_selector_qcsp.md) — a precise `exists-forall-exists` tree-CSP with O(k) constraints for *arbitrary* dense binary CSP, identifying one universal index as the exact obstacle; not a solution for unquantified CSP.
 
+4. [One-variable divisibility and quotient-circuit barrier](2026-11-02_univariate_remainder_and_quotient_barrier.md) — exact ordinary-Clique identity, scalar-trace caveat, and an unconditional lower bound for *explicit quotient* arithmetic circuits; universal compilation remains open.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
