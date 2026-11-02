@@ -107,6 +107,10 @@ for any fixed positive polynomial growth \(q=k^c\). Hence *with high probability
 
 Combining with the Poisson theorem, asymptotically \(\approx e^{-1}\) of the random instances are **UNSAT despite perfect local arc consistency**. This is an actual algorithmic lower-bound counterexample only for this very restricted propagation routine, not for more sophisticated algorithms.
 
+## Strengthening (2026-11-02): every check matters, and planted/null differ only globally
+
+See [follow-up note 36](36_critical_random_csp_minimal_unsat_and_all_edge_statistical_dependence.md) for the exact uniform second-moment proof. If \(q=k^c\), \(c>6/\gamma\), then with probability \(1-o(1)\), every single-edge-deleted subinstance has at least \(q^{2/3}/2\) solutions while the full CSP has fewer; thus **all edge constraints are semantically indispensable**, and with probability tending to \(e^{-1}\) the instance is edge-minimally UNSAT and arc-consistent. Additionally, the planted-vs-null likelihood ratio on any proper edge set \(F\) is \(Z_F/\mathbb EZ_F\), implying uniform \(o(1)\) total-variation distance for any proper subset of full constraint tables, versus limiting full-instance distance \(e^{-1}\). This does **not** prove worst-case or average-case computational hardness.
+
 ## 5. Candidate source of hardness, and explicit warning
 
 A possible **distributional hypothesis** \(\mathrm{Critical\text{-}Expander\text{-}CSP}_{\sqrt{\log}}\), separate from and stronger than a corresponding worst-case hypothesis, would claim that no uniform randomized \(q^{o(k/\sqrt{\log k})}\operatorname{poly}(L)\)-time algorithm decides this balanced distribution with error at most 0.1. The parameters must fix an explicit **bipartite** cubic expander family, \(\gamma\), and a fixed \(c>3/\gamma\); the algorithm may depend on these choices but not on the random relation tables. The hypothesis is **OPEN and speculative**, not a theorem or evidence by itself.
