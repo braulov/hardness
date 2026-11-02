@@ -59,6 +59,10 @@ The present SCGS hypothesis is **not yet** a strong ETH replacement: its failure
 
 A proposed exact regrouping of incidence-indexed polynomial-counting tensors replaces per-block selected-incidence sets by their projected variable supports, with internal summation inside test-bucket tensors. On structured grouped-support instances this reduces the wire budget from the generic O(n loglog n) to O(n), *conditional on the October 2026 external tensor-contraction theorem* giving 2^{O(n/sqrt(log n))} counting time. There is **no universal dense-#SAT improvement** and **no NEXP lower bound** yet. Full proof, hybrid encoding, local-entry/precision audit, communication-rank obstruction, and concrete SAT/Circuit-SAT open problems: [`docs/12_projected_support_edge_buckets.md`](docs/12_projected_support_edge_buckets.md).
 
+## Useful CSP preprocessing: cycle-rank core (2026-11-02)
+
+For an explicit binary CSP whose constraint graph has cyclomatic number \(\mu=m-n+\operatorname{cc}(G)\), exact degree-\(\le2\) variable elimination either detects UNSAT or leaves at most \(2\mu\) variables and \(3\mu\) binary constraints **without increasing the alphabet**. Independently, cycle-cutset conditioning gives a \(q^{\mu}\operatorname{poly}(n,m,q)\)-time algorithm. This is a classical consequence of known techniques, not a new complexity result. See [the full statement, proof, caveats and original references](docs/13_binary_csp_cyclomatic_reduction.md).
+
 ## Research branches
 
 All branches are also documented on `main`; independent Git topic branches keep experimental approaches apart.
