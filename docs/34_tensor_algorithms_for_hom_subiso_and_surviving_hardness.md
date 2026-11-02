@@ -73,13 +73,19 @@ Old SPACH / CEH forbid \(q^{o(k)}\) on \(k\)-variable polynomial-domain sparse C
 
 A **new proposed** candidate, here called **SqrtLog-SPACH**, is:
 
-> There exists a fixed \(c>0\) such that explicit binary CSP with \(k\) variables, \(O(k)\) constraints, fixed maximum degree 3, and \(q=\lceil k^c\rceil\) admits no uniform deterministic \(q^{o(k/\sqrt{\log k})}\operatorname{poly}(L)\)-time decision algorithm.
+> There exists a fixed \(c>0\) such that explicit binary CSP with \(k\) variables, a **simple bipartite 3-regular** constraint graph, and \(q=\lceil k^c\rceil\) admits no uniform deterministic \(q^{o(k/\sqrt{\log k})}\operatorname{poly}(L)\)-time decision algorithm.
 
 State a separate randomized-hardness variant if needed; deterministic vs randomized hardness must not be conflated.
 
 This does not conflict with Nguyen's claimed \(q^{O(k/\sqrt{\log k})}\) upper bound. Under the candidate, a matching worst-case lower bound would identify the exponent up to constants, although there is **no proof** and the truth of the candidate is entirely open.
 
-**Connection to polynomial-target 2-degenerate HOM:** If the project's sparse-CSP-to-HOM gadget does indeed map every instance of this exact source class to \(G\) with \(n=O(k)\), \(m_G=O(k)\), and \(\operatorname{degen}(H)\le2,\ h=k^{O(1)}\), then SqrtLog-SPACH excludes a uniform \(h^{o(n/\sqrt{\log n})}\operatorname{poly}(|G|,|H|)\) HOM algorithm on the gadget family; in particular it excludes \(2^{O(n)}\operatorname{poly}(|G|,|H|)\). **The exact gadget and target-size claim require re-auditing against the project's paper** before turning this into a formal conditional theorem.
+**Verified transfer to polynomial-target 2-degenerate HOM:** Theorem 4.2 of Braulov–Chukhin–Kulikov–Mihajlin, [*Complexity of the Graph Homomorphism Problem w.r.t. Degeneracy*](https://arxiv.org/html/2607.09377v1), applies *precisely* to binary CSP on a **simple bipartite 3-regular** constraint graph. It constructs in polynomial combined input/output size an equivalent HOM instance with
+\[
+ n=|V(G)|=\Theta(k),\quad |E(G)|=O(k),\quad
+ \operatorname{degen}(H)\le2,\quad
+ |V(H)|+|E(H)|=O(kq^2).
+\]
+The theorem's published ETH hardness conclusion no longer supplies hardness after the 2026 SAT refutations, but the reduction and parameter bounds are unconditional. Substituting the **new, unproved** SqrtLog-SPACH-BIP3 assumption, a uniform \(h^{o(n/\sqrt{\log n})}\operatorname{poly}(|G|,|H|)\) HOM algorithm on those instances would give \(q^{o(k/\sqrt{\log k})}\operatorname{poly}(k)\) for the source, a contradiction; in particular \(2^{O(n)}\operatorname{poly}(|G|,|H|)\) would be excluded. This exactly matches the *form* of Nguyen's conditional upper bound for this class, up to constants in the exponent, but it is **not** a proven lower bound.
 
 One may separately hypothesize **SqrtLog-CEH** on a predetermined cubic expander. It is *stronger as a hypothesis* than unrestricted SqrtLog-SPACH; the known logarithmic-overhead fixed-expander compilation is not enough to transfer the matching \(\sqrt{\log}\)-scale between them. Do not label them equivalent.
 
