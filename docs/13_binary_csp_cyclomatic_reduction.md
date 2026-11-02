@@ -1,5 +1,8 @@
 # Binary CSP reduction by cyclomatic number
 
+> **2026-11-02 conditional algorithmic update.** Under the **full, independently unaudited** Boolean tensor-contraction theorem of the October 2026 ETH manuscript, combining the proved \(O(\mu)\)-core below with Boolean tensorization yields \(2^{O(\mu\log q/\sqrt{\log(\mu\log q)})}\operatorname{poly}(|\Gamma|)\) time for polynomial-alphabet explicit binary CSP (and polynomial time at \(\mu=0\)). The classical \(q^\mu\operatorname{poly}\) algorithm below is unconditional. Thus a hypothetical universal polynomial-alphabet Circuit-SAT compiler guaranteeing \(\mu=O(s/\log s)\) would yield a \(2^{o(s)}\) Circuit-SAT algorithm under the tensor theorem, contradicting any assumed no-\(2^{o(s)}\) Circuit-SAT hypothesis. **Do not promote this intermediate target as a compatible hardness route under both premises.** See [precise audit](33_tensor_contraction_sparse_2csp_and_hardness_triage.md).
+
+
 **Status:** PROVED (elementary combination of standard CSP variable elimination, a graph-counting bound, and cycle-cutset conditioning). **Not claimed as a novel result.**
 
 ## Statement and conventions
