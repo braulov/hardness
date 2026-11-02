@@ -38,6 +38,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 6. [Decision-only bit-budget lower bound](2026-11-02_decision_only_bit_budget.md) — from Dell–van Melkebeek: no subquadratic-bit universal compression of ordinary Clique with N≤k² unless NP⊆coNP/poly; applies to near-linear CSP even with arbitrary global relations, and to succinct relation descriptors independently of alphabet size.
 
+7. [No-go for polynomial catalogues of precompiled tests](2026-11-02_precompiled_test_catalogue_barrier.md) — m·d≥binom(k,2) for low-degree Boolean per-test acceptance, and M≥k^{Ω(k/√m)} total DNF terms for fixed-skeleton existential CSP compilers, even with nonmonotone source-edge literals.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
