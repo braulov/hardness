@@ -44,6 +44,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 9. [Universal deletion-certificate cover and a P-time counterexample](2026-11-02_universal_certificate_cover.md) — for any deterministic decision-only compiler, selected local checks must cover all clique-edge deletion certificates; a polynomial-time connected-component predicate simultaneously saturates the bound and needs exponentially many DNF terms.
 
+10. [Fixed-topology Beneš normal form](2026-11-02_universal_fixed_topology_csp.md) — any Δ≤3 binary CSP on n variables can be routed to one fixed Δ≤3 skeleton of O(n log n) constraints with alphabet Q^4; the PSCH target may assume input-independent output topology up to one logarithmic factor.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
