@@ -97,3 +97,7 @@ Theorem 4.2 in the paper is stated for bipartite 3-regular constraint graphs bec
 3. A stronger contribution would give a natural non-CSP hardness source implying rNSE-SCSP(c), or an algorithm that refutes it, and ultimately yield an independent win-win.
 4. A negative or lower-bound outcome from this assumption is CONDITIONAL, not unconditional.
 5. Cross-reference our existing [note 34](34_tensor_theorem_primary_source_audit_and_surviving_single_exp.md), [note 33](33_tensor_contraction_sparse_2csp_and_hardness_triage.md), and original [arXiv 2607.09377](https://arxiv.org/abs/2607.09377).
+
+## 2026-11-02 next step: how to support or refute the actual source hypothesis
+
+[`36_rnse_scsp_attack_mild_pcp_and_structured_algorithms.md`](36_rnse_scsp_attack_mild_pcp_and_structured_algorithms.md) proves that **RPCC-H plus only SUBCONSTANT** soundness of an O(k)-symbol polynomial-alphabet two-query PCC PCP (perfect completeness) would imply rNSE-SCSP(c), because randomized test sampling produces v=o(k log k) cubic CSP. This is much less than the previously targeted O(k) compiler/inverse-polynomial error; the PCP is not constructed. The same note provides exact 2^{O(v)} algorithms for particular easy CSP classes, helping locate the genuinely hard part. Thus the remaining hardness obstacle is strictly the PCP/source conjecture, while this note's reduction to degen-2 HOM is unconditional.
