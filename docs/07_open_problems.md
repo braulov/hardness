@@ -1,5 +1,8 @@
 # Open problems and research priorities
 
+> **2026-11-02 branch triage:** SPACH and CEH (no \(q^{o(k)}\) algorithm for sparse polynomial-alphabet binary CSP, including a fixed cubic expander) are **conditionally refuted by the full Boolean tensor-contraction theorem** and are CLOSED as hardness assumptions under that premise. Likewise, an \(O(s/\log s)\)-size polynomial-alphabet Circuit-SAT-to-sparse-CSP compiler is incompatible with the same theorem **and** a no-\(2^{o(s)}\) Circuit-SAT source hypothesis. The weaker \(o(s)\)-size compiler, dense PCC/PSCH, full-span Span-CSP, and unrelated mathematical compiler constructions are not closed by this argument. **New top priority:** audit the general tensor theorem independently and validate quantitative consequences. Details: [tensor contraction and branch triage](33_tensor_contraction_sparse_2csp_and_hardness_triage.md).
+
+
 ## Priority: potential algorithmic collapse via characteristic-two weighted counting
 Audit whether the actual October 2026 fixed-width counting SAT technique extends to field-valued weighted counts in characteristic two without superlinear auxiliary Boolean-variable overhead. If so, exploit the nullspace parity identity and isolation to obtain randomized subexponential decision algorithms for sparse (co)graphic full-span feasibility. This is NOT yet proved.
 
