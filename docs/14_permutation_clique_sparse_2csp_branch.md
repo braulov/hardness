@@ -46,6 +46,19 @@ For a bounded-degree source graph G with N=Theta(k log k) vertices, the 2024 exp
 | AllDifferent -> Beneš O(k log k) CSP | Existing exact existential subroutine, *not* arbitrary PCC adjacency compression |
 | PSCH for ordinary Clique, no 2^{o(k/log k)} | Does NOT by itself imply PCC's no 2^{o(k log k)} hardness |
 
+
+## Quantitative loss from near-linear (rather than linear) compilation
+
+If a compiler has v'=Theta(k log^a k) variables and polynomial alphabet, an assumed PCC lower bound at scale k log k only rules out solvers running in 2^{o(v'/log^{a-1} v')} on its image (for fixed a>=1), **not** the desired 2^{o(v' log v')} sparse-CSP solvers. For a=1 this becomes a no-2^{o(v')} statement. Thus a Beneš-sized O(k log k) compiler would be meaningful but not enough for SPACH at its intended exponent. The converse numerical implications of a bound v'=O(...) should always be written with an actual lower/upper relation for v' and the input k; padding can normalize the size when valid.
+
+## Algebraic residual to test
+
+Let X_{i,a} be the one-hot indicator that the row-i choice is a. Define B_{(i,a),(j,b)}=1 for an invalid pair of selected vertices (including repeated columns), and zero otherwise. The nonnegative integer quadratic obstruction
+
+    Q(X) = sum_{i<j} sum_{a,b in [k]} B_{(i,a),(j,b)} X_{i,a} X_{j,b}
+
+vanishes exactly when the one-hot choices form a Permutation Clique. Over any prime p>k^2, Q(X)=0 mod p is still equivalent because Q(X) is an integer in [0,binom(k,2)]. This is an exact encoding, not a small constraint compiler. For an arbitrary input the associated (k^2)x(k^2) coefficient matrix may have rank Omega(k^2), so simple generic low-rank factorization cannot directly produce O(k) local interactions. The possible useful structure would have to arise from existential compression and permutation consistency, not an assumed small rank of every adjacency matrix. Compare the global-quadratic-form line in the HOM research notes, while keeping the distinct problems separate.
+
 ## Sources
 
 - Lokshtanov, Marx, Saurabh, *Slightly Superexponential Parameterized Problems*, SODA 2011: https://epubs.siam.org/doi/10.1137/1.9781611973082.60
