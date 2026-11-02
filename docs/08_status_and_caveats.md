@@ -1,5 +1,8 @@
 # Status, caveats and corrections (2026-10-27)
 
+> **Status update, 2026-11-02 (conditional on OpenAI's *general* Boolean tensor contraction theorem):** arbitrary sparse explicit binary CSP with \(m=O(k)\) and \(q=k^{\Theta(1)}\) admits deterministic exact counting in \(q^{O(k/\sqrt{\log k})}\operatorname{poly}(L)\). Therefore SPACH, randomized SPACH, and CEH are **CONDITIONALLY REFUTED**, not viable hardness assumptions if that external theorem is accepted. The stated Lean formalization covers the *fixed-width #CNF* result, not the full tensor theorem. No conclusion about generic SCGS/graphic-rank full-span, dense PCC, arbitrary Circuit-SAT, or all HOM follows without additional reductions and budgets. See [complete audit](33_tensor_contraction_sparse_2csp_and_hardness_triage.md). This update supersedes any earlier suggestion that logarithmic-width table constraints escape *all* 2026 algorithms.
+
+
 ## Mathematically established in the notebook
 - For the GF(2) incidence matrix, rank(B_Y)=|V|-cc(V,Y).
 - Forest iff chosen columns independent; spanning connectivity iff full graphic rank.
