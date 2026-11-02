@@ -48,6 +48,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 11. [Universal Sidon-XOR/Walsh normal form](2026-11-02_sidon_xor_walsh_normal_form.md) — encode any graph by an XOR-invariant kernel on O(N²) Boolean-group elements; prove near-full Fourier support for random graphs and Ω(N²/log N) support for every extension on most inputs; exact quadratic clique identity but no sparse-CSP compiler.
 
+11. [Nguyen/PCC critical compression window and PCP soundness threshold](../35_domain_uniform_csp_and_critical_pcc_pcp_window.md) — domain-uniform fixed-arity and cyclomatic corollaries; under RPCC-H and Nguyen the viable compression exponent is 1/2≤β<1, with critical PCP soundness exp(-Θ(√log K)).
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
