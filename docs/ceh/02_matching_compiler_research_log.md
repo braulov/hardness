@@ -56,7 +56,7 @@ A restricted negative attempt: if (B,D) are vertex-block-diagonal, the matching 
 
 ### Quotient/subspace version
 
-Let $\pi:\mathbb F_q^r\to\mathbb F_q^r/\operatorname{im}A_z=:V$ and let $H_v$ be the coordinate subspace on checks involving vertex $v$. Put $U_v=\pi(H_v)$. The conversation proposed that for a matched pair (vw), two independent common directions in $U_v\cap U_w$, with all chosen pair-directions jointly independent, characterize the public coefficients (two directed public equalities per undirected matched pair). The stated intuition is valid: matching outputs have to agree as *classes of local equation vectors*. **Audit required:** the original chat claimed a *surjection* from $\ker A_z^{-(v,w)}\$ onto $U_v\cap U_w$ after deleting checks incident to (v,w); that surjectivity and the exact dimensional inequality require a careful quotient and gauge analysis.
+Let $\pi:\mathbb F_q^r\to\mathbb F_q^r/\operatorname{im}A_z=:V$ and let $H_v$ be the coordinate subspace on checks involving vertex $v$. Put $U_v=\pi(H_v)$. The conversation proposed that for a matched pair (vw), two independent common directions in $U_v\cap U_w$, with all chosen pair-directions jointly independent, characterize the public coefficients (two directed public equalities per undirected matched pair). The stated intuition is valid: matching outputs have to agree as *classes of local equation vectors*. **Audit required:** the original chat claimed a *surjection* from $\ker A_z^{-(v,w)}$ onto $U_v\cap U_w$ after deleting checks incident to (v,w); that surjectivity and the exact dimensional inequality require a careful quotient and gauge analysis.
 
 In the balanced test $d=2$ auxiliary coordinates at each vertex, two scalar checks per expander edge give $r=3K$, $A_z$ has $2K$ columns, $\dim V=K$ if full rank. Chat derived a punctured-rank necessary condition $\operatorname{nullity}(A_z^{-(v,w)})\ge2$ on each remote matched pair and observed generic random local matrices fail it. These are **audit targets**, not a certified impossibility result.
 
@@ -172,8 +172,8 @@ The chat tested $\dim W_v=5$, publicly required $P_v\subset W_v$, and initial un
 
 * Naive shared 3D global fingerprint: $W_v=P_v+Z$, with one common $Z$ for all vertices. It has large local intersections but does not enforce the matching: along a connected graph only a common 3-vector is glued, leaving too many degrees of freedom.
 * If every 3D interface $I_{uv}$ meets both endpoint public 2-spaces trivially, it acts as an invertible $GL_3$ transfer on the auxiliary coordinates, so the invertible-transfer obstacle applies. A hypothetical successful $C=5$ realization must use singular interfaces somewhere, assuming the no-go proof is sound.
-* With $S_0$ as in (D1), one common fingerprint value across the boundary $B_F(N[S_0])$ gives a stronger counting contradiction. The conversation recorded the condition $\cap_{v\in B}W_v=\{0\}$ for the adversarial matching, but the argument requires carefully accounting for rank and fiber sizes when fixing a common function (f(a)).
-* In a connected matched-pair-free subset $S$, $dim\sum_{v\in S}W_v=2|S|+\varepsilon(S)$ with $0\le\varepsilon(S)\le3$. Adding a new vertex connected to two previous vertices by *distinct* 3D interfaces decreases $\varepsilon$ at least 1. This is a local dimension-budget constraint, not a no-go proof for every $C=5$ interface arrangement.
+* With $S_0$ as in (D1), one common fingerprint value across the boundary $B_F(N[S_0])$ gives a stronger counting contradiction. The conversation recorded the condition $\bigcap_{v\in B}W_v=\{0\}$ for the adversarial matching, but the argument requires carefully accounting for rank and fiber sizes when fixing a common function $f(a)$.
+* In a connected matched-pair-free subset $S$, $\dim\sum_{v\in S}W_v=2|S|+\varepsilon(S)$ with $0\le\varepsilon(S)\le3$. Adding a new vertex connected to two previous vertices by *distinct* 3D interfaces decreases $\varepsilon$ at least 1. This is a local dimension-budget constraint, not a no-go proof for every $C=5$ interface arrangement.
 
 ### Mixed profile on a Hamiltonian expander
 
@@ -181,7 +181,7 @@ Specialize $F_K=C_K\cup N$. The attempted profile was $dim I_e=3$ on cycle edges
 $$
 \sum_e\dim I_e=3K+2(K/2)=4K,
 $$
-so exactness (E1) would force **injectivity** of (partial), rather than producing (K/2) dependencies. For $M=N$ an explicit toy example was proposed:
+so exactness (E1) would force **injectivity** of $\partial$, rather than producing (K/2) dependencies. For $M=N$ an explicit toy example was proposed:
 $$
 W_v=\operatorname{span}(e_v,e_{N(v)},e_{v-1},e_{v-2},e_{v-3}),
 \tag{E6}
