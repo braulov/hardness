@@ -1,11 +1,11 @@
 # Boolean tensor contraction for sparse binary CSP: conditional algorithm and branch triage
 
 **Date:** 2026-11-02.  
-**Status:** CONDITIONAL on the **full** Boolean tensor-contraction theorem (Theorem D.1 / \`thm:tensor-contraction\`) in OpenAI's October 25, 2026 manuscript. The elementary CSP-to-tensor construction and all parameter implications below are **proved conditional consequences**, not independent verification of that external theorem. **Do not cite them as unconditional algorithmic facts.**
+**Status:** CONDITIONAL on the **full** Boolean tensor-contraction theorem (Theorem D.1 / `thm:tensor-contraction`) in OpenAI's October 25, 2026 manuscript. The elementary CSP-to-tensor construction and all parameter implications below are **proved conditional consequences**, not independent verification of that external theorem. **Do not cite them as unconditional algorithmic facts.**
 
 ## 1. External theorem actually used
 
-Source: OpenAI, *The Exponential Time Hypothesis is False* (October 25, 2026), [\`build/quantitative-reduction.tex\`, theorem \`thm:tensor-contraction\`](https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-reduction.tex).
+Source: OpenAI, *The Exponential Time Hypothesis is False* (October 25, 2026), [`build/quantitative-reduction.tex`, theorem `thm:tensor-contraction`](https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-reduction.tex).
 
 In the relevant specialization: a bipartite Boolean tensor network with at most \(CS\) **bit wires**, at most \(\operatorname{poly}(S)\) vertices, maximum local degree \(\le \lceil S^{9/10}\rceil\), entries in \((\mathbb Z/2^{P_0}\mathbb Z)[V]/(V^\ell)\) where \(P_0,\ell\le CS\), and uniformly efficiently computable local entries admits deterministic exact contraction in
 \[
@@ -99,9 +99,23 @@ The weaker goal
 \]
 is **not ruled out by this particular bound**, and remains a candidate for conditional \(2^{O(n)}\)-HOM lower-bound transfers if a suitable CSP-to-HOM reduction has source size \(O(r)\) and polynomial-size target. No such universal compiler has been constructed. In particular, arbitrary polynomial-size Circuit-SAT is **not** reduced to this CSP class in the current project.
 
+### Further consequence for dense Permutation Clique compilers
+
+Assume the separate **PCC hardness** conjecture (no \(2^{o(K\log K)}\)-time algorithm for arbitrary \(K\times K\) Permutation Clique), in addition to the full tensor theorem. A polynomial-time SAT-iff compiler producing an explicit binary CSP with polynomial alphabet \(q'=K^{O(1)}\) and \(r=k'+m'\) variables plus constraints would solve PCC in
+\[
+  2^{O(r\sqrt{\log K})}\operatorname{poly}(K)
+\]
+for output sizes \(r\) polynomially bounded in \(K\) and not tiny. Thus a universal compiler with
+\[
+   \boxed{r=o(K\sqrt{\log K})}
+\]
+would contradict PCC hardness. In particular **the desired linear-size PCC \(\to\) cubic CSP compiler with \(r=O(K)\) cannot serve as a valid hardness-preserving construction if both premises are accepted**. The exact PCP / sampled-check construction targets that would imply such a compiler are likewise closed **as PCC-hardness transfer routes**, but their unconditional combinatorial identities and sampling lemmas are retained. A near-linear \(O(K\log K)\)-size construction is *not* ruled out by this numerical argument.
+
+**Crucial:** this **does not refute PCC hardness itself**. If an \(O(K)\) compiler were found, it would instead yield a surprising fast PCC algorithm via the tensor theorem. Neither dense PCC/PSCH nor the general log-width SAT classes become easy merely because SPACH is easy.
+
 ## 5. Cycle-rank consequence
 
-The proven preprocessing [\`13_binary_csp_cyclomatic_reduction.md\`](13_binary_csp_cyclomatic_reduction.md) either detects UNSAT or reduces a binary CSP of primal cyclomatic number \(\mu\) to \(k'\le2\mu\) variables, \(m'\le3\mu\) edges, **without increasing \(q\)**. Combining that reduction with the external tensor theorem yields, for polynomial \(q\) and valid theorem parameters,
+The proven preprocessing [`13_binary_csp_cyclomatic_reduction.md`](13_binary_csp_cyclomatic_reduction.md) either detects UNSAT or reduces a binary CSP of primal cyclomatic number \(\mu\) to \(k'\le2\mu\) variables, \(m'\le3\mu\) edges, **without increasing \(q\)**. Combining that reduction with the external tensor theorem yields, for polynomial \(q\) and valid theorem parameters,
 \[
   \boxed{
   T_\Gamma=\operatorname{poly}(\mathcal L_\Gamma)\,
@@ -134,6 +148,8 @@ A hypothetical Circuit-SAT-to-HOM reduction with \(n+|E(G)|=o(s/\sqrt{\log s})\)
 | Universal Circuit-SAT \(\to\) sparse 2-CSP with \(k,m=O(s/\log s),q=\operatorname{poly}(s)\) **under Circuit-SAT Hypothesis** | **CLOSED as a compatible ETH-replacement route** | Would refute the very Circuit-SAT hypothesis used as source |
 | Seek universal Circuit-SAT \(\to\) CSP with \(k+m=o(s)\) but \(k+m\not=o(s/\sqrt{\log s})\) | **OPEN** | Tensor bound alone does not preclude it |
 | Dense PCC / Polynomial-Size Clique Hypothesis, LogSAT-A/B | **NOT REFUTED HERE** | Dense constraint count or different source size defeats the \(M=O(k\log q)\) budget |
+| PCC \(\to\) \(O(K)\)-size sparse CSP under PCC-hardness | **CLOSED AS A HARDNESS-TRANSFER ROUTE under both premises** | Compiler plus tensor solver would refute assumed PCC-hardness; more generally \(r=o(K\sqrt{\log K})\) forbidden |
+| Low-soundness PCP / O(K)-test PCC compiler proposals | **RETAIN as math; close promised SPACH-hardness consequences** | Existence with claimed parameters would yield a fast PCC algorithm instead of a new hard sparse CSP |
 | Explicit fixed-expander simulation, Beneš/sorting, matching compilers, rank/permutation identities | **RETAIN AS MATHEMATICAL STRUCTURE; deprioritize hardness motivation** | Tensor theorem is an algorithm, not an impossibility of these reductions |
 | General graphic/cographic full-span Span-CSP (SCGS/SGR), unrestricted Set Cover, general HOM, arbitrary Circuit-SAT | **NOT REFUTED HERE** | No established \(O(n)\)-wire tensorization for the rank test or appropriate fine-grained reduction |
 | Independent auditing / unconditional proof of full tensor theorem | **HIGH PRIORITY** | Entire new branch closure is contingent on this theorem |
