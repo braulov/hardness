@@ -8,7 +8,7 @@
 |---|---|---|
 | Definition of CEH for a fixed explicit cubic expander and polynomial alphabet | Definition only | **CONJECTURE** |
 | CEH is a special case of sparse bounded-degree binary CSP | Immediate | **EXACT** |
-| CEH + §4 CSP→HOM parameter claims excludes h^{o$n$} for degen ≤2 polynomial targets | Conditional reduction, paper needs parameter recheck | **CONDITIONAL / CHECK** |
+| CEH + §4 CSP→HOM parameter claims excludes $h^{o(n)}$ for degen ≤2 polynomial targets | Conditional reduction, paper needs parameter recheck | **CONDITIONAL / CHECK** |
 | CEH→K-IS, K-Set Cover, K-Dominating Set, K-Set Packing | Explicit gadgets and elementary iff | **ELEMENTARY REDUCTIONS** |
 | These implications give hardness for *sparse graph* versions | They do not; IS conflict cliques are dense | **FALSE AS STATED** |
 | Fixed-width SAT algorithm applies to arbitrary 3-COL if its 2026 theorem is correct | Direct 3-CNF encoding | **CONDITIONAL ON EXTERNAL ALGORITHM** |
@@ -39,7 +39,7 @@ One-sided randomized reduction is also a possible project **only with exact erro
 
 **Research payoffs if achieved:** For the appropriate quantifiers on fixed polynomial domains, CEH and SPACH become equivalent hardness sources. CEH then gives lower bounds for the reductions in [01_reductions.md](01_reductions.md), including polynomial-target degeneracy-2 HOM if §4's quantitative statement is verified.
 
-**A faster CEH algorithm alone** does *not* generally solve arbitrary sparse CSP: the currently available minor-universal route loses $\Theta(\log k)$ variables. An improvement $Q^{O(K/\log^{1+\epsilon}K)}$ at fixed expander size $K$ could survive this loss, if a suitable efficient minor embedding \exists and the alphabet regime matches; a bare $Q^{o(K)}$ need not.
+**A faster CEH algorithm alone** does *not* generally solve arbitrary sparse CSP: the currently available minor-universal route loses $\Theta(\log k)$ variables. An improvement $Q^{O(K/\log^{1+\varepsilon}K)}$ at fixed expander size $K$ could survive this loss, if a suitable efficient minor embedding exists and the alphabet regime matches; a bare $Q^{o(K)}$ need not.
 
 ## 3. Do not follow these dead ends without a new reason
 
@@ -57,7 +57,7 @@ One-sided randomized reduction is also a possible project **only with exact erro
 ## 4. Immediate audit tasks before writing a paper
 
 1. **HOM §4:** Verify $n=\Theta(k), h=O(kq^2), \operatorname{degen}(H)\le2$ for every explicit relation encoding, including a simple cubic constraint graph and all subdivisions / auxiliary graph sizes. Compare https://arxiv.org/abs/2607.09377.
-2. **Exact fixed expander family:** State on which even $K$ it \exists and how it is constructed. If using Hamiltonian expanders $F_K=C_K\cup N$, this is an **additional** promise, not a property of every cubic expander.
+2. **Exact fixed expander family:** State on which even $K$ it exists and how it is constructed. If using Hamiltonian expanders $F_K=C_K\cup N$, this is an **additional** promise, not a property of every cubic expander.
 3. **Universal-graph references:** Check the precise universal subgraph theorem (Alon–Capalbo etc.), the $O(K)$ vertex $O(K^{4/3})$ edge bounds and the algorithm for embedding. The union with a fixed expander can increase degree; that is acceptable only for the intermediate fixed-higher-degree model.
 4. **Minor-universality references:** Check hypotheses of the $O(k\log k)$ embedding theorem and whether the minor model is efficiently findable. Check claims about $K^{\varepsilon}$ degree and linear-size minor universality; don't cite them as established without that inspection.
 5. **Exact-projection normal forms:** Audit whether gauge fixing of all auxiliary degrees of freedom by local unary constraints always preserves the necessary edge relation form. Re-derive (B1), Schur complement normalization and the sheaf criterion (E1) independently.
@@ -83,7 +83,7 @@ Previous tools can prove that any copy-and-route scheme has $\Omega(k\log k)$ to
 
 ### D. A tiny executable testbed
 
-For small fixed 3-regular $F_K$ and arbitrary matching $M$, construct local linear spaces $W_v$, compute their pairwise intersections and the boundary map (partial), and check $\operatorname{rank}\partial=\sum_v\dim W_v-K$. Compare candidate C=5/6 interface profiles with the separator bounds. Such experiments can falsify claims and help identify a *pattern* but do not certify universal $K\to\infty$ constructions. Do not allow the computational subproject to displace A/B.
+For small fixed 3-regular $F_K$ and arbitrary matching $M$, construct local linear spaces $W_v$, compute their pairwise intersections and the boundary map $\partial$, and check $\operatorname{rank}\partial=\sum_v\dim W_v-K$. Compare candidate C=5/6 interface profiles with the separator bounds. Such experiments can falsify claims and help identify a *pattern* but do not certify universal $K\to\infty$ constructions. Do not allow the computational subproject to displace A/B.
 
 ## 6. Source pointers / cross-branches
 
