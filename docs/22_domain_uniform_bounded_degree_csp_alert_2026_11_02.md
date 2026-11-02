@@ -96,3 +96,20 @@ A general binary CSP with v variables, m binary constraints and domain q can be 
     T=(L+v+m)^{O(1)} q^{O((v+m)/sqrt(log(v+m)))}.
 
 This is not useful on dense PCC itself because m=Theta(k²) and the bound is worse than brute force; it is useful on nearly-sparse CSP. The polynomial prefactor includes writing equality tables, which are q² in size, still polynomial in complete-table input.
+
+## I. Direct verification of the key ARBITRARY-RELATION factorization (elementary, independent of the claimed fast algorithm)
+
+Let v CSP variables have max degree Delta and domain [q], and let b=ceil(log_2 q). Partition them into g groups, each of size s<=ceil(v/g). One group symbol x is the concatenation of s domain labels, so its bit length is at most sb. For groups G,H, let E_GH denote the original constraints crossing them; |E_GH| can be arbitrary but sum_H |E_GH|<=Delta*s.
+
+Let the group-to-group Boolean interaction be Psi_GH(x,y)=product_{e=(i,j) in E_GH} R_e(x_i,y_j). This is arbitrary: each R_e can be any q by q relation. Introduce theta=(theta_e:e in E_GH) in [q]^{E_GH}. Define
+
+    f_GH(x,theta)=prod_{e=(i,j) in E_GH} [x_i=theta_e],
+    f_HG(y,theta)=prod_{e=(i,j) in E_GH} R_e(theta_e,y_j).
+
+Then the exact identity
+
+    Psi_GH(x,y)=sum_{theta in [q]^{E_GH}} f_GH(x,theta)*f_HG(y,theta)
+
+holds as an integer equality. The intermediate index theta needs at most b|E_GH| bits, and the sum of capacities incident to a group G is <=Delta*s*b. Local constraints wholly inside a group are included in a 0/1 unary weight W_G(x). Thus the grouped signed network satisfies setting length <=s*b and row capacity <=Delta*s*b, both <=P=O_Delta((v/g+1)log q). Relation-table queries can be computed from the input in time polynomial in L and v (evaluate O_Delta(s) original entries); no huge grouped-state table need be explicitly written.
+
+This part of the reduction is a COMPLETE checked algebraic identity, with the crucial q-dependence only through log q. The unverified external statement is the *uniform rapid evaluation* of the resulting grouped network; no fast algorithm follows merely from this factorization.
