@@ -125,3 +125,30 @@ This is an **algorithmic extraction of a common latent code across all edges inc
 - [Rank-dual and sparse-partner algorithms](36_rank_dual_critical_csp.md).
 - [Joint-block matrix rank](37_joint_block_matching_rank_and_arity.md).
 - [Source-level grouping and black-box obstacles](41_uniform_coarse_partitions_and_row_sensitive_grouping.md).
+
+
+## 5. Stronger recovery theorem: adversarially deleted entries, not just Kronecker matrices
+
+The exact $S\otimes(J-I)$ form is unnecessary for hidden-label recovery.
+
+Assume every hidden coarse class has the same size $L$, with $q=rL$. There is a **hidden** partition for each vertex and coarse tables $S_e$ such that:
+- for every *forbidden* coarse pair, the associated $L\times L$ rectangle is identically zero;
+- for every *allowed* coarse pair, each row and each column of the $L\times L$ rectangle contains **at most $t$ zero entries**, where $t\ge1$ may grow;
+- **joint row/column separation:** for any non-isolated vertex v and two distinct coarse classes c,c', *some incident edge e* has an opposite coarse class d such that the two coarse rows (or columns, if v is the second endpoint) disagree at d.
+
+The first two promises imply the robust quotient conditions with $b_{e,v}=t$. Thus, if $\Delta t<L$, exact decision projects to the coarse problem.
+
+**Recovery theorem.** If
+\[
+\boxed{L-t>2rt\,\Delta(G),}
+\tag{12}
+\]
+then the **same Hamming signature method** of §3 recovers every hidden coarse partition of a non-isolated vertex in polynomial time.
+
+**Proof.** For two fine values of the same coarse class, the rows on any one edge differ only inside at most r allowed coarse rectangles; within each permitted rectangle, each row contains at most t zeros, so their Hamming distance is at most $2rt$. Summing over incident edges gives $D_v(a,a')\le2rt\deg(v)$. For different coarse classes, the separation promise supplies some edge and some opposite coarse class on which one row is identically zero while the other has at least $L-t$ ones; hence $D_v(a,a')\ge L-t$. Inequality (12) separates the two cases. Therefore the threshold test $D_v\le2rt\deg(v)$ is exactly hidden-class equivalence. QED.
+
+The algorithm computes all distances, clusters with the given $(r,t)$ threshold, constructs coarse relations, then **independently verifies** all forbidden-rectangle/allowed-row-and-column requirements and the greedy-lifting inequality. So its correctness on *every* input does not depend on trusting the promise. If $(r,t)$ are not supplied, one may enumerate polynomially many guesses up to stated polynomial caps, check them, and use the cheapest successful certificate.
+
+This is a robust **adversarial-deletion** generalization of the special full-rank Kronecker family; the allowed rectangles may have arbitrary missing entries, provided defects are bounded per row and column. Note that such arbitrary deletions do not guarantee full rational rank; equation (5) establishes full rank for the explicit Kronecker subclass.
+
+This supplies an actual **multi-edge latent-label extraction** algorithm, not simply an existential encoding or a small interface rank bound. Its limitation is intrinsic: fully general constraint tables need not admit any sufficiently coarse robust quotient.
