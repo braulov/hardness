@@ -101,3 +101,43 @@ The natural "random field point + path of prefix products + local correctness ch
 - Planar vertex-weighted separator theorem: https://planarity.org/Klein_separators_in_planar_graphs.pdf
 
 **Bottom line:** Proved two explicit restricted-model obstructions and a robust structural lower bound for exact AllDifferent representations; no critical PCC PCP has been constructed.
+
+
+## E. Matching probabilistic *upper* bound for universal binding (proved)
+
+The previous lower bound on the number of public field evaluation points is tight up to constant factors in the polynomial-field regime, *if* we only count evaluation points and not the CSP cost of computing their products.
+
+Fix p>K, a prime (more generally a finite field with at least K distinct labels). Let r_1,...,r_t be independent uniform field elements. For any multiset X of K labels in [K], define the monic polynomial
+
+    P_X(Z)=prod_{x∈X}(Z-x),
+
+and let P_*(Z)=prod_{a=1}^K(Z-a).
+
+If X is not the permutation multiset, then P_X-P_* is a nonzero polynomial of degree <=K-1 (the leading Z^K terms cancel). By Schwartz–Zippel / the root bound,
+
+    Pr_r[P_X(r)=P_*(r)] <=(K-1)/p.
+
+There are binom(2K-1,K)-1 incorrect K-multisets. Taking the union bound over ALL of them, including witnesses that might be chosen after seeing r_1,...,r_t,
+
+    Pr_{r_1,...,r_t}[exists incorrect X passing all t products]
+      <= (binom(2K-1,K)-1) * ((K-1)/p)^t.
+
+Therefore for any eta∈(0,1), taking
+
+    t >= ( ln(binomial(2K-1,K)-1)+ln(1/eta) ) / ln(p/(K-1))
+
+ensures, with probability >=1-eta over the PUBLIC seed, that ALL incorrect lists are rejected simultaneously. For p=K^c with fixed c>1, this yields
+
+    t=Theta(K/log K)
+
+independent challenges, matching the earlier necessary t log p=Omega(K) within constant factors. This is genuine **uniform-over-all-witnesses** binding, not a per-fixed-witness estimate; it correctly quantifies the existential-after-seed issue.
+
+One can compile these t product identities into an explicit binary CSP of max degree 3 with a polynomial common alphabet by using a separate prefix-product chain for each r_j, ternary multiplication gate variables split into standard binary port checks, and equality chains for each source x_i shared across t chains. This gives a randomized, one-sided **exact solution-projection preserving with probability >=1-eta** compiler for AllDifferent with
+
+    m,v=O(Kt)=O(K²/log K),   Q=K^{O(1)}.
+
+Each YES permutation satisfies the product equalities for EVERY seed; on a good seed no invalid tuple satisfies them. This is a **positive construction in a restricted model**, but is far *worse* in number of constraints than the existing deterministic Beneš exact AllDifferent compiler of O(K log K) constraints. It is NOT an improvement toward the critical O(K sqrt(log K)) PCC-PCP or dense-to-sparse arbitrary compatibility tests.
+
+**Interpretation:** the grand-product idea can be made fully sound by sufficiently many PUBLIC independent challenges, but the requisite number is already Omega(K/log K). To improve proof size, one would need to **share/batch** their verification without multiplying the K-step product circuit by t, or use proof commitments/low-query algebraic consistency whose correctness survives the existential-after-seed order. Neither was constructed here.
+
+Reference for polynomial identity testing: standard Schwartz–Zippel root bound, and for grand-product protocols https://triton-vm.org/spec/permutation-argument.html .
