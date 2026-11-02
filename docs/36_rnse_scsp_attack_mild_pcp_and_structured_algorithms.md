@@ -135,3 +135,17 @@ For the algorithmic attack, search for a decomposition that combines small-width
 - Carbonnel, "Faster algorithms for graph homomorphism via tractable constraint satisfaction" https://arxiv.org/abs/2602.23000 : 2^{O(n)}poly(h) for H in classes excluding a fixed topological minor, NOT for arbitrary 2-degenerate targets (which may contain 1-subdivisions of arbitrarily large complete graphs).
 - Nguyen, "A Sublinear Treewidth Exponent for Binary Constraint Satisfaction" https://hexagonmath.org/2611.00004v1 : claimed uniform q^{O(v/sqrt log v)} exact CSP counting; audit status in notes 22,33,34.
 - Our original HOM reduction: https://arxiv.org/abs/2607.09377 ; full generalized bounds in note 35.
+
+## 8. Why the 2026 single-exponential HOM theorem excluding topological minors does NOT solve our specific output family (PROVED)
+
+Clément Carbonnel (2026, arXiv:2602.23000) gives a 2^{O(n)}poly(h) graph-HOM algorithm when the target family excludes some FIXED topological minor. The degree-2 targets H built by our paper's reduction (note 35) do NOT obey this condition in general.
+
+Take a CSP with an edge e={u,w} whose allowed relation is ALL of [q]x[q]. The target H_0 from our HOM reduction contains q value vertices A_{u,a}, q value vertices A_{w,b}, and for each (a,b) a distinct relation vertex R_{e,a,b}, joined to A_{u,a} and A_{w,b}. Ignoring its third pin edge, these vertices form the **1-subdivision of K_{q,q}** as a subgraph. The final target H=S_3(H_0) replaces every edge by a length-three path, so still contains a subdivision of K_{q,q}.
+
+For any t with binom(t,2)<=q, pick t vertices on the left part of K_{q,q} and assign each unordered pair a distinct right-part vertex. Join the two corresponding left vertices by their length-two path via its allocated right vertex. These paths have pairwise internally disjoint vertices. Hence the graph contains a subdivision of K_t, and so does H, for t=Theta(sqrt(q)). When q=v^c tends to infinity, the output family contains arbitrarily large complete graphs as TOPOLOGICAL MINORS despite degen(H)<=2.
+
+Therefore Carbonnel's excluded-topological-minor theorem CANNOT directly be applied uniformly to our entire constructed H family. This is a concrete source of confusion worth avoiding: **2-degeneracy does not imply exclusion of any fixed topological clique**, and our actual target family witnesses the separation.
+
+## 9. Deterministic row-density regime (PROVED)
+
+As an additional very simple algorithm, if the primal max degree is Delta and for each edge e=uv and each fixed endpoint label a, at most gamma*q labels at the other endpoint are forbidden (in BOTH orientations), where gamma<1/Delta, then assign the vertices in ANY order. When choosing u, at most Delta previously assigned neighbors each forbid at most gamma*q labels, so fewer than q labels are forbidden in total; some legal candidate always exists. This finds a satisfying assignment in polynomial time. For Delta=3, gamma<1/3 suffices. This is a worst-case guaranteed row-density criterion, complementary to Section 6's random p=1/2 table theorem.
