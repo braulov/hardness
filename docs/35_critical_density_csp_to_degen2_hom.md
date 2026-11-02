@@ -173,3 +173,6 @@ If such a method is found, it would give a meaningful algorithmic result rather 
 
 
 **Updated no-go (2026-11-02):** [Note 39](39_adaptive_block_rank_barrier.md) strengthens the raw-bucket/rank discussion: even graph-adaptive vertex partitions with every block $\le k^{1-\varepsilon}$ have pairwise maximum-matching interface budget $m-O(k)$ on typical critical-density graphs. This excludes a superconstant saving for pairwise minimum-vertex-cover factorization at that scale; it is not an arbitrary tensor-network lower bound.
+
+
+**Random-instance caveat (2026-11-02):** [Note 40](40_nguyen_grouping_overhead_and_random_csp_greedy.md) proves dense iid random relation tables are greedily satisfiable on critical-density random constraint graphs, even though their ranks and allowed-partner counts are large. A first-moment calculation places the nontrivial random-density scale near $\rho=q^{-2/\sqrt{\log k}}$, but this does not prove average-case hardness or SAT above threshold.
