@@ -163,6 +163,35 @@ Now for any set \(U\) of quotient clusters, its lift \(S\) is a union of whole c
 
 **Scope:** this is a no-go for the *particular shortcut* "reduce functional constraints to source SCC roots, then perform low-treewidth DP." It is **not** a proof of a computational lower bound, nor a refutation of possible algebraic/special-purpose algorithms on the quotient. The expander may have trivially satisfiable relations. What survives is exactly the generic sparse-CSP difficulty we set out to accelerate.
 
+## 4b.1. Acyclicity eliminates all cyclic functional terms; an unconditional half-exponent bound
+
+A \(d\)-degenerate **simple, loopless** target \(H\) has an *acyclic* orientation of outdegree at most \(d\). Extend its outgoing slots to partial maps \(f_1,\ldots,f_d:[h]\rightharpoonup[h]\), all of which **strictly increase one common topological ranking** on \(V(H)\). For source graph \(G\), expand each adjacency indicator into at most \(2d\) directed-slot indicators.
+
+**Observation:** every expansion term whose induced source orientation \(D\) contains a directed cycle vanishes identically. Indeed, any assignment satisfying its equations would strictly increase the target ranking around a cycle, an impossibility. Therefore only **acyclic orientations** of \(G\) contribute, and on any contributing orientation the SCCs are singletons, so the source-SCC count is exactly the number \(s(D)\) of source vertices.
+
+The sources of any acyclic orientation form an independent set, thus \(s(D)\le\alpha(G)\). For each surviving directed-slot assignment, pick a single parent for every non-source vertex and enumerate the \(h^{s(D)}\) assignments to sources. Propagate uniquely along the chosen parents and check all remaining incoming equations. Every homomorphism determines a **unique** directed-slot assignment (since \(H\) is simple), so the sum computes \(\#\mathrm{HOM}\) exactly:
+\[
+ \boxed{T_{\#\mathrm{HOM}}\le
+  \operatorname{poly}(n,m,h)\,(2d)^m h^{\alpha(G)}.}
+\tag{9}
+\]
+
+Separately, let \(C\subseteq V(G)\) be a vertex cover of size \(\tau(G)=n-\alpha(G)\). Enumerate \(h^{\tau(G)}\) images of \(C\). Since \(V(G)\setminus C\) is independent, each unassigned vertex has an independent choice among common neighbors of the already mapped vertices, and the number of completions is the product of those list sizes. This yields an exact \(\operatorname{poly}(n,m,h)\,h^{\tau(G)}\) algorithm **given** the cover; a minimum cover can be found by a brute-force \(2^n\operatorname{poly}(n)\) preprocessing.
+
+Select the faster route. Since \(\min(\alpha(G),\tau(G))\le n/2\), for every fixed \(d\) we have the **unconditional** coarse bound
+\[
+ \boxed{
+ T_{\#\mathrm{HOM}}(G,H)
+ \le 2^{O(n+m)}h^{\lfloor n/2\rfloor}
+     \operatorname{poly}(n,m,h)
+ \quad(\operatorname{degen}(H)\le d).
+ }
+\tag{10}
+\]
+On \(m=O(n)\) this is \(2^{O(n)}h^{n/2}\), an improvement over naive \(h^n\) **without invoking any 2026 tensor theorem**. For a 3-regular pattern \(G\), \(\alpha(G)\le n/2\), so the directed-functional method alone already establishes it, without computing a minimum cover.
+
+**Perspective/attribution:** orienting a bounded-degeneracy **host** acyclically, enumerating rooted out-trees from sources of acyclic pattern orientations, and assembling their images are classical ideas in fixed-pattern \(\#\mathrm{Hom}\) algorithms (e.g. Bressan and subsequent DAG-treewidth work). See Paul-Pena and Seshadhri, ICALP 2025, https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.124 . We do **not** claim the exact crude bound (10) is novel. It is asymptotically weaker than the conditional \(h^{O(n/\sqrt{\log n})}\) when \(h\) grows polynomially with \(n\); thus the truly hard improvement is to exploit the functional quotient **beyond source enumeration**.
+
 ## 4c. A concrete, balanced expander-CSP hardness stress test
 
 The [new critical-expander CSP note](35_critical_expander_csp_poisson_and_arc_consistency.md) now contains a complete Chen–Stein argument, sharpening the earlier unaudited CEH random-instance claim. On any fixed simple 3-regular (optionally bipartite) \(\gamma\)-edge-expander, independently include each allowed pair on each edge with probability \(p=q^{-2/3}\). For \(q=k^c\) with \(c>3/\gamma\), the number of CSP solutions converges **in total variation** to \(\operatorname{Poisson}(1)\), hence \(\Pr[\mathrm{UNSAT}]\to e^{-1}\) and \(\Pr[\mathrm{SAT}]\to1-e^{-1}\). Simultaneously every value has local support on every edge with high probability; arc consistency does not reject. This is a **proved distributional construction, NOT a computational lower bound**.
