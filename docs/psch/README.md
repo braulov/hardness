@@ -60,6 +60,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 17. [Rank-parameterized PCC, group-algebra determinant, and effective rank](../40_lowrank_pcc_group_algebra_effective_rank.md) — exact O(Kr+KlogK) cubic CSP compression for rank-r defect matrices, one-sided randomized p^r poly(K) PCC algorithm, polynomial swap-derivative equivalence test, and Θ(K²/logK) generic score-preserving effective-rank barrier.
 
+18. [Boolean biclique-cover compatibility](../41_boolean_biclique_cover_pcc_compatibility.md) — supplied r-biclique cover of forbidden candidate pairs gives deterministic 2^r·poly(K) PCC and exact O(Kr+KlogK) cubic 2-CSP; explicit families have Boolean r=O(logK) but ordinary matrix rank Θ(K²).
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
