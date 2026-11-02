@@ -122,6 +122,47 @@ Every original satisfying assignment extends **uniquely** by choosing the corres
 
 **Research lesson:** a promising degen-2 algorithm must exploit more than "the target adjacency is a sum of four functional relations"; the functional subinstances retain arbitrary pair compatibility through shared preimages. Potentially valuable restrictions include no unary tags, bounded inverse fibers, or special correlations among the four functional summands. The unrestricted case is precisely the bottleneck.
 
+## 4b. Exact source-SCC compression for functional constraints; expander obstruction
+
+Let \(D=(V,A)\) be a directed graph, and each arc \(e:u\to v\) carry an arbitrary **partial** map \(f_e:[h]\rightharpoonup[h]\). We seek assignments satisfying \(x_v=f_e(x_u)\) on every arc, optionally with unary lists.
+
+**Lemma (exact count by source SCCs).** Let \(\sigma(D)\) be the number of source strongly connected components in the condensation DAG. Then the number of solutions can be computed in
+\[
+  h^{\sigma(D)}\operatorname{poly}(|V|+|A|,h)
+\]
+time. In every source SCC choose a representative. Select a directed spanning **out-forest** rooted at these representatives covering all vertices: each SCC has an internal out-arborescence; every non-source SCC is reached from a predecessor. A vertex \(v\) is assigned a unique root \(r(v)\) and composition \(F_v\) of arc functions along its forest path. Every valid assignment has \(x_v=F_v(z_{r(v)})\); enumerate representative values and check all original equations (including definedness and lists). The extension is unique when it exists, hence exact counting. This statement also holds with different \(f_e\) on every arc.
+
+**Source-SCC quotient.** Rather than enumerating, substitute all \(x_v=F_v(z_{r(v)})\). Every original arc \(u\to v\) yields a unary/binary relation
+\[
+  F_v(z_{r(v)})=f_e(F_u(z_{r(u)}))
+\]
+between at most two root variables; explicit tables are polynomial in \(h\). Call the resulting primal graph \(Q_D\). It is a minor of the undirected graph underlying \(D\): contract each connected out-tree to its root and discard internal edges. The quotient has \(\sigma(D)\) vertices, but need not have small treewidth.
+
+For any orientation \(D\) of an undirected graph \(G\), \(\sigma(D)\le\alpha(G)\): distinct source SCC representatives are nonadjacent. This bound is tight **maximizing over orientations**: choose a maximum independent set \(S\), orient its incident edges outward, and orient the complement acyclically. Because \(S\) is maximal/dominating, precisely its vertices are source SCCs, so \(\max_D\sigma(D)=\alpha(G)\). Hence for a 2-degenerate target \(H\), expanding each target-edge indicator as four partial-function indicators yields an unconditional exact counting algorithm \(O(4^{|E(G)|}h^{\alpha(G)}\operatorname{poly})\). On sparse \(G\), Caro–Wei implies \(\alpha(G)=\Omega(|V(G)|)\); this does **not** beat the claimed tensor solver asymptotically.
+
+**Counterexample: a single functional term can preserve expander treewidth.** Let \(C\) be any simple 3-regular graph on \(k\) vertices with positive edge expansion \(\varepsilon\), and give every edge \(e=uv\) an arbitrary CSP relation \(R_e\subseteq[q]^2\). Construct the 1-subdivision / incidence graph \(B\): one source node \(W_e\) per original edge, one sink node \(X_v\) per original vertex, and arcs \(W_e\to X_u,W_e\to X_v\) labeled 1,2. The alphabet is a disjoint union of variable labels \((v,a)\) and relation-witness labels \((e,a,b)\) for \((a,b)\in R_e\). Define two **global** partial functions
+\[
+ f_1(e,a,b)=(u,a),\quad f_2(e,a,b)=(v,b)
+\]
+using a fixed ordering of endpoints. Give \(W_e\) the unary list of \(e\)-witnesses and \(X_v\) the list of \(v\)-labels. Then a solution to these **two-global-function** constraints is in bijection with a solution of the original CSP. The undirected target with edges from each witness to its two endpoint labels is 2-degenerate: every nonisolated subgraph contains a witness of degree at most two, unless it contains only isolated variable labels. Thus one single functional term already represents generic cubic expander CSP (with unary lists).
+
+All \(W_e\) are sources, so \(\sigma(D)=|E(C)|=3k/2\). For any rooted out-forest, each \(X_v\) chooses one incident \(W_e\) as parent. Contracting those chosen incidence edges partitions \(B\) into connected clusters of size **at most three** (one edge-witness and at most its two endpoint variables). Thus \(Q_D\) has \(3k/2\) vertices and maximum multigraph degree at most nine.
+
+**Expansion is preserved.** First \(B\) is a bounded-degree edge-expander. For \(S\subseteq V(B)\), let \(A=S\cap V(C)\), \(F=S\cap E(C)\), \(a=|A|\), \(b=|F|\), and \(c=|\partial_B S|\). Every original edge crossing \(A,V(C)\setminus A\) induces exactly one boundary edge of \(B\), so \(c\ge\varepsilon\min(a,k-a)\). Moreover,
+\[
+ b\le3a/2+3c/2,\qquad
+ |S|\le5a/2+3c/2,
+\]
+and the symmetric inequality holds for \(S^c\), yielding
+\[
+ |\partial_B S|
+ \ge \frac{\varepsilon}{5/2+3\varepsilon/2}
+    \min(|S|,|V(B)\setminus S|).
+\]
+Now for any set \(U\) of quotient clusters, its lift \(S\) is a union of whole clusters and has at least \(|U|\) vertices, while its complement has at least the number of complementary clusters. Contraction preserves boundary-edge counts (including multiplicity). Consequently \(Q_D\) retains constant edge expansion. Since its maximum degree is bounded, it has **treewidth \(\Theta(k)\)** by the standard balanced-separator/expansion argument (parallel edges do not affect treewidth).
+
+**Scope:** this is a no-go for the *particular shortcut* "reduce functional constraints to source SCC roots, then perform low-treewidth DP." It is **not** a proof of a computational lower bound, nor a refutation of possible algebraic/special-purpose algorithms on the quotient. The expander may have trivially satisfiable relations. What survives is exactly the generic sparse-CSP difficulty we set out to accelerate.
+
 ## 5. Implications for project priorities
 
 - **ALREADY COVERED externally under stated assumptions:** sparse HC / FVS / connectivity-type algorithms (Guo 2026). Preserve attribution and the distinction between the full tensor theorem and the weaker Lean-scoped fixed-width theorem.
