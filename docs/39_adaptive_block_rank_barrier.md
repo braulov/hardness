@@ -101,3 +101,6 @@ With $\delta=1/4$ the penalty is $(5/4+5/3)k=(35/12)k$. Since $m=\Theta(k\sqrt{\
 - [Unconditional rank-dual enumeration and small-support raw bucket obstacle](36_rank_dual_critical_csp.md)
 - [Critical-density HOM template](35_critical_density_csp_to_degen2_hom.md)
 - [Nguyen 2611.00004v1](https://hexagonmath.org/2611.00004v1)
+
+
+**Strengthening of the coarse-group claim:** [Note 41](41_uniform_coarse_partitions_and_row_sensitive_grouping.md) shows that even graph-adaptive balanced coarse partitions saturate all pair matching numbers uniformly, not just partitions fixed in advance. Further, replacing the published grouping's $gP$ term by $\sum_iP_i$ would not change its order for this particular cover-factor scheme.
