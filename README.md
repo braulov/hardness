@@ -107,3 +107,6 @@ The focused **Permutation k x k Clique -> cubic sparse 2-CSP** research branch i
 
 
 **Further PCC iteration:** [`docs/16_permutation_mixed_difference_rank_and_routing.md`](docs/16_permutation_mixed_difference_rank_and_routing.md) proves a polynomial-time computable mixed-difference lower-bound certificate for the rank modulo all permutation identities, gives an explicit 0/1 PCC instance with quotient rank Omega(k^2), and proves Omega(k log k) total literal-routing cost on constant-degree permutation networks with bounded congestion. These model-specific barriers do not rule out general existential decision-preserving CSP reductions.
+
+
+**Static proof-test interface and robust-gap sampling:** [`docs/17_pcp_bridge_gap_sampling_and_logsat.md`](docs/17_pcp_bridge_gap_sampling_and_logsat.md) formalizes the equivalence between an O(k)-test, O(k)-symbol noninteractive two-query verifier (weak soundness suffices) and an O(k)-constraint explicit polynomial-alphabet 2-CSP, plus a randomized O(k log k/delta)-constraint sparsification for delta-robust NO instances. It also corrects an interpretation of the high permutation-quotient-rank example: that source constraint graph was already a matching. General arbitrary PCC -> linear cubic CSP remains OPEN.
