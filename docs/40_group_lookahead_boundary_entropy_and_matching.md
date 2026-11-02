@@ -130,6 +130,32 @@ up to a harmless additional \(kq\) factor for generating/checking children. \(\P
 
 At this point **no proof** shows that \(\max_i\Phi_{\lceil C\log k\rceil}(S_i)=o(k)\) for a useful table-independent order \(\pi\) on all cubic expanders, nor that it beats the existing note 39 leading \(0.070126\,k\) coefficient uniformly. This is the precise missing combinatorial theorem for obtaining an unconditional new sublinear expected exponent from logarithmic-size tree lookahead.
 
+## 4a. Finite exact-order sanity checks and the actual competitive target
+
+For graphs with at most 12 vertices, the whole optimization
+\[
+ \omega_r(G)=\min_{\pi}\max_i\Phi_r(S_i)
+\]
+for \(r=1,2\) can be calculated by subset DP: \(D_r(\varnothing)=0\) and
+\[
+ D_r(S)=\max\left\{\Phi_r(S),\min_{v\in S}D_r(S\setminus\{v\})\right\}.
+\]
+For \(r=2\), each \(\Phi_2(S)\) is computed via maximum-weight matching as above. In internal finite exact computations, the results were:
+\[
+\begin{array}{c|c|c|c}
+ G&k&\omega_1(G)&\omega_2(G)\\
+ K_{3,3}&6&1&1\\
+ Q_3\ \text{(cube)}&8&4/3&4/3\\
+ \text{Petersen}&10&5/3&5/3\\
+ \text{three independently generated random cubic graphs}&12&1&1
+\end{array}
+\]
+(the random graphs were produced with NetworkX \`random_regular_graph(3,12,seed)\` for seeds 1, 2, and 3). **No improvement in the globally optimal worst-prefix potential was detected in these small checks**, despite strict per-prefix bonuses on some other orders. This is *numerical evidence only*, not an equivalence theorem for \(r=1,2\) or a test of asymptotic expanders.
+
+Also distinguish the two goals:
+- proving \(\omega_{C\log k}(G)=o(k)\) yields an **unconditional** \(q^{o(k)}\) expected algorithm on the critical random input distribution, although a stronger \(q^{O(k/\sqrt{\log k})}\) **worst-case** bound is externally claimed in Nguyen 2026;
+- to **beat Nguyen asymptotically** and contradict the proposed average-case SqrtLog hardness, one would need the stricter bound \(\omega_{C\log k}(G)=o(k/\sqrt{\log k})\), or another algorithmically faster technique. Simply obtaining \(\omega=o(k)\) is insufficient for that goal.
+
 ## 5. Relation to known CSP consistency frameworks and open next step
 
 Lookahead, neighborhood inverse consistency, relational neighborhood inverse consistency, and tree-based constraint propagation have been studied for decades. These precise group tests **are not claimed as new general CSP algorithms**, and the probabilistic boundary-entropy calculation is simply the direct first moment for the particular \(p=q^{-2/3}\) model.
@@ -142,6 +168,6 @@ Useful prior art:
 
 **Concrete next research question:** construct/identify orders \(\pi\) and polynomial-time-checkable families of disjoint induced trees of size \(O(\log k)\) for which
 \[
-  \max_i\Phi_r(S_i)=o(k)
+  \max_i\Phi_r(S_i)=o(k/\sqrt{\log k})
 \]
-on fixed cubic expanders, or rigorously prove a lower bound \(\max_i\Phi_r(S_i)\ge\varepsilon k\) for a precisely restricted ordering/potential family. This would settle the performance of this *specific* grouped-search strategy, **not** general average-case CSP hardness. The external Nguyen algorithm remains asymptotically faster regardless of the outcome.
+on fixed cubic expanders for an **asymptotic improvement over Nguyen**, or the weaker (o(k)) bound for a self-contained subexponential average-case algorithm, or rigorously prove a lower bound \(\max_i\Phi_r(S_i)\ge\varepsilon k\) for a precisely restricted ordering/potential family. This would settle the performance of this *specific* grouped-search strategy, **not** general average-case CSP hardness. The external Nguyen algorithm remains asymptotically faster regardless of the outcome.
