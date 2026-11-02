@@ -112,3 +112,16 @@ with w an auxiliary witness chosen existentially, all constraints explicit and f
 A minimal toy experiment is to examine input-dependent certificate switching on a cubic expander: whether local relations can coordinate a choice of witness routing that checks Theta(k^2) source edges without explicitly transporting each pair. Count the auxiliary entropy and input-dependent table bits. The fixed-encoder theorem identifies a necessary escape hatch, but provides no existence proof.
 
 **Status:** strict lower bound in a restricted oblivious/fixed-encoder model; newly relevant 2026 LTC reference; no arbitrary PCC compiler or rSPACH proof yet.
+
+## 8. Strengthening to ANY fixed number of queries (PROVED)
+
+Nothing in Sections 2--4 uses 'two' except the upper bound Q^2 on the number of local views. If test s reads at most h coordinates of the fixed input-independent encoded permutation, with fixed positions and arbitrary input-dependent h-ary predicates, then the view Y_s has at most Q^h possible values. The same deleted-edge argument forces each row pair i<j to be determined by at least one local view. Thus
+
+    Pr_pi[|D_s(pi)|>=r] <= min(1,Q^h/(k)_r).
+
+When Q<=k^C and h is a fixed constant, the earlier tail argument gives
+
+    E_pi binom(|D_s(pi)|,2)=O((Ch+1)^2),
+    t=Omega(k^2/(Ch+1)^2).
+
+In particular **ANY constant-query oblivious encoding with fixed test positions and fixed polynomial alphabet requires quadratic-many tests** for exact per-permutation compatibility on all PCC instances. Increasing arity from two to three or five by itself does not evade the barrier; neither does encoding such a test as an arity-two gadget. The randomized exact-solution-preserving extension works verbatim with Q^h in place of Q^2. This still says NOTHING against input-dependent existential witnesses or mere decision-preserving reductions.
