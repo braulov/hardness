@@ -133,6 +133,44 @@ Couple the null and planted tables by first sampling all null bits and independe
 \]
 Thus \(o(q^2)\) **individual bit probes** cannot distinguish with constant advantage, even with unlimited computation between probes. This is an input-access bound only (the explicit input has \(\Theta(kq^2)\) table bits), and is much weaker than a conjectured \(q^{\Omega(k/\sqrt{\log k})}\) running-time lower bound. It does **not** apply if the algorithm is freely given precomputed global summaries or uses a different access model.
 
+## 4a. A precise average-case algorithmic target: additive centered contraction
+
+The unique top-degree component \(W_E\) (as a random variable, rather than its squared norm in equation (3)) is the signed partition function
+\[
+ \boxed{
+ \mathcal W_E(A)=\frac1{q^k}\sum_{\sigma\in[q]^V}
+             \prod_{e=uv\in E}
+             \frac{A_{e,\sigma(u),\sigma(v)}-p}{p}.
+ }
+\tag{11}
+\]
+It is the degree-\(m\) orthogonal projection of the likelihood ratio \(L=Z\). By equations (5)–(6),
+\[
+ \mathbb E_{\mathsf P_0}
+ \left[Z-(1+\mathcal W_E)\right]^2
+ \le mp+B_k=o(1).
+\tag{12}
+\]
+Thus for a **random null CSP instance**, with probability \(1-o(1)\), rounding \(1+\mathcal W_E(A)\) to the nearest integer recovers the *exact* solution count \(Z\). More algorithmically, an evaluation routine returning \(\widehat{\mathcal W}_E(A)\) with additive error \(<1/5\) on a \(1-o(1)\) fraction of instances yields an exact average-case counting algorithm by rounding \(1+\widehat{\mathcal W}_E(A)\), with failure probability \(o(1)\). The same works with any fixed success probability after paying that failure rate. **An efficient additive approximation routine is NOT constructed here.** The result applies to the *null distribution*; a corresponding statement for arbitrary adversarial instances or the planted distribution requires new moment estimates.
+
+**Naive Monte Carlo does not help in mean-square.** Sample \(N\) independent uniform assignments \(\sigma^{(i)}\), and average
+\[
+ g_\sigma(A)=\prod_{e\in E}\frac{A_{e,\sigma(u),\sigma(v)}-p}{p}.
+\]
+This is conditionally unbiased for \(\mathcal W_E(A)\). A single sample has
+\(\mathbb E_{\mathsf P_0,\sigma}[g_\sigma^2]=((1-p)/p)^m=q^k(1-p)^m\), while \(\mathbb E_{\mathsf P_0}[\mathcal W_E^2]=(1-p)^m\). By the total variance formula the **exact expected mean-square estimation error** is
+\[
+ \boxed{
+ \mathbb E_{\mathsf P_0,\sigma}
+ \bigl[(\tfrac1N\sum_{i=1}^N g_{\sigma^{(i)}}-\mathcal W_E)^2\bigr]
+ =\frac{(q^k-1)(1-p)^m}{N}.
+ }
+\tag{13}
+\]
+Therefore this **specific unbiased sampling estimator** requires \(N=\Omega(q^k)\) evaluations for any bounded constant *root-mean-square error*. This is **not** a general sampling lower bound, nor does a large second moment by itself exclude robust/median/importance-sampling procedures with typical-instance success.
+
+The centered matrices \(B_e=A_e-pJ\) are a sparse \(0/1\) random relation matrix minus a rank-one constant matrix. Finding an algebraic/spectral/tensor method that computes the *signed global contraction* (11) to additive \(<1/5\) accuracy in \(q^{o(k/\sqrt{\log k})}\operatorname{poly}(L)\) time on the null distribution would directly refute the proposed average-case critical-expander hardness candidate.
+
 ## 5. Research implication
 
 The random model has a sharp global statistical signature concentrated in full-edge Fourier degree \(m\), while standalone path composition saturates at four edges. Therefore the natural next **algorithmic** target is not local messages or independent short-path projections; it is a method that compresses or evaluates the fully coupled degree-\(m\) multilinear form \(W_E\) faster than the claimed \(q^{O(k/\sqrt{\log k})}\) tensor algorithm. A determinant, signed trace, or global algebraic transformation could still do this efficiently despite degree \(m\), so the low-degree barrier does **not** settle the algorithmic research question.
