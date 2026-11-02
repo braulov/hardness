@@ -40,6 +40,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 7. [No-go for polynomial catalogues of precompiled tests](2026-11-02_precompiled_test_catalogue_barrier.md) — m·d≥binom(k,2) for low-degree Boolean per-test acceptance, and M≥k^{Ω(k/√m)} total DNF terms for fixed-skeleton existential CSP compilers, even with nonmonotone source-edge literals.
 
+8. [Davenport zero-sum barrier for global linear sketches](2026-11-02_davenport_linear_sketch_barrier.md) — for arbitrary-existential CSP compilers whose local acceptance predicates depend on r input-oblivious affine F_p sketches, m·r·(p−1)≥binom(k,2); complements the DNF catalogue obstruction.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
