@@ -25,3 +25,5 @@ Define the desired computational parameter and quantitative speedup. Prove that 
 
 ## Iteration protocol
 For each branch maintain: proved lemma or counterexample, exact parameter audit, conditional consequences, next concrete theorem. Mark all new statements PROVED, CONDITIONAL, CONJECTURED or OPEN.
+
+> **2026-11-02 rank-cycle and HOM equivalence:** [Note 37](37_weighted_cycle_rank_exact_counting_and_sparse_hom_equivalence.md) gives a new-to-project exact #CSP algorithm in 2^{min_F sum_{e outside F}log rank(A_e)}poly(L), optimizable via a maximum spanning forest, and proves a two-way 2^{O(n)} algorithmic equivalence between polynomial-alphabet sparse CSP and HOM with polynomial-size 2-degenerate targets AND sparse 2-degenerate sources (with fixed exponent and density quantifiers). Both sides of this equivalent all-instance algorithmic question remain open. The rank measure is not itself hardness: permutation-matrix constraints on an expander have maximal ranks but admit polynomial propagation.
