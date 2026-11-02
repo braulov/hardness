@@ -1,5 +1,8 @@
 # CEH research status, audit queue, and next experiments
 
+> **SUPERSEDING STATUS — 2026-11-02:** In this table, the old CEH conjecture row is historically labeled *CONJECTURE*. **Under the externally stated (not independently audited) OpenAI Boolean tensor-contraction theorem, CEH and SPACH are both CONDITIONALLY REFUTED**, since every polynomial-alphabet cubic binary CSP has a deterministic \(q^{o(k)}\)-time exact counting algorithm. Likewise, all CEH-based \(q^{o(k)}\)-hardness consequences become invalid as hardness arguments under that premise. Do not mistake the retained reduction lemmas or fixed-topology compilation questions for disproved mathematical statements. Read the [superseding tensor and branch triage audit](../33_tensor_contraction_sparse_2csp_and_hardness_triage.md). A separately reported domain-uniform bounded-degree CSP theorem is [archived here](../22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md) and also requires independent audit.
+
+
 **Checkpoint:** 2026-11-02 (the complete CEH conversation up to the pivot away from optimizing C=5/6). Use alongside [README](README.md), [reductions](01_reductions.md), and [matching-compiler research log](02_matching_compiler_research_log.md).
 
 ## 1. What is actually established vs. only proposed
