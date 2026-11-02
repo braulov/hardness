@@ -169,3 +169,28 @@ A separate November 2, 2026 preprint by Troy Tri Nguyen, [*A Sublinear Treewidth
 - [Previously proved cyclomatic-number preprocessing](13_binary_csp_cyclomatic_reduction.md).
 
 **Important practice:** do not overwrite the historical research logs. Put the updated conditional status prominently at their top; preserve proofs, counterexamples, and reductions for future use if the external premise changes.
+
+
+## 9. Independent cross-check against Nguyen (Hexagon 2611.00004v1, Nov. 2)
+
+Related project note: [domain-uniform bounded-degree CSP alert](22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md). External primary work: Troy Tri Nguyen, *A Sublinear Treewidth Exponent for Binary Constraint Satisfaction*, https://hexagonmath.org/2611.00004v1 (text mirrored at https://hub.valency.io/works/W_88675vdy).
+
+**Explicit comparison, not an independent verification of either contraction recursion:**
+
+| Aspect | OpenAI full Boolean tensor theorem specialized above | Nguyen Thm. 1.2 (claimed, not independently replayed) |
+|---|---|---|
+| Constraint-graph degree | Arbitrary if m=O(n) because copy/equality trees have constant degree | Any fixed max degree Δ |
+| Domain q | Polynomial q=n^{O(1)} in our rigorously checked specialization; broader q requires rechecking local-degree and instance parameters | Uniform for **all** q≥2, exponent constants independent of q |
+| Counting time | poly(L)·2^{O(n log q / sqrt(log(n log q)))} for m=O(n) | L^{p_Δ} q^{C_Δ n/sqrt(log n)} |
+| For polynomial q=n^{Θ(1)} | 2^{O(n sqrt(log n))} poly(L) | Same asymptotic bound |
+| For constant q | 2^{O(n/sqrt(log n))} poly(L) | Same asymptotic bound |
+| Verification | General tensor theorem not explicitly among the Lean-fixed-width SAT scope | Nguyen paper claims 82 downstream Lean modules and imported Anthropic/OpenAI modules; no independent replay done here |
+| Extra structural consequence | Conditional refutation of polynomial-domain SPACH and fixed-expander CEH | Under claimed bound, counterexample to Marx 2010 **literal Conjecture 1.4** using bounded-degree expander family with tw(G)=Theta(|V(G)|) |
+
+Important: for q=n^c this is **q^{o(n)}** but **not 2^{o(n)}**. The exponent in bits is O(n sqrt(log n)), which is *superlinear* in n. This is why the result does **not** supply a single-exponential 2^{O(n)} algorithm for sparse HOM when the target size h=poly(n). Conversely, for constant h it is genuinely 2^{o(n)}. The original Marx conjecture's no-|I|^{o(tw)} assertion is stronger than its separate ETH-conditional no-|I|^{o(tw/log tw)} theorem; this distinction must be retained.
+
+The domain-uniform claim from Nguyen also would not automatically apply to CSPs of unbounded maximum degree without a degree-reduction analysis, and our Boolean tensor bound does not automatically extend to arbitrary astronomical q. Both caveats matter.
+
+**PSCH / dense-to-sparse consequence:** A compiler ordinary k-Clique -> n'=O(k log^c k) variables in max-degree-3 polynomial-domain CSP followed by Nguyen gives at best 2^{O(k log^{c+1/2} k)} poly(k). This is *much slower* than the PSCH threshold 2^{o(k/log k)}, so the CSP algorithm does not itself contradict PSCH or prohibit such a compiler. It does prohibit treating the compiled sparse CSP as a q^{Omega(n')} hardness source. For strong PCC hardness 2^{o(K log K)}, an O(K)-variable compiler would instead yield a contradiction to PCC-hardness (conditional on Nguyen), as detailed in the companion alert.
+
+**Status:** literature statement and source-derived consequences verified at the level of the text and parameter algebra; original tensor recursion and Nguyen's new Lean proof not independently rebuilt. The retrieved PDF endpoint was inaccessible, so the primary paper was inspected through its Hexagon abstract and an indexed full-text transcription; do not claim line-by-line audit of the PDF.
