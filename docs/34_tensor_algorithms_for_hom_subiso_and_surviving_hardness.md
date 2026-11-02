@@ -97,6 +97,31 @@ By contrast, \(k'+m'=o(K\sqrt{\log K})\) is *incompatible* with PCC hardness AND
 
 For **unrestricted polynomial-size Circuit-SAT**, let \(s\) be the number of primary inputs, \(\operatorname{size}(C)\le s^d\). Suppose a no-\(2^{o(s)}\) Circuit-SAT hypothesis holds. An input-efficient SAT-iff compiler into binary CSP with \(r=k'+m'\) and \(q'=s^{O_d(1)}\) has the new algorithm's time \(2^{O(r\log s/\sqrt{\log r})}\) when \(r\) is polynomial and nontrivial. Therefore \(r=o(s/\sqrt{\log s})\) is incompatible with both the tensor bound and Circuit-SAT hardness; \(r=O(s/\sqrt{\log s})\) is the **quantitatively tight unexcluded target**. If such a compiler existed with a checked \(n_{\mathrm{HOM}}=O(r)\), \(h=\operatorname{poly}(s)\) reduction, a \(2^{O(n_{\mathrm{HOM}})}\) HOM algorithm would refute Circuit-SAT hardness, but the tensor upper bound would only give \(2^{O(s)}\).
 
+## 4a. Direct attempt to exploit target degeneracy: four functional edge types
+
+A \(2\)-degenerate loopless target \(H\) has an acyclic orientation with outdegree at most two. Partition each vertex's outgoing neighbors into two slots, giving partial functions \(f_1,f_2:V(H)\rightharpoonup V(H)\). For any two *ordered* vertices \(a,b\),
+\[
+ \boxed{
+ A_H(a,b)=[f_1(a)=b]+[f_2(a)=b]+[f_1(b)=a]+[f_2(b)=a].
+ }
+\]
+Exactly **one** term is one if \(ab\in E(H)\); all terms are zero otherwise. This is an identity over \(\mathbb N\), not modulo two. For a source \(G\) with \(m\) edges, expanding the product of these adjacency factors produces at most \(4^m=2^{O(m)}\) nonnegative terms. Each term is a count of solutions of binary **functional** constraints of the form \(x_v=f_i(x_u)\) or \(x_u=f_i(x_v)\).
+
+**Conditional algorithmic target:** If this special two-global-function satisfiability/counting problem could be solved in \(\operatorname{poly}(n,h)\) time *for the functional instances arising in the expansion*, we would obtain a \(2^{O(m)}\operatorname{poly}(|G|,|H|)\) counting algorithm for HOM into 2-degenerate \(H\), and hence a \(2^{O(n)}\) algorithm on sparse \(G\). The known \(\sqrt{\log}\) CSP upper does **not** achieve this.
+
+**Exact obstacle: functional relations are not automatically easy.** Even two *globally shared* partial maps with unary lists can encode any binary CSP. Given \(\Gamma\) with variables \(x_v\in[q]\) and relations \(R_e\subseteq[q]^2\), define a common domain
+\[
+D=\{(v,a):v\in V,\ a\in[q]\}
+ \ \cup\ \{(e,a,b):e=(u,v),\ (a,b)\in R_e\}.
+\]
+Let partial functions \(f_1,f_2\) map each \((e,a,b)\) to \((u,a)\) and \((v,b)\), respectively. For every original variable introduce \(X_v\) with unary list \(\{(v,a)\}\); for every original constraint introduce \(Z_e\) with unary list \(\{(e,a,b):(a,b)\in R_e\}\); enforce the two functional binary constraints
+\[
+X_u=f_1(Z_e),\qquad X_v=f_2(Z_e).
+\]
+Every original satisfying assignment extends **uniquely** by choosing the corresponding allowed pair for each \(Z_e\), and all functional solutions arise this way. The incidence graph has \(k+m\) vertices and \(2m\) edges; on cubic original CSP its maximum degree is three; \(|D|\le kq+mq^2\), polynomial for polynomial \(q\). Thus generic polynomial-time solving of two-global-function **list** CSP would solve all sparse explicit CSPs in polynomial time. This is a structural reduction, not a complexity lower bound under an unproved hypothesis.
+
+**Research lesson:** a promising degen-2 algorithm must exploit more than "the target adjacency is a sum of four functional relations"; the functional subinstances retain arbitrary pair compatibility through shared preimages. Potentially valuable restrictions include no unary tags, bounded inverse fibers, or special correlations among the four functional summands. The unrestricted case is precisely the bottleneck.
+
 ## 5. Implications for project priorities
 
 - **ALREADY COVERED externally under stated assumptions:** sparse HC / FVS / connectivity-type algorithms (Guo 2026). Preserve attribution and the distinction between the full tensor theorem and the weaker Lean-scoped fixed-width theorem.
