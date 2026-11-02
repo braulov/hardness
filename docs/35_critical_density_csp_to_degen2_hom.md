@@ -176,3 +176,6 @@ If such a method is found, it would give a meaningful algorithmic result rather 
 
 
 **Random-instance caveat (2026-11-02):** [Note 40](40_nguyen_grouping_overhead_and_random_csp_greedy.md) proves dense iid random relation tables are greedily satisfiable on critical-density random constraint graphs, even though their ranks and allowed-partner counts are large. A first-moment calculation places the nontrivial random-density scale near $\rho=q^{-2/\sqrt{\log k}}$, but this does not prove average-case hardness or SAT above threshold.
+
+
+**Positive decision-only structural algorithm (2026-11-02):** [Note 42](42_robust_alphabet_quotients_fullrank_dense_csp.md) exhibits a new *certifiable special case* with $q^{o(k)}$ SAT: a robust per-variable quotient to $r=k^{o(1)}$ latent labels, with guaranteed greedy lifting. Crucially, $R_e=S_e\otimes(J_L-I_L)$ may have full rational rank $q$ and $\Theta(q)$ allowed partners per row, yet hidden coarse classes can be recovered from row-Hamming signatures in polynomial time under an explicit gap. This DOES NOT disprove the unrestricted critical-density hypothesis; it identifies a third tractability mechanism besides low rank and sparse partners.
