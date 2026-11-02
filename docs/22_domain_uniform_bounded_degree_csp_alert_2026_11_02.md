@@ -113,3 +113,21 @@ Then the exact identity
 holds as an integer equality. The intermediate index theta needs at most b|E_GH| bits, and the sum of capacities incident to a group G is <=Delta*s*b. Local constraints wholly inside a group are included in a 0/1 unary weight W_G(x). Thus the grouped signed network satisfies setting length <=s*b and row capacity <=Delta*s*b, both <=P=O_Delta((v/g+1)log q). Relation-table queries can be computed from the input in time polynomial in L and v (evaluate O_Delta(s) original entries); no huge grouped-state table need be explicitly written.
 
 This part of the reduction is a COMPLETE checked algebraic identity, with the crucial q-dependence only through log q. The unverified external statement is the *uniform rapid evaluation* of the resulting grouped network; no fast algorithm follows merely from this factorization.
+
+## J. Reconciliation with an ALREADY EXISTING stronger local audit (important, 2026-11-02)
+
+Current repository work also contains [note 33](33_tensor_contraction_sparse_2csp_and_hardness_triage.md), independently developing the implications of the **FULL BOOLEAN tensor-contraction theorem (Theorem D.1)** in OpenAI's Oct. 25 manuscript. It is stronger for our immediate purpose: FOR q=k^{O(1)}, the Nguyen q-uniform theorem is not even necessary.
+
+Note 33 gives an explicit Boolean tensorization: represent each q-ary CSP variable by b=ceil(log_2 q) bit wires; introduce an arity-b legality tensor per source variable and an arity-2b relation tensor per binary constraint; copy shared bits with trivalent equality trees and make the network bipartite. This yields
+
+    M=O((v+m)*log q) Boolean wires,
+    P_0=v*b+1 precision bits, maximum local arity O(log q),
+    contraction = exact #CSP mod 2^{P_0}.
+
+If the FULL Theorem D.1 applies to this network and local-table time assumptions, its runtime is
+
+    poly(L) 2^{O(M/sqrt(log M))}.
+
+For q=v^{Theta(1)} and m=O(v), this is 2^{O(v sqrt(log v))} poly(L). This yields the same conditional refutation of SPACH/rSPACH and compiler threshold O(k sqrt log k). It is NOT a new independently verified fast contraction theorem; the full Boolean contraction theorem is itself an external premise and is not covered by the separately declared Lean fixed-width counting theorem. The new Nguyen preprint CLAIMS an additional q-uniform formalized adaptation. These are two AUDIT PATHS with shared external ideas, not two independently settled proofs.
+
+I initially recorded the Nguyen theorem before discovering note 33 was already in the repository. Do not attribute the reduction or numerical contradiction to this note as novel; use note 33 as the primary archived mathematical analysis for polynomial q, and this note as the fresh November 2 external source/Lean-uniformity audit and surviving-no-single-exponential hypothesis discussion.
