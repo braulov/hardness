@@ -51,6 +51,24 @@ Consider ANY NFA for L_k (not just deterministic). For each S choose an acceptin
 
 The same argument applies to a single forward path of existentially guessed states in a CSP or arithmetic checksum verifier: with alphabet k^{O(1)}, one path-state cannot carry enough information. This forbids the proposed short one-register additive accumulator even with nondeterminism. It does NOT forbid a non-path topology like a high-treewidth cubic graph.
 
+
+## 4b. Why a single finite-field permutation fingerprint fails existentially (PROVED)
+
+The most tempting O(k)-gate gadget checks
+
+    product_{i=1}^k (z-a_i) = product_{j=1}^k (z-j) in F_p
+
+for a *fixed* field evaluation z, by computing both products in O(k) multiplications. If all a_i are a permutation this holds. **However, for any fixed z and every polynomial-size field p=k^{O(1)}, there is some nonpermutation a satisfying this equality, for sufficiently large k.**
+
+- If z belongs to [k], the right-hand product is zero, and any tuple containing z (including a repeated z) passes.
+- If z is outside [k], the multiplicative values f(j)=z-j are all in F_p^*. Set t=floor(k/2). Since binom(k,t)>p-1 for large k, two distinct t-subsets S,T of [k] have the same product of f-values. The nonpermutation multiset T multiset-union ([k]\\S) then has k elements and exactly the same product as the full set [k]. (It has repetitions and omissions because S != T.)
+
+Therefore no choice of a single z in a field of size poly(k) yields an exact permutation verifier in this form. Randomly sampling z may give low false-acceptance probability for **any fixed** invalid assignment, but it does NOT give soundness after existentially quantifying over all k^k assignments: the false assignment may depend on z. Union-bounding over all such assignments would require exponentially more field points, and the direct argument above proves existence of false witnesses for every z.
+
+Generalization: let G be any finite abelian group and f:[k]->G. The check 'sum_i f(a_i)=sum_j f(j)' can separate the true permutation multiset from every incorrect size-k multiset only if |G|>=binom(k,floor(k/2))=2^{k-O(log k)}. The same subset collision-and-complement argument proves this. A constant number of polynomial-field additive checks is equivalent to one polynomial-size product group and thus also insufficient. This is an **exact-relation** obstruction; a decision-only compiler allowed to exploit the input instance is not refuted.
+
+If a row-dependent separable additive checksum sum_i f_i(a_i) must take the same value on EVERY permutation, swap two columns between any two rows. The swap equations imply f_i(a)-f_i(b) is independent of i, hence f_i(a)=u_i+v_a over the abelian group. Row dependence only adds an irrelevant constant and reduces to the previous argument. This extension assumes every permutation must satisfy the same checksum and the acceptance condition is equality to that fixed value.
+
 ## 5. Exact-projection bounded-treewidth obstruction (PROVED with specified interface assumptions)
 
 Claim: for any binary-CSP encoding that contains k *designated original variables* x_1,...,x_k with domain [k], whose projection to these variables is **exactly the permutation relation**, and whose all domains are at most q, the constraint graph has treewidth t=Omega(k/log q), provided q>=2. Auxiliary existential variables are allowed without restrictions on their number.
