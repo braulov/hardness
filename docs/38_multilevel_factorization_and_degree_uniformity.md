@@ -89,3 +89,30 @@ For example, $f(\Delta)=O(\sqrt\Delta)$, $\Delta=\Theta(\log\log k)$ gives $q^{O
 - Continue to treat the open critical-density no-$q^{o(k)}$ hypothesis as a hypothesis, not as established lower-bound evidence for HOM.
 
 **Sources:** [Nguyen, Hexagon 2611.00004v1](https://hexagonmath.org/2611.00004v1); [full Boolean tensor-contraction analysis](33_tensor_contraction_sparse_2csp_and_hardness_triage.md).
+
+
+## 5. Source-level check: why Nguyen's published grouping does not use the matching compression
+
+The publicly indexed full text of [Nguyen 2611.00004v1](https://hub.valency.io/works/W_88675vdy) gives its grouped network capacities (25)–(26) as
+\[
+P=\Delta bs,\quad U\le gP\le2\Delta bk,\quad b=\lceil\log_2q\rceil.
+\]
+It constructs the cross-group factorization using one $q$-label $\theta_e$ **per crossing edge**. Our [joint-rank lemma](37_joint_block_matching_rank_and_arity.md) permits instead one $q$-label per vertex of a minimum cover of the cross-edge bipartite graph, costing $\nu(A_i,A_j)b$ bits per pair; the factors remain polynomial-time evaluable per query.
+
+**But the proof's clique level chooses**
+\[
+g=3K^8,\qquad K^{32}\le k<K^{320},
+\quad\Longrightarrow\quad
+3k^{1/40}<g\le3k^{1/4}.
+\]
+Therefore $g\gg\Delta$ for every $\Delta=\operatorname{polylog}k$, and on a random critical-degree graph, for a fixed oblivious balanced partition, our Section 1 lemma gives
+\[
+\sum_{i<j}\nu(A_i,A_j)=(1-o(1))m.
+\]
+So simply replacing $\theta_e$ by matching-cover labels **does not improve the published application** on the generic critical-density family.
+
+**Important caveat on possible research improvements:** One cannot freely choose $g=\operatorname{polylog}k$ while keeping all other parts of the grouping theorem untouched. In the source, the clique level $K$ controls both $g$ and the savings from recursive contraction; making $K$ only polylogarithmic can degrade the saving itself. The proof also has terms involving $gP/K$, not just the actual capacity $U$. Thus a "few groups with cheap joint factors" result requires a genuinely stronger, quantitatively analyzed grouping/contraction engine, not a one-line change of the integer $g$.
+
+**Why the proposed strengthening would be powerful:** If a hypothetical engine permitted $g=o(\sqrt{\log k})$ and time $2^{O(U/\sqrt{\log k})}$ for arbitrary group-local weights and polynomially-queryable cover factors, then $U=O(gk\log q)$ would give $q^{o(k)}$ even for **dense** binary CSP. This would yield a major dense polynomial-alphabet CSP / multicolored Clique algorithm, so one should not describe the improved grouping theorem as easy or as already proved by the current preprint.
+
+**Research next question:** Can one obtain a *nonuniform group-capacity recursion* charging $\sum_i P_i$ or actual $U$, rather than $g\max_iP_i$, while retaining a saving tied to total input $k$ and tolerating a small number of groups with large settings? This is a specific possible route; no validity or complexity guarantee is established.
