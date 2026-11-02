@@ -89,3 +89,6 @@ This requires more than edgewise rank reduction or grouping complete source assi
 **Related literature:** standard matrix flattening, König's vertex cover theorem, Holant/holographic factorization; see e.g. connection tensor work https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/perfect-matchings-rank-of-connection-tensors-and-graph-homomorphisms/46898FD6A40484251A432661320116F4 .
 
 **No algorithm or new hardness theorem is claimed for unrestricted critical-density CSP.**
+
+
+**Adaptive-partition improvement (2026-11-02):** [Note 39](39_adaptive_block_rank_barrier.md) proves that on random $G(k,\sqrt{\log k}/k)$ every graph-adaptive partition with blocks $\le k^{1-\varepsilon}$ has total pairwise matching-number budget $m-O(k)$, w.h.p. This constrains repeated use of *this* cover-based worst-case rank construction, not general relation-specific factorizations.
