@@ -56,6 +56,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 15. [Adaptive grand-product failure and AllDifferent width](../38_adaptive_grand_product_and_all_different_width.md) — for every public randomized fingerprint with fewer than 2^{K−O(log K)} states a duplicate-list counterfeiter exists; exact one-pass nondeterministic checking requires exponentially many states, and every exact polynomial-alphabet AllDifferent CSP extension has treewidth Ω(K/log K).
 
+16. [Fisher–Yates local decoding and RAM-trace CSP](../39_fisher_yates_ram_trace_and_routing_bounds.md) — direct coordinate decoding needs Ω(K) digit probes, fixed bounded-degree vertex-disjoint permutation routing requires Ω(KlogK) nodes, and an exact O(KlogK) degree-3 polynomial-alphabet RAM-trace verifier is constructed (not yet a critical PCC PCP).
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
