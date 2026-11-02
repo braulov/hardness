@@ -31,7 +31,7 @@ The previous HOM project started from bounded-degree sparse 3-COL; its ETH-based
 By contrast, binary CSP with $k$ variables over $q=k^c$ has the exact direct CNF encoding
 
 $$
-n_\mathrm{SAT}=k\lceil\log_2 q\rceil,\quad
+n_\mathrm{SAT}=k\lceil\log_2q\rceil,\quad
 w_\mathrm{SAT}\le 2\lceil\log_2 q\rceil,\quad
 m_\mathrm{SAT}=O(kq^2),
 $$
@@ -40,13 +40,13 @@ so the width grows as $\Theta(log k)$. The presently discussed fixed-width SAT s
 
 ## 2. Direct implications of CEH (conditional hardness)
 
-A CEH instance has $K$ variables and (3K/2) binary constraints. The reductions below preserve the relevant solution parameter $K$, while the target input sizes grow polynomially in $K$.
+A CEH instance has $K$ variables and $3K/2$ binary constraints. The reductions below preserve the relevant solution parameter $K$, while the target input sizes grow polynomially in $K$.
 
 | Target | Reduction / parameter | What CEH conditionally rules out |
 |---|---|---|
 | 2-degenerate graph HOM (as in our HOM paper §4, subject to checking precise gadgets) | source $n=\Theta(K)$, target $h=O(Kq^2)=\operatorname{poly}(n)$ | $h^{o(n)}\operatorname{poly}(n,h)$ |
-| $K$-Independent Set | vertices (Kq); clique for each variable plus edges for forbidden pairs | $2^{o(K\log K)}\operatorname{poly}(N)$ |
-| $K$-Set Cover | (Kq) sets; universe $O(Kq^2)$ | same parameterized time |
+| $K$-Independent Set | vertices $Kq$; clique for each variable plus edges for forbidden pairs | $2^{o(K\log K)}\operatorname{poly}(N)$ |
+| $K$-Set Cover | $Kq$ sets; universe $O(Kq^2)$ | same parameterized time |
 | $K$-Dominating Set | $O(Kq^2+K^2)$ graph vertices | same |
 | $K$-Set Packing | one set per IS vertex, one shared universe element per IS edge | same; universe elements appear in at most 2 sets |
 | Hitting Set | standard dual of Set Cover | same |
@@ -62,7 +62,7 @@ A CEH instance has $K$ variables and (3K/2) binary constraints. The reductions b
 
 **Set Packing.** Independent Set $\to$ sets indexed by graph vertices, with one element for every conflict edge, present in exactly its two endpoint sets.
 
-**Important qualification:** a $2^{o(N)}$ algorithm with $N=\operatorname{poly}(K)$ does **not** refute CEH. E.g. the IS graph has $N=Kq$, giving only $2^{o(Kq)}$. Also bounded-average-degree IS is not a useful target for CEH hardness at parameter $K$: when $M\le CN$, Caro–Wei gives $\alpha(G)\ge N/(2C+1)$, hence $K$-IS can be decided in $2^{O_C(K)}\operatorname{poly}(N)$.
+**Important qualification:** a $2^{o(N)}$ algorithm with $N=\operatorname{poly}(K)$ does **not** refute CEH. E.g. the IS graph has $N=Kq$, giving only $2^{o$Kq$}$. Also bounded-average-degree IS is not a useful target for CEH hardness at parameter $K$: when $M\le CN$, Caro–Wei gives $\alpha(G)\ge N/(2C+1)$, hence $K$-IS can be decided in $2^{O_C(K)}\operatorname{poly}(N)$.
 
 ### Direction of implications
 
@@ -90,7 +90,7 @@ The unsolved problem is to obtain **fixed topology and constant degree simultane
 
 A large subproject asked for an **exact permutation compiler** for arbitrary matching $M$: every input array $a$ should extend to local states on one fixed cubic expander, with public outputs satisfying $b_v=a_{M(v)}$, and no incorrect outputs allowed. This is sufficient for a reduction but much stronger than decision-preserving CSP compilation.
 
-Explored: equality routing ((O(log K)) congestion, domain (q^{O(log K)}) = quasipolynomial); linear and nonlinear encoding; matrix rank conditions; Schur complements; invertible transfer matrices and monodromy; fixed-dimension local subspaces $W_v$; edge-interface and separator bounds; specifically $C=3,4,5,6$ local coordinates; Hamiltonian cycle + fixed matching, with a 3/2 interface profile; mixed profiles. See [02_matching_compiler_research_log.md](02_matching_compiler_research_log.md).
+Explored: equality routing ($O(\log K)$ congestion, domain $q^{O(\log K)}$ is quasipolynomial); linear and nonlinear encoding; matrix rank conditions; Schur complements; invertible transfer matrices and monodromy; fixed-dimension local subspaces $W_v$; edge-interface and separator bounds; specifically $C=3,4,5,6$ local coordinates; Hamiltonian cycle + fixed matching, with a 3/2 interface profile; mixed profiles. See [02_matching_compiler_research_log.md](02_matching_compiler_research_log.md).
 
 **No universal fixed-topology polynomial-domain compiler was constructed.** Several purported no-go theorems are only *chat-derived, model-specific claims* and should not be relied on until audited. In particular, proving a fixed $C=5$ gadget impossible would not establish impossibility of the main reduction.
 
