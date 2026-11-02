@@ -180,6 +180,11 @@ They are correct on **every** input and their expected runtime estimate is over 
 
 The comparison illustrates the bottleneck: one can satisfy \(k\) of the \(3k/2\) edges cheaply and explicitly list \(q^{k/3}\) candidates, but imposing the final matching constraints without exponentially many candidates requires a global technique.
 
+## New unconditional average-case improvement (2026-11-02)
+
+The \(q^{k/3}\) 2-factor enumeration in Section 6 is **not** the best simple unconditional expected-time bound for critical iid Bernoulli tables. [Follow-up note 39](39_critical_csp_cutwidth_expected_algorithms.md) proves the exact identity
+\(\mathbb E N_S=q^{|\delta(S)|/3}\) for every fixed prefix \(S\), then constructs a table-independent order of cutwidth \(k/4+o(k)\). This gives \(q^{k/12+o(k)}\operatorname{poly}(k,q)\) expected time for exact counting on **any connected cubic graph**. For high-girth triangle-free cubic graphs a sound unary-support forward check lowers the constant to \((14\sqrt7-20)/243\approx0.070126\). The previous restricted fixed-order DFS lower bound still gives \(q^{\Omega(k)}\) for **every order**, but its hidden constant is compatible with these improved exponential upper bounds. None of this challenges the external Nguyen \(q^{o(k)}\) solver.
+
 ## 7. Consequences and next live research targets
 
 1. **Close/deprioritize** plain tree tensor truncation of the full-input likelihood ratio, naive fixed-order backtracking, and per-edge low-rank SVD as candidates for average-case \(q^{o(k/\sqrt{\log k})}\) improvements. The proofs restrict exact models; they are *not* no-go results for all contraction algorithms.
