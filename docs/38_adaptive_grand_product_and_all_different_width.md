@@ -141,3 +141,20 @@ Each YES permutation satisfies the product equalities for EVERY seed; on a good 
 **Interpretation:** the grand-product idea can be made fully sound by sufficiently many PUBLIC independent challenges, but the requisite number is already Omega(K/log K). To improve proof size, one would need to **share/batch** their verification without multiplying the K-step product circuit by t, or use proof commitments/low-query algebraic consistency whose correctness survives the existential-after-seed order. Neither was constructed here.
 
 Reference for polynomial identity testing: standard Schwartz–Zippel root bound, and for grand-product protocols https://triton-vm.org/spec/permutation-argument.html .
+
+
+## F. Positive architectural simplification: a *total* O(K)-symbol permutation witness (Fisher–Yates / factoradic)
+
+The AllDifferent no-go results do NOT force a PCC PCP to check AllDifferent at all. There is a simple input-independent **total bijection**
+    [2]×[3]×...×[K]  <->  S_K.
+A proof can consist of K-1 digits a_i∈[i] (2≤i≤K), one symbol per i, from a common alphabet [K]; every legal sequence represents **exactly one permutation**, so duplicates are impossible by construction.
+
+Explicit decoder: initialize the array [1,2,...,K]. For i=K,K-1,...,2, swap positions i and a_i. The output is a permutation. All K! choices of the digit sequence produce **distinct** permutations: at step i, the value fixed at position i determines a_i uniquely given the current array, and subsequent smaller-position swaps never touch position i. Equivalently one can prove this by reverse induction on i. Exhaustively tested K=3,4,5; images have exactly K! elements.
+
+**What this solves:** the semantic constraint "chosen columns are pairwise distinct" is automatic for EVERY syntactically valid proof, with ℓ=K-1 and Q=K. No grand-product approximation, no acceptance of an adaptive incorrect multiset, and no need for a local AllDifferent tester.
+
+**What it does NOT solve:** The value π(i) in general depends on Θ(K) control digits (for small i), so an input-dependent two-query compatibility test cannot access arbitrary selected values π(i),π(j) by simply querying their digits. The existing fixed-oblivious-encoder no-go [note 21](21_oblivious_two_query_pcc_quadratic_barrier_and_2026_ltc.md) prevents exact per-permutation verification with O(K polylog K) fixed constant-query views of such an encoding at polynomial alphabet. A useful verifier would need **additional existential auxiliary proof symbols / an instance-dependent robust encoding / decision-only randomness**.
+
+**Suggested revised constructive target:** Take these swap controls as the K-symbol *base witness* and seek an augmented, locally checkable high-treewidth distributed **routing/decode layer** of O(K) or O(K sqrt(log K)) polynomial-alphabet symbols, plus 2-query graph compatibility tests. Prove rejection against ALL malformed auxiliary proof assignments; testing the Fisher–Yates controls alone is unnecessary. The standard Beneš network already gives an O(K log K) exact routing construction, providing a baseline but not meeting the critical O(K sqrt(log K)) threshold. This reframes the unresolved step as *locally verifying selected values of a succinctly specified permutation* rather than enforcing AllDifferent with public randomness.
+
+The factoradic/inside-out shuffle representation is standard and NOT claimed novel.
