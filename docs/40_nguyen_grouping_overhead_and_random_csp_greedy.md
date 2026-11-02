@@ -87,3 +87,6 @@ Thus a plausible random near-threshold *test distribution* would tune rho around
 - **New priorities:** (a) inspect whether the imported clique routine can support better *capacity-sensitive* grouping than (17)-(18), rather than blindly reducing U, (b) if studying random CSP, focus on near-threshold rho and avoid treating random half-dense constraints as hard, (c) continue to distinguish algorithmic speedups from architecture-specific bottlenecks.
 
 Related: [critical-density HOM source](35_critical_density_csp_to_degen2_hom.md), [joint matching rank](37_joint_block_matching_rank_and_arity.md), [growing-degree criterion](38_multilevel_factorization_and_degree_uniformity.md), [adaptive fine partition barrier](39_adaptive_block_rank_barrier.md).
+
+
+**Strengthening (2026-11-02):** [Note 41](41_uniform_coarse_partitions_and_row_sensitive_grouping.md) proves that all graph-adaptive balanced coarse partitions have pairwise matching saturation, simultaneously with high probability. Replacing $gP/K$ by a row-sensitive sum does not change the order for this specific cover-factorization; an oracle-model example also requires algorithms to account for internal weights rather than external capacity alone.
