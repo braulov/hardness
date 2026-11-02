@@ -73,3 +73,7 @@ See [`15_quadratic_form_and_alldifferent_interface_barriers.md`](15_quadratic_fo
 ## Follow-up: efficient quotient-rank certificate and routing barrier
 
 [`16_permutation_mixed_difference_rank_and_routing.md`](16_permutation_mixed_difference_rank_and_routing.md) provides a polynomial-time computable mixed-difference invariant H_B=T^T(B_AB+B_BA^T)T with r_perm(B)>=rank(H_B)/2. An explicit admissible 0/1 PCC obstruction has r_perm(B)=Omega(k^2), so even using ALL quadratic permutation identities does not make every obstruction low-rank. Literal routing of k labels through a bounded-degree network with constant edge congestion requires Omega(k log k) edges, matching the Beneš order. Both are restricted model barriers; arbitrary existential compression remains OPEN.
+
+## Latest iteration: short noninteractive proof-test interface
+
+See [`17_pcp_bridge_gap_sampling_and_logsat.md`](17_pcp_bridge_gap_sampling_and_logsat.md). An exact O(k)-test two-query noninteractive proof system with O(k) symbols over poly(k) alphabet is equivalent (after degree reduction) to the desired O(k)-constraint cubic CSP compiler. Existing interactive PCPs/IOPs do not directly yield this object. Robust gap-NO instances admit randomized O(k log k/delta)-constraint subsampling plus Beneš, not linear/general deterministic compression. Important correction: the explicit high-r_perm example from note 16 already has a matching constraint graph, so its high rank is a *failure of rank as a compression-cost proxy*, not a hard dense instance.
