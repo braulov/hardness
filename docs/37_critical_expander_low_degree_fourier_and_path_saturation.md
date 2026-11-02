@@ -171,6 +171,10 @@ Therefore this **specific unbiased sampling estimator** requires \(N=\Omega(q^k)
 
 The centered matrices \(B_e=A_e-pJ\) are a sparse \(0/1\) random relation matrix minus a rank-one constant matrix. Finding an algebraic/spectral/tensor method that computes the *signed global contraction* (11) to additive \(<1/5\) accuracy in \(q^{o(k/\sqrt{\log k})}\operatorname{poly}(L)\) time on the null distribution would directly refute the proposed average-case critical-expander hardness candidate.
 
+## Further structural audit: flat edge-cut spectrum and two-factor baseline
+
+[Follow-up note 38](38_flat_cut_spectrum_backtracking_barrier_and_two_factor_enumeration.md) computes **all singular values** of the degree-\(m\) global Fourier function \(W(A)\) across an arbitrary edge-table bipartition: exactly \(q^{|B|}\) equal nonzero values, with \(B\) the shared endpoint set. On cubic expanders balanced cuts have \(|B|\ge\gamma k/18\), ruling out small-bond **L2 function-space** decompositions. It also rules out naive edgewise SVD and fixed-order backtracking in precisely specified models; conversely, it gives an unconditional \(q^{k/3}\operatorname{poly}\) expected-time exact solver for the random bipartite cubic model via a perfect matching and cycle-cover enumeration. These observations do not prove computational hardness or contradict any general tensor contraction theorem.
+
 ## 5. Research implication
 
 The random model has a sharp global statistical signature concentrated in full-edge Fourier degree \(m\), while standalone path composition saturates at four edges. Therefore the natural next **algorithmic** target is not local messages or independent short-path projections; it is a method that compresses or evaluates the fully coupled degree-\(m\) multilinear form \(W_E\) faster than the claimed \(q^{O(k/\sqrt{\log k})}\) tensor algorithm. A determinant, signed trace, or global algebraic transformation could still do this efficiently despite degree \(m\), so the low-degree barrier does **not** settle the algorithmic research question.
