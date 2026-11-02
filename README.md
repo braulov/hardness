@@ -110,3 +110,6 @@ The focused **Permutation k x k Clique -> cubic sparse 2-CSP** research branch i
 
 
 **Static proof-test interface and robust-gap sampling:** [`docs/17_pcp_bridge_gap_sampling_and_logsat.md`](docs/17_pcp_bridge_gap_sampling_and_logsat.md) formalizes the equivalence between an O(k)-test, O(k)-symbol noninteractive two-query verifier (weak soundness suffices) and an O(k)-constraint explicit polynomial-alphabet 2-CSP, plus a randomized O(k log k/delta)-constraint sparsification for delta-robust NO instances. It also corrects an interpretation of the high permutation-quotient-rank example: that source constraint graph was already a matching. General arbitrary PCC -> linear cubic CSP remains OPEN.
+
+
+**Randomized PCC/PCP branch (2026-11-02):** [`docs/18_randomized_low_soundness_pcp_to_linear_csp.md`](docs/18_randomized_low_soundness_pcp_to_linear_csp.md) proves a conditional O(k)-constraint one-sided randomized sparsification from O(k)-symbol two-query PCPs with inverse-polynomial soundness; alternatively, constant-gap proof tests with O(k) VC dimension suffice. The existence of either short verifier for arbitrary Permutation Clique is OPEN. Both deterministic and bounded-error randomized algorithmic directions are accepted; hardness hypotheses for randomized algorithms are explicitly distinct from deterministic versions.
