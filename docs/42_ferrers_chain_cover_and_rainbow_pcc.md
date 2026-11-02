@@ -128,3 +128,19 @@ This is a structural/algorithmic subfamily, NOT a breakthrough to arbitrary PCC,
 - Chain-subgraph coverings and partitions, https://combinatorialpress.com/ars-articles/volume-166/edge-partitions-into-induced-2k2-free-bipartite-graphs/ .
 - Rainbow Matching NP-completeness and randomized O*(2^k), https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2017.71 .
 - Previous checkpoint 41, [Boolean biclique cover](41_boolean_biclique_cover_pcc_compatibility.md).
+
+
+## 8. Ordinal compression removes any numerical magnitude restriction (small strengthening)
+
+The restriction M_t=K^{O(1)} in Section 1 is not fundamental when the scores are **explicitly represented totally ordered values** with polynomial bit length and comparisons can be evaluated in polynomial time.
+
+For a supplied Ferrers factor, collect all numerical scores alpha_t(x) and beta_t(y) (there are at most 2K² values), sort the distinct values and replace each score by its rank in the common sorted list. Strict comparisons alpha(x)>beta(y) are unchanged. The compressed score universe is [m_t] with
+    m_t<=|L_t|+|R_t|<=K².
+Thus the threshold branching and CSP construction work with at most K²+1 thresholds per factor EVEN IF the original scores were arbitrarily large integers with polynomial input bit length. Hence the clean bounds are:
+    deterministic time (K²+1)^r poly(input length),
+    exact CSP O(Kr+KlogK) with Q=K^{O(1)}.
+This is ordinal normalization, not a nontrivial optimization or novel theorem.
+
+### Prior-art positioning
+
+Chain-subgraph cover is an established concept, including linear-time minimum covers for certain convex bipartite graphs; see [Linear-Time Algorithms for Maximum-Weight Induced Matchings and Minimum Chain Covers in Convex Bipartite Graphs](https://link.springer.com/article/10.1007/s00453-021-00904-w). The factorization used here is a supplied **union** of chain subgraphs, as distinct from Ferrers dimension (commonly an intersection) and from edge partitions. The algorithmic reduction to a threshold choice plus bipartite matching is elementary; publication-level novelty is **not** asserted.
