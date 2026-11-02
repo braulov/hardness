@@ -1,5 +1,8 @@
 # Graphic Rank and Global-Obstruction Complexity
 
+
+**New surviving HOM-hardness candidate (2026-11-02):** [Critical-density 2-CSP and 2-degenerate HOM](docs/35_critical_density_csp_to_degen2_hom.md). Although SPACH and CEH are conditionally refuted, a new *unproved* hypothesis excluding $q^{o(k)}$ for $k$ variables with $m=O(k\sqrt{\log k})$ constraints and polynomial alphabet is **not** contradicted by the cited CSP upper bound. The existing §4 pinning/subdivision reduction extends to $n=O(k+m)$ source vertices and polynomial-size 2-degenerate targets. If the new hypothesis holds, it rules out $2^{o(n\sqrt{\log n})}$ time for sparse-source HOM, matching the new **conditional** upper bound $2^{O(n\sqrt{\log n})}$. This is an open hardness source, not a theorem that the lower bound holds.
+
 **Canonical hypothesis status ledger (Nov. 2, 2026):** [Closed versus surviving hardness sources](docs/34_csp_hypothesis_closure_registry_2026_11_02.md). SPACH/CEH/rSPACH are conditionally refuted by claimed sub-$q^k$ binary-CSP algorithms; the dense Clique/LogSAT/Span branches are **not** thereby refuted.
 
 **CRITICAL RESEARCH ALERT — 2026-11-02:** [Note 22](docs/22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md) examines a brand-new Nguyen preprint CLAIMING a uniform deterministic degree-3 binary-CSP algorithm in time L^{O(1)}q^{O(v/sqrt(log v))}. **If valid, original SPACH/rSPACH are FALSE**. Under independent randomized Permutation Clique hardness, any general polynomial-time randomized reduction to polynomial-alphabet bounded-degree CSP requires at least Omega(k sqrt(log k)) output variables in the little-o sense. Algorithm and Lean dependencies are NOT independently audited. Treat earlier SPACH-based conclusions as suspended, not established.
