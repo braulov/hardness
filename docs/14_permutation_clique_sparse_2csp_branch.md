@@ -69,3 +69,7 @@ vanishes exactly when the one-hot choices form a Permutation Clique. Over any pr
 ## Follow-up iteration: quadratic form and interface barriers
 
 See [`15_quadratic_form_and_alldifferent_interface_barriers.md`](15_quadratic_form_and_alldifferent_interface_barriers.md) for elementary proofs of (a) rank-r incompatibility compilation with O(k(r+1)) degree-3 binary CSP constraints (without permutations), (b) high collision rank k(k-1) despite the O(k log k) Beneš AllDifferent gadget, (c) a 2^{Omega(k)}-state fooling-set lower bound for even *nondeterministic* sequential permutation verifiers, and (d) treewidth Omega(k/log q) for polynomial-alphabet exact-projection AllDifferent encodings with designated row terminals. None settles unrestricted PCC. The correct priority is to seek a nonsequential expander-like existential interface, not one polynomial-size running checksum.
+
+## Follow-up: efficient quotient-rank certificate and routing barrier
+
+[`16_permutation_mixed_difference_rank_and_routing.md`](16_permutation_mixed_difference_rank_and_routing.md) provides a polynomial-time computable mixed-difference invariant H_B=T^T(B_AB+B_BA^T)T with r_perm(B)>=rank(H_B)/2. An explicit admissible 0/1 PCC obstruction has r_perm(B)=Omega(k^2), so even using ALL quadratic permutation identities does not make every obstruction low-rank. Literal routing of k labels through a bounded-degree network with constant edge congestion requires Omega(k log k) edges, matching the Beneš order. Both are restricted model barriers; arbitrary existential compression remains OPEN.
