@@ -1,5 +1,8 @@
 # Rank-weighted cycle expansion and an algorithmic equivalence of sparse CSP with 2-degenerate HOM
 
+> **STATUS WARNING — 2026-11-02:** This note's rank-mode algorithm is only a STRUCTURE-ADAPTIVE supplement; it is **NOT** an attempt to restore SPACH. Theorem 1.2 of Nguyen's [*A Sublinear Treewidth Exponent for Binary Constraint Satisfaction*](https://hexagonmath.org/2611.00004v1) claims a uniform deterministic (q^{O(v/\sqrt{\log v})}\operatorname{poly}(L)) algorithm for EVERY fixed-degree binary CSP, and Theorem 1.1 additionally claims to refute Marx's literal (f(G)|I|^{o(\mathrm{tw}(G))}) conjecture on a bounded-degree expander family of LINEAR TREEWIDTH. Thus old sparse-CSP no-(q^{o(v)}) hardness is conditionally refuted. When (q=v^c) the bound is (2^{O(v\sqrt{\log v})}), which by itself does NOT refute a hypothetical no-(2^{O(v)}) statement. Do not conflate the two conjectures. See [canonical status ledger](34_csp_hypothesis_closure_registry_2026_11_02.md) and [critical-density candidate](35_critical_density_csp_to_degen2_hom.md).
+
+
 **2026-11-02 research iteration.** PROVED elementary new-to-our-project algorithmic theorem and two-way fine-grained parameter transfer. This is NOT a single-exponential solver for all arbitrary sparse binary CSP, nor a new unconditional hardness lower bound. Novelty relative to the tensor-network/rank-decomposition literature is NOT asserted. This substantially strengthens the spanning-forest/fiber and Boolean-rectangle algorithms from note 36.
 
 ## 1. Exact weighted-forest theorem via matrix rank (PROVED)
