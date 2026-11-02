@@ -1,5 +1,12 @@
 # Critical random cubic CSP: group lookahead, boundary-entropy identity, pair matching, and logarithmic-size tree tests
 
+> **SUPERSEDED / CLOSED NEGATIVELY (2026-11-02):** The concluding open question asking whether an ordering can give \(\max_i\Phi_{C\log k}(S_i)=o(k)\) on cubic expanders now has a **rigorous negative answer** in [note 43](43_expander_group_lookahead_potential_no_go.md). In fact for every \(r\), even permitting arbitrary-size disjoint induced **trees**, and every prefix \(S\) of size \(\lfloor k/8\rfloor\),
+> \[
+> \Phi_r(S)\ge(\gamma/3)\lfloor k/8\rfloor.
+> \]
+> More generally, all disjoint connected group families of total cyclomatic number \(o(k)\) have linear potential, and for logarithmic-girth expanders so do arbitrary connected groups of size \(O(\log k)\) (irregular Moore bound). **This refutes only the proposed upper-bound potential as a path to sublinear expected-time exponents**, NOT the underlying algorithm which checks all (overlapping) small groups. The earlier text is kept as historical development; its final research question is answered. Overlapping success events are positively associated (Harris–FKG), so naive independence estimates cannot be used.
+
+
 **2026-11-02. Status:** The expectation/boundary identities and the precise pair-matching optimization below are elementary **PROVED notebook statements**. They apply to a fixed cubic graph with independent Bernoulli relation-table entries at \(p=q^{-2/3}\), with an ordering/group collection chosen **independently of the table contents**. The group feasibility algorithms are exact on *all* instances. **No new \(q^{o(k)}\) runtime is established.** These lookahead ideas fall within long-established constraint-consistency research; see attribution.
 
 Previous work: [cutwidth and forward checking, note 39](39_critical_csp_cutwidth_expected_algorithms.md); [critical Poisson, note 35](35_critical_expander_csp_poisson_and_arc_consistency.md); [model barriers, note 38](38_flat_cut_spectrum_backtracking_barrier_and_two_factor_enumeration.md).
