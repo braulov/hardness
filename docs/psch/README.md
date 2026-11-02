@@ -58,6 +58,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 16. [Fisher–Yates local decoding and RAM-trace CSP](../39_fisher_yates_ram_trace_and_routing_bounds.md) — direct coordinate decoding needs Ω(K) digit probes, fixed bounded-degree vertex-disjoint permutation routing requires Ω(KlogK) nodes, and an exact O(KlogK) degree-3 polynomial-alphabet RAM-trace verifier is constructed (not yet a critical PCC PCP).
 
+17. [Rank-parameterized PCC, group-algebra determinant, and effective rank](../40_lowrank_pcc_group_algebra_effective_rank.md) — exact O(Kr+KlogK) cubic CSP compression for rank-r defect matrices, one-sided randomized p^r poly(K) PCC algorithm, polynomial swap-derivative equivalence test, and Θ(K²/logK) generic score-preserving effective-rank barrier.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
