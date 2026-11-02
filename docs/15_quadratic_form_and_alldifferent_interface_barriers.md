@@ -93,3 +93,17 @@ For q=k^{O(1)}, t=Omega(k/log k). The bound rules out constant-treewidth/low-wid
 - Karthik--Marx--Pilipczuk--Souza, *Conditional lower bounds for sparse parameterized 2-CSP: A streamlined proof* (SOSA 2024): https://arxiv.org/html/2311.05913v3
 - Lokshtanov--Marx--Saurabh, *Slightly Superexponential Parameterized Problems* (SODA 2011): https://epubs.siam.org/doi/10.1137/1.9781611973082.60
 - Bessière--Katsirelos--Narodytska--Quimper--Walsh, *Decompositions of All Different, Global Cardinality and Related Constraints* (IJCAI 2009): https://ijcai.org/proceedings/2009/77
+
+## 7. Proposed next object: rank modulo the permutation identities (OPEN)
+
+The raw matrix rank is structurally misleading, since the collision matrix C has rank k(k-1) but its quadratic form vanishes on every permutation. Let X_pi be the one-hot permutation matrix flattened as a length-k^2 vector, and define the linear space
+
+    Z_k={ K in F_p^{k^2 x k^2}: X_pi^T K X_pi=0 for EVERY pi in S_k }.
+
+For any obstruction matrix B define its **permutation-effective bilinear rank**
+
+    r_perm(B)=min_{K in Z_k} rank_Fp(B+K).
+
+Because B+K has exactly the same quadratic evaluation on permutation assignments, an efficiently produced rank-r factorization of B+K yields an O(k log k + kr) cubic CSP compiler (using Beneš to enforce the permutation). In particular the pure collision matrix C has r_perm(C)=0. This is a definition and a conditional compiler, NOT a theorem that r_perm is small or polynomial-time computable for arbitrary PCC. Minimum-rank matrix completion over affine spaces may be computationally difficult.
+
+Concrete tasks: (i) characterize an efficiently represented generating set for Z_k using row/column-one-hot and permutation identities; (ii) evaluate r_perm on structured low-complexity forbidden matrices; (iii) prove a generic high-rank obstruction or find nontrivial rank collapse for arbitrary PCC; (iv) compare this invariant to existential-interface complexity, where even r_perm can still be misleading. The goal is not to mistake a representation-specific rank for a no-go against all decision-preserving reductions.
