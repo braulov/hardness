@@ -1,5 +1,8 @@
 # Fixed-topology sparse CSP via sorting networks: an explicit logarithmic-overhead bridge
 
+> **HARDNESS BRANCH CLOSED (conditional on the November 2026 CSP counting theorems).** The Nguyen preprint claims a deterministic $q^{O(k/\sqrt{\log k})}\operatorname{poly}(L)$ algorithm for every fixed-degree binary CSP; the full OpenAI Boolean tensor theorem separately implies the same for sparse polynomial-alphabet CSP. Thus the **SPACH, rSPACH, CEH and randomized-CEH no-$q^{o(k)}$ hypotheses are conditionally refuted**, and their hardness consequences must not be used. This document is retained for its reductions/structural questions; neither the claimed algorithms nor the Lean dependency chains have been independently audited here. See the [closure registry](../34_csp_hypothesis_closure_registry_2026_11_02.md), [Nguyen audit](../22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md), and [tensor analysis](../33_tensor_contraction_sparse_2csp_and_hardness_triage.md).
+
+
 **Research note, 2026-11-02.** Companion to [CEH checkpoint](README.md). This is a constructive, elementary adaptation of the *universal factor graphs* idea; **not claimed novel**. Status: construction and parameter audit below are mathematically elementary subject to the standard explicit $O(t\log t)$-size sorting network and explicit bounded-degree expander constructions. No $O(k)$-variable compiler is obtained.
 
 ## 1. The problem and the missing logarithm
