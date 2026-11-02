@@ -1,5 +1,8 @@
 # Permutation Clique -> sparse CSP via exact noninteractive proof tests
 
+> **2026-11-02 CONDITIONAL CLOSURE OF HARDNESS-TRANSFER TARGET.** If the *full* OpenAI Boolean tensor-contraction theorem is correct, any explicitly represented sparse polynomial-alphabet 2-CSP with \(r=k'+m'\) variables plus constraints can be solved in \(2^{O(r\sqrt{\log K})}\operatorname{poly}(K)\) when the output alphabet is \(K^{O(1)}\). Therefore, under the separately conjectured no-\(2^{o(K\log K)}\) PCC-hardness assumption, a polynomial-time PCC \(\to\) sparse 2-CSP compiler with \(r=o(K\sqrt{\log K})\), **including the O(K) stretch goal, cannot exist**: otherwise it gives a faster PCC algorithm. The downstream SPACH/rSPACH hardness claims are also conditionally refuted. **Keep the exact gadgets, PCP sampling lemmas, and structural barriers; do not claim the mathematical existence question has been disproved unconditionally.** The full tensor theorem is not part of the documented Lean scope. See [audit and branch triage](33_tensor_contraction_sparse_2csp_and_hardness_triage.md).
+
+
 **Research iteration 2026-11-02.** Elementary lemmas and a sharpened research target; NOT an O(k) generic compiler. Distinguish proved implications from conjectures. This note adds a clean proof-system interface and gap-sensitive theorem to the pre-existing PCP program in docs/psch/2026-11-02_full_checkpoint_v7.md, rather than reasserting that its earlier PCP ideas were new.
 
 ## 0. Correction to the rank-quotient example
