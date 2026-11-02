@@ -154,6 +154,10 @@ A hypothetical Circuit-SAT-to-HOM reduction with \(n+|E(G)|=o(s/\sqrt{\log s})\)
 | General graphic/cographic full-span Span-CSP (SCGS/SGR), unrestricted Set Cover, general HOM, arbitrary Circuit-SAT | **NOT REFUTED HERE** | No established \(O(n)\)-wire tensorization for the rank test or appropriate fine-grained reduction |
 | Independent auditing / unconditional proof of full tensor theorem | **HIGH PRIORITY** | Entire new branch closure is contingent on this theorem |
 
+### Independent contemporary claim (not used in the proof)
+
+A separate November 2, 2026 preprint by Troy Tri Nguyen, [*A Sublinear Treewidth Exponent for Binary Constraint Satisfaction*](https://hexagonmath.org/2611.00004v1), claims a **domain-uniform**, bounded-degree \(L^{O_\Delta(1)}q^{O_\Delta(k/\sqrt{\log k})}\) exact CSP counting theorem and reports additional Lean work importing both OpenAI and Anthropic foundations. That stronger \(q\)-uniform theorem is **not assumed or audited** here: the conclusions above already follow for **polynomial \(q\)** directly from the full Boolean tensor theorem of OpenAI, if correct. An independent alert with separate verification checks is archived at [\`22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md\`](22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md). No inference about Lean proof completeness for either general theorem is made without inspecting dependencies.
+
 ## 8. Sources and historical note
 
 - [OpenAI Oct. 25 manuscript, full tensor theorem (source TeX)](https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-reduction.tex).
