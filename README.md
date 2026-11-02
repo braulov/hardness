@@ -20,6 +20,10 @@
 
 **Not closed by this argument:** dense Permutation Clique / PSCH, LogSAT-A/B, full-span graphic/cographic rank feasibility, generic Circuit-SAT, and the structural fixed-expander compiler as a mathematical question. No actual Git research branches are deleted; status supersessions are recorded in the linked audit and original notes.
 
+## 2026-11-02 follow-up: faster HOM/SubISO and a surviving hardness scale
+
+[New research checkpoint: fast sparse-source HOM/SubISO and SqrtLog-SPACH](docs/34_tensor_algorithms_for_hom_subiso_and_surviving_hardness.md). Under Nguyen's externally claimed domain-uniform binary-CSP counting theorem, sparse-source **#HOM** takes \(h^{O(n/\sqrt{\log n})}\operatorname{poly}\) time; standard color coding plus inclusion–exclusion extends this to ordinary **Subgraph Isomorphism** with only a \(2^{O(n)}\) factor. For \(h=n^{\Theta(1)}\), both have \(2^{O(n\sqrt{\log n})}\) conditional upper bounds. The 2026 Guo paper already obtains stronger conditional \(2^{O(n/\sqrt{\log n})}\) algorithms for sparse FVS/HC/Steiner/connectivity tasks, and randomized bounds from a narrower Lean-scoped #SAT premise. **New candidate hypothesis:** no \(q^{o(k/\sqrt{\log k})}\)-time algorithm for polynomial-alphabet cubic binary CSP (SqrtLog-SPACH), quantitatively compatible with the upper bound and potentially sufficient to exclude \(2^{O(n)}\) for polynomial-target 2-degenerate HOM after a fresh gadget audit. Alternative compiler targets: PCC \(\to O(K\sqrt{\log K})\)-size CSP or Circuit-SAT \(\to O(s/\sqrt{\log s})\)-size CSP. None is constructed.
+
 ## Research question
 
 Can a *restricted*, fine-grained-preserving graphic-rank feasibility problem act as a single source of hardness for graph problems involving connectedness, acyclicity, covers, and tours? Can a circuit representation of its rank predicate instead yield genuinely new subexponential algorithms?
