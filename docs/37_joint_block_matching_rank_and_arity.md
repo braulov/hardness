@@ -92,3 +92,6 @@ This requires more than edgewise rank reduction or grouping complete source assi
 
 
 **Adaptive-partition improvement (2026-11-02):** [Note 39](39_adaptive_block_rank_barrier.md) proves that on random $G(k,\sqrt{\log k}/k)$ every graph-adaptive partition with blocks $\le k^{1-\varepsilon}$ has total pairwise matching-number budget $m-O(k)$, w.h.p. This constrains repeated use of *this* cover-based worst-case rank construction, not general relation-specific factorizations.
+
+
+**New coarse-partition upgrade:** [Note 41](41_uniform_coarse_partitions_and_row_sensitive_grouping.md) proves uniform matching saturation for **all** graph-adaptive balanced coarse partitions with $g\le d/(100\log d)$, $d=\sqrt{\log k}$. It proves $U=\Theta(gk\log q)$ and $\sum_iP_i=\Theta(gk\log q)$ for the pairwise cover factorization; an improved overhead using sum-row instead of max-row cannot yield a superconstant saving in this regime.
