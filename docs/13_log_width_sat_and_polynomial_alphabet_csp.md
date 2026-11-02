@@ -61,3 +61,9 @@ For PCC the all-different/permutation requirement can be existentially compiled 
 5. Study whether algorithms on LogSAT-B yield N^{o(k)} Clique and stronger consequences; do NOT assert FPT=W[1] without an independent theorem.
 
 References: https://arxiv.org/html/2311.05913v3 ; https://toc.cs.uchicago.edu/articles/v006a005/ ; https://epubs.siam.org/doi/10.1137/1.9781611973082.60 ; https://github.com/openai/math/tree/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026
+
+## Randomized hypothesis variant and 2026-11-02 sampling bridge
+
+Randomized algorithms and reductions are fully allowed. Define **rSPACH** by excluding uniform bounded-error randomized 2^{o(v log v)} poly(L) algorithms on the same fixed-polynomial-alphabet cubic 2-CSP class. This is a separate, logically stronger hardness assumption than deterministic SPACH, and cannot be deduced from the latter. Define randomized PCC hardness analogously: no bounded-error randomized 2^{o(k log k)} poly(k) algorithm for arbitrary k-by-k Permutation Clique. A one-sided randomized PCC -> cubic CSP compiler plus a randomized fast CSP algorithm would produce a randomized fast PCC algorithm (after error amplification), not necessarily a deterministic one.
+
+**Main new conditional theorem:** [`18_randomized_low_soundness_pcp_to_linear_csp.md`](18_randomized_low_soundness_pcp_to_linear_csp.md) proves that an O(k)-position, poly(k)-alphabet, nonadaptive two-query PCC verifier with inverse-polynomial NO soundness can be randomly sampled to O(k) explicit CSP constraints with cubic degree and one-sided correctness. Also a constant-gap verifier with O(k) VC dimension of the entire proof failure-set family suffices. Neither verifier is currently constructed for arbitrary PCC; this is the new research target.
