@@ -1,5 +1,8 @@
 # Quadratic lower bound for oblivious 2-query compatibility testing, even with polynomial alphabet and randomized tables
 
+**CRITICAL 2026-11-02 UPDATE:** See [the domain-uniform CSP alert](22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md). A brand-new UNVERIFIED independent preprint claims a uniform q^{O(v/sqrt(log v))} deterministic algorithm for ALL bounded-degree binary CSPs. **If correct, SPACH/rSPACH as formulated here are FALSE**, and under RPCC-H no O(k)-size (indeed no o(k sqrt(log k))-size) general polynomial-alphabet bounded-degree CSP compiler exists. All earlier PCP/encoding lemmas should be viewed through this conditional algorithmic upper bound; don't present a purported compiler as SPACH evidence.
+
+
 **Research iteration 2026-11-02.** Main result is a self-contained elementary model-specific theorem. It is **not** a general lower bound for existential CSP compression, not a result about decision-only randomized reductions, and novelty relative to the coding/PCP literature is NOT established. This follows the two-layer interface audit (note 20) and directly tests the nonlinear LTC + global table idea.
 
 ## 1. Strong fixed-encoder model
