@@ -1,5 +1,8 @@
 # Closed hardness hypotheses after the 2026 sparse binary-CSP algorithms
 
+
+**Surviving candidate beyond this closure ledger:** [Critical-density CSP → 2-degenerate HOM](35_critical_density_csp_to_degen2_hom.md). It allows $m=O(k\sqrt{\log k})$ constraints on $k$ polynomial-alphabet variables. The new known/claimed bound after degree splitting is only $q^{O(k)}$ at this density, so a *no-$q^{o(k)}$* hypothesis is **not refuted by that bound**. The §4 HOM gadget extends to $n=O(k+m)$; if that new hypothesis were true it would rule out $2^{o(n\sqrt{\log n})}$ for sparse-source polynomial-target degeneracy-2 HOM. No independent hardness support is asserted.
+
 **Status date:** 2026-11-02. **This is the canonical status ledger for CSP/CEH-related hypotheses in the hardness repository.** This file supersedes *hardness interpretation*, not the mathematical content, of the older CEH, sorting, matching-compiler, and SPACH notes. No research files or branches are deleted.
 
 **Verification boundary.** This status is **conditional on accepting the externally claimed algorithmic theorems**. The downstream parameter calculations and the elementary bounded-degree reduction are independently checkable. This repository has **not** independently rebuilt the Anthropic/OpenAI tensor recursion or Nguyen's Lean development. Do not call the results independently certified merely because the preprints report Lean formalization.
