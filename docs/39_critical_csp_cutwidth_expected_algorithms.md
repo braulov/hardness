@@ -145,3 +145,14 @@ This improves \(1/12\approx0.0833333\) on this more structured graph family. The
 The general tensor algorithm asymptotically dominates these elementary expected-time bounds for sufficiently large \(k\). Our fixed-order DFS lower bound from note 38 remains consistent: it gives \(q^{\Omega(k)}\) for local-check DFS on UNSAT instances with any fixed order, but the constant is at most that allowed by our optimized upper bounds. Forward checking is **outside** the precise local-check-only lower-bound model from note 38.
 
 **Novelty caveat:** expected prefix-count analysis, random connected-block orderings, many-leaf spanning trees, and constraint support propagation are all classical ingredients. This combined estimate is an internally derived benchmark, NOT presented as a new published algorithm or a breakthrough against 2026 tensor contraction. It motivates testing adaptive cutwidth/frontier optimization and globally coupled algebraic algorithms.
+
+
+## E. Source references / novelty audit
+
+- P. S. Bonsma, [*Spanning Trees with Many Leaves in Graphs With Minimum Degree Three*](https://doi.org/10.1137/060664318), SIAM J. Discrete Math. 22(3), 2008: in connected triangle-free minimum-degree-three graphs a spanning tree with at least \((k+4)/3\) leaves exists **constructively**.
+- D. J. Kleitman and D. B. West, [*Spanning Trees with Many Leaves*](https://doi.org/10.1137/0404010), SIAM J. Discrete Math. 4(1), 1991: constructive \(k/4+2\) bound for minimum degree three.
+- B. Monien and R. Preis, [*Upper Bounds on the Bisection Width of 3- and 4-Regular Graphs*](https://doi.org/10.1016/j.jda.2005.12.009), J. Discrete Algorithms, 2006: classical bounds \(k/6+o(k)\) for **bisection width**, a different parameter from cutwidth.
+- F. V. Fomin and K. Høie, [*Pathwidth of cubic graphs and exact algorithms*](https://doi.org/10.1016/j.ipl.2005.10.008), Inf. Process. Lett. 97, 2006: \(k/6+o(k)\) **pathwidth** for cubic graphs (distinct from cutwidth).
+- Source of high-girth cubic expander families: classical Ramanujan constructions; for explicitness and girth see e.g. the [LPS original](https://doi.org/10.1007/BF02126799) and literature on degree-\(q+1\) families for prime-power \(q\). We do **not** rely on explicit construction details for the conditional-on-\(G\) algorithm statement.
+
+The cutwidth-based random-prefix expectation and pruning estimates above are elementary *notebook deductions*. Their precise asymptotic constants and whether the same formulas appear in older random CSP search literature have not been checked against all prior work. Do not advertise publication-level novelty until that review.
