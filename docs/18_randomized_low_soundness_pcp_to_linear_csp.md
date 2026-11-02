@@ -3,6 +3,8 @@
 **CRITICAL 2026-11-02 UPDATE:** See [the domain-uniform CSP alert](22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md). A brand-new UNVERIFIED independent preprint claims a uniform q^{O(v/sqrt(log v))} deterministic algorithm for ALL bounded-degree binary CSPs. **If correct, SPACH/rSPACH as formulated here are FALSE**, and under RPCC-H no O(k)-size (indeed no o(k sqrt(log k))-size) general polynomial-alphabet bounded-degree CSP compiler exists. All earlier PCP/encoding lemmas should be viewed through this conditional algorithmic upper bound; don't present a purported compiler as SPACH evidence.
 
 
+**ALSO:** Independently of the new domain-uniform preprint, the full Boolean tensor-contraction theorem claimed in OpenAI's October 2026 manuscript gives the same contradiction for polynomial alphabet through a direct bit-wire encoding; see [the source-specific audit and conditional branch closures](33_tensor_contraction_sparse_2csp_and_hardness_triage.md). The proof-test sampling lemmas below remain valid, but an O(k)-test PCC->CSP compiler, if constructed, would imply a faster PCC algorithm rather than establish sparse-CSP hardness under these algorithmic premises.
+
 **Research iteration 2026-11-02. Status:** elementary sampling theorem proved below; existence of the required PCP for arbitrary Permutation Clique is OPEN. Focus on randomized algorithms and reductions as first-class outcomes. This is a quantitative refinement of docs/17_pcp_bridge_gap_sampling_and_logsat.md and its predecessor, not a claim to have solved generic dense-to-sparse CSP compression.
 
 ## 1. Hypothesis bookkeeping: randomized is acceptable
