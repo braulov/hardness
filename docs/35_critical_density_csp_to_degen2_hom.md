@@ -151,9 +151,9 @@ This is exactly the threshold at which the new CSP counting bound stops refuting
 \[
 M'=o(k(\log k)^{3/2})
 \]
-bit wires and compatible polynomial-time local-entry queries, legal local degrees and modulus/precision. Then, *assuming the full tensor theorem*, the solver runs in
+bit wires and compatible polynomial-time local-entry queries, legal local degrees and modulus/precision. Use the theorem's size parameter $S=\Theta(\max\{M',k\log k\})$ (padding if required to accommodate $P_0=k\lceil\log_2q\rceil+1$ precision bits). Since $S=o(k(\log k)^{3/2})$, the full tensor theorem would give
 \[
-2^{O(M'/\sqrt{\log M'})}=2^{o(k\log k)}=q^{o(k)},
+2^{O(S/\sqrt{\log S})}=2^{o(k\log k)}=q^{o(k)},
 \]
 conditionally refuting the critical-density hypothesis.
 
