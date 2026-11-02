@@ -4,9 +4,9 @@
 
 ## 1. Exact problem
 
-For every even $K$ (or a cofinal admissible sequence) fix **one** labeled, efficiently constructible simple bipartite cubic expander $F_K$. An input specifies arbitrary explicit binary relations $R_{uv}\subseteq[q]^2$ for its edges, $q=K^c$. Assignment $x_vin[q]$, all relations must hold.
+For every even $K$ (or a cofinal admissible sequence) fix **one** labeled, efficiently constructible simple bipartite cubic expander $F_K$. An input specifies arbitrary explicit binary relations $R_{uv}\subseteq[q]^2$ for its edges, $q=K^c$. Assignment $x_v\in[q]$, all relations must hold.
 
-Its equivalent guise is **Partitioned / Colored Subgraph Isomorphism**: a graph with $K$ color classes $V_v={(v,a):a\in[q]}$, and between $V_u,V_v$ the allowed edge relation $R_{uv}$ for each $uv\in E(F_K)$; select one vertex per color class realizing all edges of $F_K$. No injectivity issue because classes are disjoint.
+Its equivalent guise is **Partitioned / Colored Subgraph Isomorphism**: a graph with $K$ color classes $V_v=\{(v,a):a\in[q]\}$, and between $V_u,V_v$ the allowed edge relation $R_{uv}$ for each $uv\in E(F_K)$; select one vertex per color class realizing all edges of $F_K$. No injectivity issue because classes are disjoint.
 
 $\mathrm{CEH}_c$: no uniform $q^{o(K)}\operatorname{poly}(|I|)$-time algorithm. Strong CEH: $\exists c>0:\mathrm{CEH}_c$. It implies corresponding polynomial-alphabet sparse-CSP hardness because of restriction of inputs; reverse implication requires a nontrivial many-one reduction. Do not replace the hypothesis with the weaker absence of $2^{O(K)}$.
 
@@ -19,7 +19,7 @@ $\mathrm{CEH}_c$: no uniform $q^{o(K)}\operatorname{poly}(|I|)$-time algorithm. 
 
 ## 2. Why sparse 3-COL is not the target
 
-3-COL on an arbitrary $N$-vertex graph, with $M$ edges, reduces to a width-3 CNF with $3N$ Boolean variables and $O(N+M)$ clauses. If the claimed October 2026 general fixed-width SAT speedup is correct, it covers even dense 3-COL. Conversely, polynomial-alphabet binary CSP encodes in CNF using $K\lceil\log_2 q\rceil$ bits, clauses of width $O(log q)$, and $O(Kq^2)$ clauses; the fixed-width result is not automatically applicable at this width.
+3-COL on an arbitrary $N$-vertex graph, with $M$ edges, reduces to a width-3 CNF with $3N$ Boolean variables and $O(N+M)$ clauses. If the claimed October 2026 general fixed-width SAT speedup is correct, it covers even dense 3-COL. Conversely, polynomial-alphabet binary CSP encodes in CNF using $K\lceil\log_2 q\rceil$ bits, clauses of width $O(\log q)$, and $O(Kq^2)$ clauses; the fixed-width result is not automatically applicable at this width.
 
 A local information-counting observation (model-specific): there are $2^{q^2}$ arbitrary binary relations on $[q]^2$, but at most $2^{O(B^3)}$ Boolean 3-CNFs on $B$ Boolean variables. Any universal relation-wise 3-CNF representation (even with existential auxiliary bits) would thus require $B=\Omega(q^{2/3})$ in general. This is not a global CSP reduction lower bound.
 
@@ -31,11 +31,11 @@ Vertices are ((v,a)), $v\in[K],a\in[q]$. Add every edge inside each class ${(v,a
 
 ### Set Cover / Hitting Set
 
-Sets $S_{v,a}$. Universe: choice elements $u_v$, covered by all $S_{v,a}$; and for every forbidden pair $(a,b)\notin R_{uv}$, an element $e_{uv,a,b}$, covered by every $S_{u,a'}$ with $a'\ne a$ and every $S_{v,b'}$ with $b'\ne b$. At most $K$ sets cover iff a CSP witness \exists. (Kq) sets and $O(Kq^2)$ universe elements. Hitting Set follows by dualization.
+Sets $S_{v,a}$. Universe: choice elements $u_v$, covered by all $S_{v,a}$; and for every forbidden pair $(a,b)\notin R_{uv}$, an element $e_{uv,a,b}$, covered by every $S_{u,a'}$ with $a'\ne a$ and every $S_{v,b'}$ with $b'\ne b$. At most $K$ sets cover iff a CSP witness exists. (Kq) sets and $O(Kq^2)$ universe elements. Hitting Set follows by dualization.
 
 ### Dominating Set
 
-For each CSP variable $v$, create a $q$-clique $C_v$ of candidate vertices. Add (K+1) false-twin guards adjacent only to $C_v$: a dominating set of size (le K) must choose at least one vertex from every $C_v$, hence exactly one from each and no guards. For each forbidden edge pair $(a,b)\notin R_{uv}$, put a separate guard adjacent to $C_u\setminus{(u,a)}$ and $C_v\setminus{(v,b)}$; it is not dominated precisely by the forbidden chosen pair. $O(Kq^2+K^2)$ vertices.
+For each CSP variable $v$, create a $q$-clique $C_v$ of candidate vertices. Add $K+1$ false-twin guards adjacent only to $C_v$: a dominating set of size at most $K$ must choose at least one vertex from every $C_v$, hence exactly one from each and no guards. For each forbidden edge pair $(a,b)\notin R_{uv}$, put a separate guard adjacent to $C_u\setminus\{(u,a)\}$ and $C_v\setminus\{(v,b)\}$; it is not dominated precisely by the forbidden chosen pair. $O(Kq^2+K^2)$ vertices.
 
 ### Set Packing
 
