@@ -92,3 +92,8 @@ B. Search independently for ANY 2^O(v) CSP algorithm on degree<=3, q=v^c: the ne
 C. Check an actual CSP->HOM construction with |G|=O(v), h=poly(v), and degen(H)<=2. Avoid presuming that generic relational incidence gadgets remove lists with linear-size pattern and keep degeneracy two; this is the central nontrivial transfer.
 
 D. If any evidence refutes full tensor theorem, return to previous SPACH/CEH branches only after locating the precise failed hypothesis. Retain conditional statements until external claims are validated.
+
+
+## Resolved transfer audit: our existing HOM pinning gadget DOES have the desired parameters
+
+The question left OPEN in Section 5 is now RESOLVED by direct inspection and generalization of our original arXiv 2607.09377 Section 4. See [`35_general_sparse_binary_csp_to_2deg_hom_linear_source.md`](35_general_sparse_binary_csp_to_2deg_hom_linear_source.md). The paper states its theorem for bipartite 3-regular CSP solely to invoke its old ETH source. Its pinning Lemma 4.4, correctness Lemma 4.5, sizes Lemma 4.6, and 3-subdivision Lemmas 4.7--4.8 extend to ANY loopless binary CSP with v variables and m constraints, giving n=255v+257m+251, h<=250(v+m)+251+5vq+7\sum_e|R_e|, degen(H)<=2. Thus rNSE-SCSP(c) on all cubic simple constraint graphs IMPLIES a no-randomized-2^{O(n)}poly(h) lower bound for ordinary 2-degenerate-target HOM with h=O(n^{2c+1}). This is a proved conditional implication, NOT a proof of rNSE-SCSP itself.
