@@ -102,3 +102,6 @@ A candidate construction must track: source k,m,q; number and sizes of groups; l
 - [Adaptive fine partition saturation](39_adaptive_block_rank_barrier.md).
 - [Joint interaction rank via bipartite matching](37_joint_block_matching_rank_and_arity.md).
 - [Growing-degree CSP criterion and earlier fixed-partition calculation](38_multilevel_factorization_and_degree_uniformity.md).
+
+
+**Decision-only contrast (2026-11-02):** The negative results here concern exact pairwise *tensor interface* factorization. [Note 42](42_robust_alphabet_quotients_fullrank_dense_csp.md) instead proves a robust alphabet quotient with exact **SAT iff**, even when every edge matrix has full rank $q$. Such a quotient is discovered by multi-edge Hamming signatures and supports greedy witness lifting, but generally does NOT preserve the exact number of witnesses. It bypasses the rank-based *method*, not the unsolved arbitrary-CSP algorithmic question.
