@@ -54,6 +54,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 14. [PCC-PCP VC-dimension and Reed–Solomon two-query barriers](../37_pcc_pcp_vcdim_and_rs_testing_barriers.md) — epsilon-net plus VC→PCC compression forces ζ+γ+2α≥2 for any uniform VCdim O(K^ζ), and (conditionally on Nguyen + RPCC-H) forbids uniformly o(K√log K) VCdim; bare RS membership tests with two queries are vacuous.
 
+15. [Adaptive grand-product failure and AllDifferent width](../38_adaptive_grand_product_and_all_different_width.md) — for every public randomized fingerprint with fewer than 2^{K−O(log K)} states a duplicate-list counterfeiter exists; exact one-pass nondeterministic checking requires exponentially many states, and every exact polynomial-alphabet AllDifferent CSP extension has treewidth Ω(K/log K).
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
