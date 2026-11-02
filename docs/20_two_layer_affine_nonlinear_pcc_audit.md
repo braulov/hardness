@@ -1,5 +1,8 @@
 # Two-layer PCC compiler audit: affine consistency, nonlinear information capacity, and high-treewidth interface
 
+**CRITICAL 2026-11-02 UPDATE:** See [the domain-uniform CSP alert](22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md). A brand-new UNVERIFIED independent preprint claims a uniform q^{O(v/sqrt(log v))} deterministic algorithm for ALL bounded-degree binary CSPs. **If correct, SPACH/rSPACH as formulated here are FALSE**, and under RPCC-H no O(k)-size (indeed no o(k sqrt(log k))-size) general polynomial-alphabet bounded-degree CSP compiler exists. All earlier PCP/encoding lemmas should be viewed through this conditional algorithmic upper bound; don't present a purported compiler as SPACH evidence.
+
+
 **2026-11-02. Status:** self-contained elementary proved lemmas, a quantified restricted-model obstruction, and a concrete OPEN compiler interface. Randomized algorithms and reductions are fully permitted. No generic Permutation Clique -> O(k)-constraint 2-CSP compiler is claimed. This iteration follows notes 14, 18, 19 and the existing PSCH checkpoint; avoid overstating originality.
 
 ## A. Two-layer target and parameter ledger
