@@ -59,3 +59,16 @@ Without a polynomial-time restriction on preprocessing, even a one-bit output is
 
 - Dell–van Melkebeek, *Satisfiability Allows No Nontrivial Sparsification Unless the Polynomial-Time Hierarchy Collapses*, JACM 2014; ECCC TR10-038 https://eccc.weizmann.ac.il/report/2010/038/ .
 - Jansen–Pieterse, *Sparsification Upper and Lower Bounds for Graph Problems and Not-All-Equal SAT*, Algorithmica 79:3–28 (2017), section 1.1 explicitly restates the n-vertex Vertex Cover lower bound against compression to any language: https://link.springer.com/article/10.1007/s00453-016-0189-9 .
+
+
+## Randomized compilers: Drucker's extension
+
+The deterministic Dell–van Melkebeek lower bound above extends to randomized polynomial-time **standalone compression algorithms with two-sided error**. Andrew Drucker, *New Limits to Classical and Quantum Instance Compression*, Theorem 7.11 (2012 ECCC revision 2, SIAM J. Comput. 2015), proves: for each integer d>=2 and eps>0, there is a beta>0 such that a randomized compression of d-uniform hypergraph Clique (or d-Vertex Cover) to O(N^(d-eps)) bits, with success probability at least 1/2+N^(-beta), implies NP subset coNP/poly. For d=2 this is ordinary graph Clique / Vertex Cover; constant success 2/3 is certainly sufficient.
+
+The same n-vertex Vertex Cover -> k-Clique padding with k=Theta(n) and N=2n therefore transfers the **subquadratic bit lower bound** also to randomized compilers for ordinary Clique with N<=k^2, as long as the success probability is at least a fixed constant >1/2 and the output is a standalone instance of a fixed target language.
+
+This specifically constrains the earlier randomized PCP-test-sampling -> CSP pipeline: if m=O(k polylog k) and Q=k^(1/2-delta), then the output has O(k^(2-eps)) bits, contradicting NP not subset coNP/poly even when the sampling is randomized. For Q=k^2 or larger this does **not** exclude the proposed near-linear constraint count.
+
+Scope: Drucker's extension is for probabilistic *compression mappings*, not all oracle communication models. It does not require the target CSP itself to be solvable efficiently. A reduction with free continued access to the original input does not qualify as standalone compression.
+
+Reference: Andrew Drucker, *New Limits to Classical and Quantum Instance Compression*, ECCC TR12-112 revision 2, Theorem 7.11 (PDF pages 45–46), https://eccc.weizmann.ac.il/report/2012/112/ ; published SICOMP 44(5):1443–1479, https://doi.org/10.1137/130927115 .
