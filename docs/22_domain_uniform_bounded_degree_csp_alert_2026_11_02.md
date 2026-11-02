@@ -59,6 +59,24 @@ For a degree-Delta graph of v variables with domain [q], create one equality ten
 
 This proves a reduction to bounded-valence tensor contraction but DOES NOT by itself establish q^{O(v/sqrt log v)}. That demands a contraction theorem UNIFORM in growing bond dimension q, including bit complexity. Boolean-only q=2 tensor results do not automatically imply it. This is the key independent audit point.
 
+## D2. Source-text check against Nguyen v1 (2026-11-02)
+
+The preprint's [Hexagon record](https://hexagonmath.org/2611.00004v1) and [full indexed manuscript text](https://hub.valency.io/works/W_88675vdy) explicitly state **Theorem 1.2** as a single deterministic exact-counting algorithm for *arbitrary complete-table binary relations* on graphs of maximum degree at most each **fixed** \(\Delta\):
+\[
+  L^{O_\Delta(1)}D^{O_\Delta(k/\sqrt{\log k})},
+\]
+uniformly in \(D\ge2\). This claim is stronger in its *domain-uniform quantifiers* than the polynomial-domain application of the separate OpenAI Boolean tensor theorem recorded in [note 33](33_tensor_contraction_sparse_2csp_and_hardness_triage.md). **This verification concerns the paper's statement and its internal argument, not a successful independent replay of the complete formalization.**
+
+**Corollary for arbitrary sparse complete-table CSP (elementary reduction, conditional on Theorem 1.2).** If the source has \(k\) variables and \(m=O(k)\) binary constraints but arbitrary degrees, replace each occurrence of a variable by a distinct copy, connect its copies in an equality *path*, and put its original relation between the appropriate copies. There are at most \(2m\) occurrence copies (plus isolated vertices), \(O(k+m)\) equality/relation edges, and maximum primal degree \(3\). The correspondence of assignments is **one-to-one**, so exact solution counts are preserved. Because the source uses complete tables, writing explicit equality tables costs only \(\operatorname{poly}(L,k)\); this point must **not** be assumed for succinct-domain or tiny tuple-list representations of huge \(D\). Theorem 1.2 therefore yields
+\[
+  \operatorname{poly}(L,k)\,D^{O((k+m)/\sqrt{\log(k+m)})}
+\]
+for all sparse complete-table binary CSPs, with constants independent of \(D\). For \(m=O(k)\), this is \(D^{O(k/\sqrt{\log k})}\operatorname{poly}(L)\).
+
+**Theorem 1.1 / Marx Conjecture 1.4.** Nguyen further constructs an explicit bounded-degree expander class \(\mathcal G\) with \(\operatorname{tw}(G)=\Theta(|V(G)|)\). The asserted globally correct native algorithm has runtime \(f(G)\|I\|^{O(\operatorname{tw}(G)/\sqrt{\log\operatorname{tw}(G)})}\) there, which is \(f(G)\|I\|^{o(\operatorname{tw}(G))}\). Thus **if the imported algorithmic results and the new proof are sound**, it *contradicts the literal standalone Conjecture 1.4* in [Marx, *Can You Beat Treewidth?*, 2010, p. 88](https://theoryofcomputing.org/articles/v006a005/v006a005.pdf), **not** the older conditional Theorem 1.3, whose forbidden exponent is \(o(\mathrm{tw}/\log\mathrm{tw})\).
+
+**Provenance and trust boundary.** The manuscript explicitly credits the basic signed tensor-network counting recursion and grouping theorem to **Anthropic/Claude** and expander and tree foundations to **OpenAI**. Its claimed new work is uniform-domain CSP encoding, parameter/native-runtime audits, support pruning, the treewidth transfer, and **Lean 4 downstream formalization** using pinned external imports. It reports Lean endpoints \`DenseCSPTheorem.exists_counter\`, \`SparseNativeMachine.exists_native\`, and \`MarxConjecture.not_statement\`, with only standard axioms in selected dependency reports; it also explicitly states that the verification does **not** replay all upstream modules independently. Until the complete overlay/source manifest and upstream dependencies have been independently rechecked, mark this **CLAIMED / CONDITIONAL**, not conclusively verified.
+
 ## E. What remains unaffected and priorities
 
 - Dense PCC -> log-width CNF with Theta(k log k) Boolean variables is still a valid deterministic reduction. The new CSP algorithm does not automatically solve all log-width SAT in 2^{o(n)}, because a suitable linear-parameter reduction to bounded-degree polynomial-alphabet CSP is missing.
