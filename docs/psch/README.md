@@ -66,6 +66,10 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 20. [Linear-matroid matching and hybrid factors](../43_matroid_factor_matching_deterministic_2exp.md) — one matroid-independence constraint on candidate positions admits randomized O*(2^K) and deterministic 2^{O(K)} matching algorithms via determinant inclusion–exclusion, exterior-algebra DP and folded-Wronskian condensation; combines with Ferrers factors and strictly extends rainbow/color and small Boolean/Ferrers covers.
 
+20. [Linear-matroid matching, exterior DP and rank condenser](../43_matroid_factor_matching_deterministic_2exp.md) — determinant inclusion–exclusion gives randomized O*(2^K); deterministic wedge-span DP and folded-Wronskian condensation give 2^{O(K)} for arbitrary representable matroid labels and mix with Ferrers factors.
+
+21. [Arbitrary PCC as sparse-paving matroid matching](../44_sparse_paving_matroid_pcc_oracle_equivalence.md) — any PCC input reduces exactly to a rank-K sparse-paving matroid with polynomial independence/rank oracle; distinguishing NO from a single hidden accepted permutation requires Ω(K!) oracle queries. Explicit linear representation is the essential difference.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
