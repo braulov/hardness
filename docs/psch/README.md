@@ -29,6 +29,9 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 1. [Full chronological checkpoint v7, November 2](2026-11-02_full_checkpoint_v7.md) — all recorded arguments, limitations, source links, corrections, and open problems.
 2. [Research brief for branch A](../../prompts/psch_williams_one_pass_2026-11-02.md).
 
+
+3. [Universal-selector quantified CSP compilation (Nov 2)](2026-11-02_universal_selector_qcsp.md) — a precise `exists-forall-exists` tree-CSP with O(k) constraints for *arbitrary* dense binary CSP, identifying one universal index as the exact obstacle; not a solution for unquantified CSP.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
