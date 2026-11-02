@@ -34,6 +34,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 4. [One-variable divisibility and quotient-circuit barrier](2026-11-02_univariate_remainder_and_quotient_barrier.md) — exact ordinary-Clique identity, scalar-trace caveat, and an unconditional lower bound for *explicit quotient* arithmetic circuits; universal compilation remains open.
 
+5. [Planar exact-extension separator barrier](2026-11-02_planar_extension_separator_barrier.md) — unconditional Ω(k²/log²Q) lower bound for planar exact projected-solution encodings of a sparse expander-port CSP, plus a separate PSCH-conditional decision-only tradeoff.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
