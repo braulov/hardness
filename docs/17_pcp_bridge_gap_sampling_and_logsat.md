@@ -1,5 +1,8 @@
 # Permutation Clique -> sparse CSP via exact noninteractive proof tests
 
+**CRITICAL 2026-11-02 UPDATE:** See [the domain-uniform CSP alert](22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md). An UNVERIFIED new preprint claims a q^{O(v/sqrt(log v))} deterministic algorithm for bounded-degree binary CSP. If correct SPACH/rSPACH are FALSE and, assuming RPCC-H, generic linear-size bounded-degree compilers are impossible. This updates motivation but does not invalidate the elementary PCP sampling lemmas.
+
+
 > **2026-11-02 CONDITIONAL CLOSURE OF HARDNESS-TRANSFER TARGET.** If the *full* OpenAI Boolean tensor-contraction theorem is correct, any explicitly represented sparse polynomial-alphabet 2-CSP with \(r=k'+m'\) variables plus constraints can be solved in \(2^{O(r\sqrt{\log K})}\operatorname{poly}(K)\) when the output alphabet is \(K^{O(1)}\). Therefore, under the separately conjectured no-\(2^{o(K\log K)}\) PCC-hardness assumption, a polynomial-time PCC \(\to\) sparse 2-CSP compiler with \(r=o(K\sqrt{\log K})\), **including the O(K) stretch goal, cannot exist**: otherwise it gives a faster PCC algorithm. The downstream SPACH/rSPACH hardness claims are also conditionally refuted. **Keep the exact gadgets, PCP sampling lemmas, and structural barriers; do not claim the mathematical existence question has been disproved unconditionally.** The full tensor theorem is not part of the documented Lean scope. See [audit and branch triage](33_tensor_contraction_sparse_2csp_and_hardness_triage.md).
 
 
