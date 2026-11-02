@@ -64,6 +64,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 19. [Ferrers/chain-cover PCC and rainbow boundary](../42_ferrers_chain_cover_and_rainbow_pcc.md) — r threshold/Ferrers forbidden factors give K^{O(r)} matching algorithm and O(Kr+KlogK) exact degree-3 CSP; a single factor can have Θ(K²) biclique-cover number and rank; one color-equality factor is NP-complete but yields a 2^{O(K)}-time hybrid.
 
+20. [Linear-matroid matching and hybrid factors](../43_matroid_factor_matching_deterministic_2exp.md) — one matroid-independence constraint on candidate positions admits randomized O*(2^K) and deterministic 2^{O(K)} matching algorithms via determinant inclusion–exclusion, exterior-algebra DP and folded-Wronskian condensation; combines with Ferrers factors and strictly extends rainbow/color and small Boolean/Ferrers covers.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
