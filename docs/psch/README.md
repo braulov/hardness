@@ -36,6 +36,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 5. [Planar exact-extension separator barrier](2026-11-02_planar_extension_separator_barrier.md) — unconditional Ω(k²/log²Q) lower bound for planar exact projected-solution encodings of a sparse expander-port CSP, plus a separate PSCH-conditional decision-only tradeoff.
 
+6. [Decision-only bit-budget lower bound](2026-11-02_decision_only_bit_budget.md) — from Dell–van Melkebeek: no subquadratic-bit universal compression of ordinary Clique with N≤k² unless NP⊆coNP/poly; applies to near-linear CSP even with arbitrary global relations, and to succinct relation descriptors independently of alphabet size.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
