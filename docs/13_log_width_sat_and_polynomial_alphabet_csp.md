@@ -1,5 +1,8 @@
 # Sparse polynomial-alphabet 2-CSP and two versions of log-width SAT
 
+**CRITICAL 2026-11-02 UPDATE:** See [the domain-uniform CSP alert](22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md). A brand-new UNVERIFIED independent preprint claims a uniform q^{O(v/sqrt(log v))} deterministic algorithm for ALL bounded-degree binary CSPs. **If correct, SPACH/rSPACH as formulated here are FALSE**, and under RPCC-H no O(k)-size (indeed no o(k sqrt(log k))-size) general polynomial-alphabet bounded-degree CSP compiler exists. All earlier PCP/encoding lemmas should be viewed through this conditional algorithmic upper bound; don't present a purported compiler as SPACH evidence.
+
+
 > **STATUS UPDATE — 2026-11-02: SPACH / rSPACH CONDITIONALLY REFUTED; ARCHIVED AS HARDNESS HYPOTHESES.** The general Boolean tensor-contraction theorem stated in OpenAI's October 25, 2026 manuscript, if correct, gives deterministic \(q^{o(v)}\operatorname{poly}(L)\) exact counting on **all** sparse explicit binary CSPs with \(q=v^{\Theta(1)}\); hence both the deterministic and randomized SPACH hypotheses as defined below are false under that external theorem. The newer result is NOT covered by the specifically documented fixed-width CNF Lean formalization. **Do not use SPACH to deduce no-fast-LogSAT, CEH, or HOM hardness while accepting the full tensor theorem.** The definitions, elementary reductions, and open dense-PCC/LogSAT questions are preserved as historical mathematical notes. Full proof/parameter audit: [tensor contraction and branch triage](33_tensor_contraction_sparse_2csp_and_hardness_triage.md).
 
 
