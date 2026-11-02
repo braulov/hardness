@@ -117,3 +117,10 @@ Find an **existential/decision-preserving** compilation of an arbitrary degree-3
 Candidate workflows: $i$ leverage a moderately high-degree fixed universal graph plus a constraint-specific batch compression, while keeping its full parameter budget; (ii) group many checks algebraically using existential witnesses without false positives; (iii) pursue conditional impossibility for tightly defined reduction models, not for arbitrary reductions. Every proposal needs exact SAT iff, explicit table-size construction bound, target $K$, alphabet $q'$, uniformity, and audit of randomized error if any.
 
 See [01_reductions.md](01_reductions.md), [02_matching_compiler_research_log.md](02_matching_compiler_research_log.md), and [03_audit_and_next_steps.md](03_audit_and_next_steps.md).
+
+
+## 7. New constructive bridge: universal factor graphs and sorting (2026-11-02)
+
+A new explicit **logarithmic-overhead**, fixed-topology reduction was reconstructed using a word-level oblivious sorting network (compare Feige–Jozeph 2012). Arbitrary $m=O(k)$ binary relations can be represented as $2m$ labeled occurrence records, sorted by variable label, with local equality checks on adjacent equal keys. This yields a fixed bounded-degree constraint graph of $O(k\log k)$ vertices and polynomial alphabet; overlaying a fixed expander and using an even-cycle port replacement yields **one predetermined simple bipartite cubic expander** of $K=O(k\log k)$ vertices. The reduction is polynomial-time, SAT-iff, and avoids searching for minors. See [04_universal_factor_graph_sorting_bridge.md](04_universal_factor_graph_sorting_bridge.md) for the construction, expansion argument, comparison with published UFG, and exact conditional runtime transfer.
+
+The $\Omega(k\log k)$ size bound for literal 2-by-2 switching/sorting networks is a barrier **only for that architecture**, not for nonlinear/algebraic or decision-only compilers. We still need $K=O(k)$ for full CEH–SPACH equivalence.
