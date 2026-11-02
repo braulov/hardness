@@ -88,3 +88,6 @@ Verified elementary rank identities and direct encodings **do not** establish a 
 - OpenAI Lean formalization scope: https://github.com/openai/math/blob/main/lean/docs/378.md
 - OpenAI release and external review plan: https://openai.com/index/building-scientific-understanding-with-academic-communities/
 - Ganian, de Haan, Kanj, Szeider (2016; journal 2020), *On Existential MSO and Its Relation to ETH*: https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2016.42 ; https://doi.org/10.1145/3417759
+## PSCH research notebook (2026-11-02)
+
+A separate two-branch investigation of the **Polynomial-Size Clique Hypothesis** is archived at [docs/psch/README.md](docs/psch/README.md). Branch A studies whether a very fast polynomial-size Clique algorithm implies strong general circuit lower bounds; branch B studies conditional fine-grained reductions to CSP/HOM/SubISO and exact existential sparsification constructions (including Beneš/AllDifferent and Hamiltonian Path). These are working results requiring independent audit, not theorem announcements.
