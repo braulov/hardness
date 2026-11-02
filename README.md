@@ -104,3 +104,6 @@ The focused **Permutation k x k Clique -> cubic sparse 2-CSP** research branch i
 
 
 **Quadratic-form iteration (2026-11-02):** [`docs/15_quadratic_form_and_alldifferent_interface_barriers.md`](docs/15_quadratic_form_and_alldifferent_interface_barriers.md) proves an O(kr)-constraint cubic CSP compiler for rank-r quadratic incompatibility matrices, exhibits a rank Theta(k^2) AllDifferent matrix with an O(k log k) Beneš encoding, and proves nondeterministic streaming and exact-projection separator lower bounds for AllDifferent. These are model-specific results; the arbitrary PCC -> O(k) compiler is still OPEN.
+
+
+**Further PCC iteration:** [`docs/16_permutation_mixed_difference_rank_and_routing.md`](docs/16_permutation_mixed_difference_rank_and_routing.md) proves a polynomial-time computable mixed-difference lower-bound certificate for the rank modulo all permutation identities, gives an explicit 0/1 PCC instance with quotient rank Omega(k^2), and proves Omega(k log k) total literal-routing cost on constant-degree permutation networks with bounded congestion. These model-specific barriers do not rule out general existential decision-preserving CSP reductions.
