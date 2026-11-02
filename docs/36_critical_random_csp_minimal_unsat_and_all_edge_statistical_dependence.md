@@ -142,6 +142,10 @@ Suppose an algorithm may adaptively request **whole edge tables**, but must stop
 \]
 The restriction to **whole-edge-table** queries is essential: an algorithm reading a few entries of *every* edge is outside this bound.
 
+## Further sharpening: all-edge Fourier signal (see note 37)
+
+The conditional-expectation indistinguishability estimates above can be strengthened to an exact \(p\)-biased Fourier statement. [Note 37](37_critical_expander_low_degree_fourier_and_path_saturation.md) computes the full likelihood-ratio spectrum and proves \(\|L^{\le m-1}-1\|_2=o(1)\) for \(m=3k/2\) under \(c>\max(3/2,3/\gamma)\). Thus *any* normalized polynomial statistic of the full explicit input of degree \(<m\) has vanishing difference in planted-vs-null means. The technique is the standard low-degree likelihood-ratio method and does not establish computational hardness. The same note shows path-composition saturation at length four and a simple \(o(q^2)\) individual-bit query lower bound.
+
 ## 4. What this means for the hardness search
 
 - A fixed-expander **random-source distribution** has nontrivial SAT/UNSAT probabilities, but local supports, all proper CSP subinstances, and any proper collection of whole relation tables reveal little global consistency information.
