@@ -92,3 +92,17 @@ Then sample O(k) tests and normalize to cubic CSP. If full construction is out o
 (C) an explicit k-dependent quantitative transfer from an existing parallel-PCP into the required parameters without confusing input length and witness length.
 
 For any proposed construction, report four independent costs: proof positions, alphabet bits, test arity, and soundness. Also track the original verifier cost and any input-dependent preprocessing. *Randomized algorithms are explicitly welcome:* use a randomized hardness conjecture rather than forbidding randomized intermediate steps.
+
+## 8. Alternative route: constant soundness plus small VC dimension (PROVED conditional transfer)
+
+For a fixed NO input x, let Omega_x be the universe of sampled verifier tests with distribution D_x. Every proof P defines its *failure set* F_P={t in Omega_x: t rejects P}; write F_x={F_P: P in [Q]^l}. The verifier has soundness s iff D_x(F_P)>=delta=1-s for every proof P.
+
+By the standard epsilon-net sampling theorem (Haussler--Welzl), if the range space (Omega_x,F_x) has VC dimension d, then
+
+    t=O((d/delta)*log(1/delta) + (1/delta)*log(1/eta))
+
+independent samples from D_x hit EVERY failure set with probability at least 1-eta. Thus even with **constant soundness gap delta>0**, having d=O(k) suffices for an O(k)-constraint one-sided randomized compiler! This bypasses the generic union bound over Q^l proof assignments. Another sufficient condition is at most 2^{O(k)} *distinct* failure sets, which yields t=O(k) directly by union bound.
+
+This is conditional, not a claim that the desired low-VC PCP exists. The generic bound d<=l log_2 Q=O(k log k) follows just by counting proofs, and can be tight: take l symbols from alphabet [2^b] and lb unary tests, each checking one chosen bit of a symbol. Their failure patterns shatter all lb tests, so VCdim=lb=Theta(l log Q). Such proof-test systems need not be unsatisfiable; the example establishes only that binary/low-query syntax by itself gives no VC improvement. Seeking a special verifier whose NO failure-set family has VCdim O(k), while still distinguishing arbitrary PCC inputs, is therefore a separate precise research target. An explicit low VC-dimension bound must be proved for **all** proofs, not only well-formed encodings of actual permutations.
+
+Reference: Haussler--Welzl epsilon-net theorem, e.g. https://sites.cs.ucsb.edu/~suri/cs235/EpsilonNet.pdf .
