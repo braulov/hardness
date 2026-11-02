@@ -132,6 +132,10 @@ with the appropriate block-fraction \(u\) for that prefix. Consequently forward-
 \]
 This improves \(1/12\approx0.0833333\) on this more structured graph family. The \(\ell\ge k/3\) and \(g(G)=\Omega(\log k)\) requirements are explicit. The algorithm's correctness is unconditional for **all** relation-table inputs; the stated expected runtime holds over the critical iid table distribution.
 
+## Next refinement: group-lookahead and a computable matching gain
+
+[Note 40](40_group_lookahead_boundary_entropy_and_matching.md) extends the single-vertex forward-check expectation to any vertex-disjoint family of free induced trees \(U\): the group-local extension expectation is \(q^{(b_R(U)-b_S(U))/3}\), and its effect on the prefix exponent is the credit \((b_S(U)-b_R(U))_+/3\). Taking all singletons or selected adjacent pairs, the **best provable improvement** is found by maximum-weight matching: an unassigned edge joining vertices with \(j\in\{1,2\}\) and \(j'\in\{2,2\}\) receives a positive bonus. This produces an exact polynomial-overhead search improvement on some prefixes, but it does **not yet establish a smaller universal asymptotic coefficient** than the \(0.070126\) in Section C. Checking all connected induced-tree groups of \(O(\log k)\) vertices is still polynomial per node, and leads to a precise new boundary-entropy potential whose sublinearity remains open.
+
 ## D. Comparison and honest limitations
 
 | Method | Expected running time on the critical Bernoulli CSP |
