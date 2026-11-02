@@ -1,5 +1,8 @@
 # CEH: reductions, probabilistic probe, and parameter audit
 
+> **HARDNESS BRANCH CLOSED (conditional on the November 2026 CSP counting theorems).** The Nguyen preprint claims a deterministic $q^{O(k/\sqrt{\log k})}\operatorname{poly}(L)$ algorithm for every fixed-degree binary CSP; the full OpenAI Boolean tensor theorem separately implies the same for sparse polynomial-alphabet CSP. Thus the **SPACH, rSPACH, CEH and randomized-CEH no-$q^{o(k)}$ hypotheses are conditionally refuted**, and their hardness consequences must not be used. This document is retained for its reductions/structural questions; neither the claimed algorithms nor the Lean dependency chains have been independently audited here. See the [closure registry](../34_csp_hypothesis_closure_registry_2026_11_02.md), [Nguyen audit](../22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md), and [tensor analysis](../33_tensor_contraction_sparse_2csp_and_hardness_triage.md).
+
+
 **Branch:** [README](README.md). **Date:** 2026-11-02. **Proven below** means directly checkable elementary argument as stated; literature-dependent or long unreviewed chat proofs are marked separately.
 
 ## 1. Exact problem
