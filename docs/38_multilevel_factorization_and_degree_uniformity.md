@@ -119,3 +119,6 @@ So simply replacing $\theta_e$ by matching-cover labels **does not improve the p
 
 
 **Strengthening (2026-11-02):** The limitation to a fixed partition in §1 has now been **removed**. [Note 39](39_adaptive_block_rank_barrier.md) proves w.h.p. *simultaneously for every (possibly adaptive and uneven) partition* whose maximum block size is at most $k^{1-\varepsilon}$ that $\sum_{i<j}\nu(G[A_i,A_j])\ge m-(35/12)k$. It uses uniform small-set sparsity and repeated-neighbor counting. All stated limitations on non-cover and globally shared algebraic representations remain.
+
+
+**Source-level refinement (2026-11-02):** [Note 40](40_nguyen_grouping_overhead_and_random_csp_greedy.md) checks Nguyen's imported grouping formulas (17)-(18): with $g=3K^8$, the advertised upper-bound expression includes $2^{2gP/K}$ and the internal rate is only certified as $O(1/\sqrt{\log K})$. For fixed balanced groups on random critical graphs, $g=o(\sqrt{\log k})$ implies each pair has matching size at least half a group, hence the cover-interface row capacity $P=\Omega(k\log q)$ and $gP/K=\Omega(k\log q\cdot K^7)$. Thus naive group compression does not improve the **published bound**; this is not a lower bound on arbitrary implementations. The note also proves that dense random binary relation tables have a strong greedy extension property.
