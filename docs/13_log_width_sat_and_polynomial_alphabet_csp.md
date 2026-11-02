@@ -1,5 +1,7 @@
 # Sparse polynomial-alphabet 2-CSP and two versions of log-width SAT
 
+**Status:** SPACH and randomized SPACH are **CLOSED / conditionally refuted** by the Nov. 2026 claimed CSP counting algorithms. This historical note remains useful for CNF encodings and *open* LogSAT/PCC issues; see [closure ledger](34_csp_hypothesis_closure_registry_2026_11_02.md).
+
 **CRITICAL 2026-11-02 UPDATE:** See [the domain-uniform CSP alert](22_domain_uniform_bounded_degree_csp_alert_2026_11_02.md). A brand-new UNVERIFIED independent preprint claims a uniform q^{O(v/sqrt(log v))} deterministic algorithm for ALL bounded-degree binary CSPs. **If correct, SPACH/rSPACH as formulated here are FALSE**, and under RPCC-H no O(k)-size (indeed no o(k sqrt(log k))-size) general polynomial-alphabet bounded-degree CSP compiler exists. All earlier PCP/encoding lemmas should be viewed through this conditional algorithmic upper bound; don't present a purported compiler as SPACH evidence.
 
 
