@@ -50,6 +50,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 11. [Nguyen/PCC critical compression window and PCP soundness threshold](../35_domain_uniform_csp_and_critical_pcc_pcp_window.md) — domain-uniform fixed-arity and cyclomatic corollaries; under RPCC-H and Nguyen the viable compression exponent is 1/2≤β<1, with critical PCP soundness exp(-Θ(√log K)).
 
+13. [Short PCC-PCP alphabet/gap barrier from VC](../36_pcc_short_pcp_alphabet_gap_barrier.md) — VC(n) → PCC(K=n), and under NP⊄coNP/poly, an O(K)-symbol two-query PCC-PCP with Q≤K^α and rejection gap ≥K^{-γ} requires 2α+γ≥1; explains why naive repetition cannot hit the critical parameters.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
