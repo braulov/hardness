@@ -65,3 +65,7 @@ vanishes exactly when the one-hot choices form a Permutation Clique. Over any pr
 - Karthik C. S., Marx, Pilipczuk, Souza, *Conditional lower bounds for sparse parameterized 2-CSP*, SOSA 2024: https://arxiv.org/html/2311.05913v3
 - Local PSCH research checkpoint: docs/psch/2026-11-02_full_checkpoint_v7.md
 - Complementary log-SAT/SPACH note: docs/13_log_width_sat_and_polynomial_alphabet_csp.md
+
+## Follow-up iteration: quadratic form and interface barriers
+
+See [`15_quadratic_form_and_alldifferent_interface_barriers.md`](15_quadratic_form_and_alldifferent_interface_barriers.md) for elementary proofs of (a) rank-r incompatibility compilation with O(k(r+1)) degree-3 binary CSP constraints (without permutations), (b) high collision rank k(k-1) despite the O(k log k) Beneš AllDifferent gadget, (c) a 2^{Omega(k)}-state fooling-set lower bound for even *nondeterministic* sequential permutation verifiers, and (d) treewidth Omega(k/log q) for polynomial-alphabet exact-projection AllDifferent encodings with designated row terminals. None settles unrestricted PCC. The correct priority is to seek a nonsequential expander-like existential interface, not one polynomial-size running checksum.
