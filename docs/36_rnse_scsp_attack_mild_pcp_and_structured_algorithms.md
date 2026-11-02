@@ -1,5 +1,8 @@
 # Attacking rNSE-SCSP: mild-soundness PCP transfer and exact structured algorithms
 
+> **STATUS WARNING — 2026-11-02:** SPACH/CEH, i.e. ALL no-(q^{o(v)}) conjectures for bounded-degree, polynomial-alphabet sparse binary CSP, are conditionally FALSE by Nguyen's [2026 domain-uniform CSP theorem](https://hexagonmath.org/2611.00004v1), which also yields a counterexample to Marx's literal sublinear-treewidth-exponent conjecture. The (rNSE\)-SCSP question in this note is explicitly *WEAKER and UNPROVED*: prohibiting (2^{O(v)}), not (q^{o(v)}). The new algorithm gives (2^{O(v\sqrt{\log v})}) at (q=v^c), so it does not settle rNSE-SCSP. The stronger surviving critical-density hardness TEMPLATE, (m=\Theta(v\sqrt{\log v})), is in [note 35](35_critical_density_csp_to_degen2_hom.md). None of these candidate assumptions is certified as true.
+
+
 **2026-11-02. New claims below are elementary derivations with proofs, NOT an algorithm for arbitrary cubic polynomial-alphabet CSP and NOT a proof of the new hardness conjecture.** Context: notes 33-35 show (conditional on an unverified full tensor-contraction theorem) a 2^{O(v sqrt(log v))} sparse CSP algorithm, and note 35 verifies an O(v)-source, degree-2 target HOM reduction. This note seeks a viable independent source for a **no 2^{O(v)}** randomized sparse CSP conjecture, or an algorithmic attack on it. Randomized algorithms and reductions are explicitly allowed.
 
 ## 1. Important weakened PCP requirement: any SUBCONSTANT soundness suffices for no-single-exp transfer (PROVED conditional)
