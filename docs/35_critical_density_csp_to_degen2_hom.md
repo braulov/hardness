@@ -182,3 +182,6 @@ If such a method is found, it would give a meaningful algorithmic result rather 
 
 
 **Positive special-case algorithm (2026-11-03):** [Note 43](43_spectral_quotient_greedy_and_explicit_hadamard_fullrank.md) proves a spectral pseudorandom greedy-lifting theorem for binary CSP. It gives an unconditional $r^k$ solver on certified robust spectral quotients and an explicit full-rank, dense 3-color latent family with polynomial-time class recovery. This is much stronger structurally than the near-complete quotient of note 42, but does not refute the general critical-density no-$q^{o(k)}$ hypothesis; at the random first-moment threshold $\rho=q^{-2/d}$, a fixed full degree-d neighbor assignment typically has **zero** compatible fine values.
+
+
+**Average-case versus worst-case caution (2026-11-03):** [Note 44](44_random_binary_csp_second_moment_and_search_gap.md) locates the random independent-table satisfiability threshold at $\rho=q^{-2/\sqrt{\log k}}$ up to fixed gaps for $q=k^c,\ c>1$ and proves polynomial-time greedy SAT at much denser $\rho=q^{-\gamma/\sqrt{\log k}}$ with $\gamma<1$. Its second moment proves *existence* rather than efficient search when $\gamma\in(1,2)$. None of this refutes the worst-case critical-density hardness candidate or yields a generic algorithm for HOM.
