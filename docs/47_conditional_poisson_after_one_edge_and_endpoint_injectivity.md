@@ -300,6 +300,16 @@ uniformly over \(e\). Thus the Boolean SAT predicate is asymptotically *maximall
 
 **Attribution:** the orthogonal Hoeffding/ANOVA decomposition, projection identity, and high-degree/resilience interpretation are classical tools in analysis of functions on product spaces. The claim here is their quantitative consequence for the *specific critical random cubic-expander CSP*. Priority relative to prior random-CSP literature has not been audited.
 
+## 5b. Follow-up algorithmic barriers and a parameter-preserving Unique-CSP source
+
+[Note 49](49_edge_deletion_treewidth_vs_near_solution_count.md) proves the exact expander edge-deletion/treewidth tradeoff
+\(t+3(\operatorname{tw}(G-D)+1)\ge\gamma k/4\).
+At critical random relation density the expected number of solutions after deleting any **preselected** \(t\) edges is \(q^{2t/3}\). Hence the tempting "delete one edge, use low-treewidth DP, enumerate \(q^{2/3}\) solutions" scheme cannot work *as a low-treewidth strategy*. The retained graph still has linear treewidth.
+
+[Note 51](51_near_solution_hamming_isolation_and_block_sampler_obstruction.md) strengthens this note's single-site isolation observation: under cubic expansion, logarithmic girth, and sufficiently large polynomial \(q\), almost **every** deleted-edge near-solution has **no other** solution within Hamming distance \(k/2\), simultaneously for all missing edges. This rules out feasible-only block-update samplers that change at most half of the variable labels, but says nothing about globally proposed moves or algorithms leaving the feasible set.
+
+For the *worst-case* hardness side, [note 50](50_linear_parameter_random_isolation_to_unique_bipartite_cubic_csp.md) uses the classical Isolation Lemma with a linear-size exact score-tree gadget and a parsimonious degree completion to give a **randomized** parameter-preserving Turing reduction from arbitrary sparse poly-domain 2-CSP to promise Unique-CSP on **simple bipartite 3-regular** graphs. Thus polynomially small output alone is not a generic worst-case simplification under a **randomized** SqrtLog-SPACH assumption. This statement **does not imply hardness of the specific iid critical random ensemble**.
+
 ## 6. Algorithmic research question: enumerate polynomially many near-solutions without exponential search
 
 For every deleted edge \(e=uv\), the typical random instance \(\Gamma_{-e}\) has only
