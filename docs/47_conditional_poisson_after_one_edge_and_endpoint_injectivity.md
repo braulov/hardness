@@ -314,6 +314,29 @@ Such an algorithm would immediately solve (and exactly count) the full critical 
 
 Compared with optimizing disjoint-group entropy potentials, this targets the remaining genuinely global combinatorial search problem: discovering a polynomial-size set of critical near-solutions whose local projections are almost completely uninformative.
 
+## 7. Near-solution isolation: ordinary single-site sampling is nonergodic
+
+The polynomial output size \(N_e\approx q^{2/3}\) suggests a sampling-based algorithm. However, **standard single-site Glauber moves do not explore this solution set.**
+
+By Theorem A, two different \(\Gamma_{-e}\)-solutions cannot agree on **both** endpoint labels \((\sigma(u),\sigma(v))\). Therefore no update that keeps both endpoints fixed — even an update changing *many other variables at once* — can move between solutions.
+
+Consider a single-coordinate move at \(w\). For a fixed edge \(e=uv\), the expected number \(P_{e,w}\) of *ordered distinct* pairs of \(\Gamma_{-e}\)-solutions differing **only** at \(w\) is exactly
+\[
+ \boxed{
+ \mathbb E P_{e,w}
+ =q^k(q-1)\,p^{(m-1)+\deg_{G-e}(w)}
+ =q^{2/3}(q-1)p^{\deg_{G-e}(w)}.
+ }
+\tag{19}
+\]
+If \(w\notin\{u,v\}\), \(\deg_{G-e}(w)=3\), so \(\mathbb E P_{e,w}=O(q^{-1/3})\). Summing over all \(O(k^2)\) pairs \((e,w)\) shows that, under \(c>6\), with high probability **no near-solution in any \(\Gamma_{-e}\) has a legal single-site move at an internal vertex**.
+
+For \(w=u\) or \(v\), the degree in \(G-e\) is 2, so \(\mathbb E P_{e,w}=O(q^{1/3})\). Since \(N_e=(1+o(1))q^{2/3}\), Markov plus a union bound over all edges shows that **only an \(o(1)\) fraction** of near-solutions have any legal single-vertex move at an endpoint, simultaneously over all \(e\). (For example, pick a slowly vanishing fraction \(\epsilon_k\) satisfying \(kq^{-1/3}/\epsilon_k\to0\).)
+
+Thus the graph whose vertices are exact near-solutions and whose edges represent legal single-site flips consists **almost entirely of isolated vertices**, uniformly over the deleted edge, with high probability. In particular, single-site random-walk/Glauber sampling is not ergodic and cannot be an efficient uniform sampler for this ensemble. This is a restricted **sampling dynamics** obstruction, not a general no-go for global/block samplers.
+
+**Algorithmic alternative target:** find an efficient *global* near-solution sampler for \(\Gamma_{-e}\). If it can return independent roughly uniform solutions in polynomial expected time (with sufficient approximation quality and appropriate handling of failures), then \(O(q^{2/3}\log k)\) samples and a test of the missing edge yield a one-sided-error algorithm on the typical ensemble: with \(N_e=O(q^{2/3})\), every actual full solution represents at least \(1/N_e\) of the near-solution mass. The key unsolved issue is obtaining such samples **without** traversing an exponentially large search tree or being trapped in isolated solutions. No such sampler is known or constructed here.
+
 ## Prior art / attribution
 
 The method is elementary random-CSP second moments plus the standard Le Cam binomial-to-Poisson bound. Similar high-girth consistency phenomena occur in classical work of Gao–Culberson (*Consistency and Random Constraint Satisfaction Models*, JAIR 2007) and in random CSP resolution complexity. **Novelty of the exact endpoint-injectivity and conditional-last-edge statement has not been systematically verified against the literature**, so this is an internal research checkpoint, not a publication priority assertion.
