@@ -3,6 +3,8 @@
 **Date:** 2026-11-02.  
 **Status:** PROVED elementary expectation and arc-consistency bound; PROVED Poisson approximation by standard Arratia–Goldstein–Gordon dependency-graph theorem (proof below). This is **NOT** a computational lower bound or new hardness assumption justified by evidence. It sharpens/audits an earlier unverified Poisson(1) claim in the CEH research archive.
 
+> **2026-11-03 strengthened premise and caveat:** For the **Poisson limit** and full-edge statistics, expansion is unnecessarily strong. [Note 48](48_karger_cut_counting_conditional_poisson_and_easy_prism_counterexample.md) applies Karger's cut-counting theorem to prove Poisson(1), near-solution injectivity, and conditional Poisson on any **3-edge-connected cubic graph** when the polynomial alphabet is sufficiently large. In particular, easy bounded-treewidth cubic prism graphs have the same statistical properties. **Do not treat them as evidence of computational hardness.** The earlier expansion-based proof below remains correct but is not the sharpest structural assumption.
+
 ## 1. Model and critical scaling
 
 Take any family of **simple 3-regular, optionally bipartite**, \(k\)-vertex graphs \(F_k=(V,E)\) with fixed positive edge-expansion \(\gamma>0\):
