@@ -2,6 +2,8 @@
 
 **2026-11-02. Status:** elementary second-moment and likelihood-ratio theorems **PROVED BELOW**, assuming the specified deterministic expander family exists (standard). This is **not** a \(q^{\Omega(k/\sqrt{\log k})}\) computational lower bound; novelty relative to random CSP literature unverified. Extends [the Poisson and arc-consistency note](35_critical_expander_csp_poisson_and_arc_consistency.md).
 
+> **2026-11-03 refinement:** [Note 48](48_karger_cut_counting_conditional_poisson_and_easy_prism_counterexample.md) drops expansion/girth from the full-edge statistical conclusions via Karger's cut counting: **3-edge-connectivity suffices** for \(q=k^c,c>9\). This includes easy constant-treewidth prisms. Minimal-unsatisfiability and missing-edge secrecy remain correct but are **not computational-hardness evidence** in isolation.
+
 ## Setup and prior Poisson input
 
 Let \(F_k\) be any fixed simple 3-regular graph with \(k\) vertices, \(m=3k/2\), and uniform edge expansion \(\gamma>0\):
