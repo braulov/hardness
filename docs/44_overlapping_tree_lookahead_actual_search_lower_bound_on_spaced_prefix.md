@@ -95,6 +95,43 @@ With \(q=k^c\), \(r=C\ln k+O(1)\), \(\epsilon_k=O(k^{2+C\ln18-c/3})=o(1)\) by th
 
 Without \(g(G)>r+1\), two vertices of the same tested tree may have a common already-assigned neighbor \(s\in S'\), with the tree-path between them closing a short cycle. Then anchored vertices need not be a distance-3 packing, and the bound (2) can fail. The proof **does not claim** this barrier for arbitrary cubic expanders of short girth.
 
+## Extension to any fixed regular degree \(\Delta\ge3\)
+
+The same proof extends cleanly beyond cubic graphs, but **only after changing the critical relation density** to \(p=q^{-2/\Delta}\) (since now \(|E|=\Delta k/2\)).
+
+Choose pairwise distance-\(\ge5\) vertices \(S\) greedily, with
+\[
+ |S|\ge k/B_\Delta,\quad
+ B_\Delta=1+\Delta\sum_{j=0}^{3}(\Delta-1)^j.
+\]
+For a group \(U\) with \(|U|\le r<g(G)-1\), the same anchored-vertex packing and forest-component argument gives
+\(e_U(A)+b_{S'}(A)\le\tfrac32|A|-\tfrac12\operatorname{cc}(U[A])\).
+The corresponding second moment now obeys
+\[
+ \frac{\operatorname{Var}(Z_U)}{(\mathbb EZ_U)^2}
+ \le2^r q^{-1/\Delta}
+\]
+because
+\[
+ |A|-\frac2\Delta(e_U(A)+b_{S'}(A))
+ \ge(1-3/\Delta)|A|+\operatorname{cc}(U[A])/\Delta
+ \ge1/\Delta.
+\]
+The complete union bound over tree groups and first-phase prefixes is
+\[
+ \epsilon_{k,\Delta}
+ \le k^2(2\Delta^2)^r q^{-1/\Delta}.
+\]
+Thus for \(r=C\ln k\), \(q=k^c\), it suffices that \(c>\Delta(2+C\ln(2\Delta^2))\), and almost every assignment to the first \(\Omega_\Delta(k)\) spaced vertices survives all tests.
+
+If \(G\) also has uniform edge expansion \(\gamma>0\), the Chen–Stein argument in note 35 generalizes with the proper-subset overlap contribution \(q^{-\gamma\min(s,k-s)/\Delta}\): one gets \(Z\Rightarrow\operatorname{Pois}(1)\) once \(c>\Delta/\gamma\). Hence a constant \(e^{-1}-o(1)\) fraction of null instances are UNSAT and force \(q^{\Omega_\Delta(k)}\) work for this specific bad-order lookahead DFS.
+
+This shows that the phenomenon is caused by **girth and separated boundary anchors**, not by a cubic-only counting coincidence. The cubic case remains the project's central source because of its direct link to the HOM reduction.
+
+## Literature/provenance caveat
+
+Relevant classical work includes Gao–Culberson, [*Consistency and Random Constraint Satisfaction Models*](https://mlanthology.org/jair/2007/gao2007jair-consistency/) (JAIR 2007), and Atserias, [*Unsatisfiable Random Formulas are Hard to Certify*](https://lics.siglog.org/2002/Atserias-UnsatisfiableRandom.html) (LICS 2002). They address consistency / certification barriers in random constraint systems, and may overlap substantially with the conceptual lesson here. **No publication novelty is claimed for this particular second-moment argument or lookahead lower bound without a dedicated priority review.**
+
 ## Exact conclusion and remaining open algorithmic question
 
 **PROVED restricted lower bound:** if one starts the search with a large distance-5 separated set and only performs fully assigned relation checks plus *all* \(\le C\ln k\)-size connected-tree existential checks, then with positive constant probability over the critical random expander-CSP tables the algorithm needs \(q^{\Omega(k)}\) time, even though it performs overlapping group tests. This is a *genuine lower bound for that deliberately bad order*, not for all fixed orders. If the algorithm chooses a different order (e.g. connected spanning-tree blocks as in [note 39](39_critical_csp_cutwidth_expected_algorithms.md)), we have no such conclusion from this argument.
