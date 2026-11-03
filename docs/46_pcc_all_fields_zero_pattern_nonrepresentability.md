@@ -122,3 +122,27 @@ This result is INDEPENDENT of the claimed 2026 OpenAI/Nguyen tensor/CSP algorith
 - Project checkpoints [20](20_two_layer_affine_nonlinear_pcc_audit.md), [43](43_matroid_factor_matching_deterministic_2exp.md), [44](44_sparse_paving_matroid_pcc_oracle_equivalence.md), [45](45_pcc_ingleton_fieldsize_and_gf7_edge_gadget.md).
 
 **Bottom line:** With an elementary polynomial-time PCC witness-bit injection plus a classical all-fields zero-pattern counting theorem, we proved an unconditional nonconstructive **no exact linearization over any field** for almost every source graph in a concrete polynomially described YES-instance family. This is materially stronger than finite-field bit-counting, and cleanly identifies the only surviving general algorithmic route as **decision-only** or structurally richer existential encodings.
+
+
+## 6. Robust strengthening: no better-than-random matching-status approximation
+
+Let R_K⊆{0,1}^M be the collection of YES/NO status vectors on the M designated permutations realized by ANY family of candidate vectors in ANY finite dimension over ANY field. Section 1.2 implies that every such vector is realized in rank K over a field extension; Section 1.3 gives
+    |R_K|≤2^{O(K³ log K)}=2^{o(M)}.
+
+**THEOREM (PROVED):** For every fixed ε>0, a uniformly random PCC graph from Section 1.1 satisfies, with probability at least 1−2^{−Ω_ε(K^4)}, the property that EVERY linear-matroid matching-support classifier over ANY field, in ANY dimension, agrees with the correct labels of at most
+    (1/2+ε)M
+designated permutations.
+
+Proof: the random input's vector of desired statuses on the selected permutations is UNIFORM in {0,1}^M. For a particular realizable vector r∈R_K, the chance that a random uniform vector b lies at Hamming distance ≤(1/2−ε)M from r is
+    2^{−M}∑_{j≤(1/2−ε)M} binom(M,j)
+       ≤ 2^{−(1−H_2(1/2−ε))M},
+where H_2 is binary entropy. Union bound over |R_K|≤2^{o(M)} gives
+    2^{o(M)−(1−H_2(1/2−ε))M}
+       =2^{−Ω_ε(M)}.
+On the complement event, every realizable classifier has > (1/2−ε)M classification errors and hence <(1/2+ε)M correct labels. QED.
+
+**Randomized per-fixed-permutation consequence:** Suppose a randomized mapping, on EVERY PCC input, outputs a field and one candidate vector v_{ia} per position (arbitrary finite dimension), with the property that for EVERY fixed designated permutation π_b the resulting independence answer agrees with true validity with probability at least 2/3 over the compiler's randomness. Choose ε=1/10. On a typical input A satisfying the theorem, EVERY output matrix has accuracy <3/5 on all M dedicated permutations. Yet averaging the asserted per-π_b success ≥2/3 over the compiler coins and b would give expected accuracy ≥2/3, contradiction. Thus even this **weak per-fixed-witness 2/3-correct randomized solution-label compiler** cannot exist for the general PCC class.
+
+This is a substantive no-go for using ONE representable matroid (without extra existential witness gadgets or changing the candidate universe) as an approximately correct local status verifier. It still places NO restriction on arbitrary randomized **decision-only** compilers whose output only needs SOME independent perfect matching iff the input PCC is YES. On the random family above all inputs are YES, so decision-only trivialization remains possible.
+
+**Literature dependency:** The only nontrivial external prerequisite is the all-fields zero-pattern count in Section 1.3; the Hamming-ball union bound is elementary.
