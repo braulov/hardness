@@ -74,6 +74,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 23. [All-fields nonrepresentability and robust approximate no-go](../46_pcc_all_fields_zero_pattern_nonrepresentability.md) — using Θ(K⁴) designated permutation minors and the Rónyai–Babai–Ganapathy/Nelson zero-pattern bound, almost every PCC in a polytime-samplable family has NO exact matching-support linear representation over ANY field or dimension; no randomized representation can correctly label even 2/3 of all designated permutations on these inputs.
 
+24. [Sharp decision-only algebraic-degree barrier and randomized bypass](../47_decision_only_linear_matroid_source_degree_and_randomness.md) — for a deterministic source-polynomial PCC→r-linear-matroid matching compiler with N output rows and source degree D, rND≥binom(K,2), even without preserving original witnesses; tight on the unique-clique source cube, but two random affine parity sketches defeat any analogous bounded-error claim.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
