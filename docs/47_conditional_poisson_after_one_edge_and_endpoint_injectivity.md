@@ -224,6 +224,80 @@ Yet by Theorem A, the **true global endpoint projection**
 \]
 contains only \((1+o(1))q^{2/3}\) pairs out of \(q^2\): a fraction \(q^{-4/3+o(1)}\). If we reinstate edge \(e\), its random relation has \((1+o(1))q^{4/3}\) allowed pairs, **every one** of which passes the same local free-tree tests after assigning \(u,v\), but only \(Z=O_{\mathsf P}(1)\) of those pairs extend globally (unconditional \(Z\Rightarrow\mathrm{Pois}(1)\)). This gives a vivid *local-vs-global projection gap*, not a lower bound on all global CSP algorithms or optimal-order DFS.
 
+## 5a. Almost all Fourier–Hoeffding variance of the **SAT bit** is at full edge-table degree
+
+The previous Fourier result in [note 37](37_critical_expander_low_degree_fourier_and_path_saturation.md) concerned the *likelihood ratio \(Z\)* in the **individual table-bit** biased Fourier basis. The conditional Poisson theorem above lets us make a distinct and stronger statement about the **Boolean indicator \(U=\mathbf1[Z=0]\)** itself, in the **block** product space whose \(m\) independent coordinates are entire edge-relation tables \(A_e\).
+
+Let \(\alpha_k=\mathbb E U\to\alpha=e^{-1}\), and write the standard orthogonal Hoeffding/ANOVA decomposition on the product of edge-table blocks:
+\[
+ U=\alpha_k+\sum_{\varnothing\ne F\subseteq E} U_F,
+\]
+where the \(U_F\)'s are pairwise \(L^2(\mathsf P_0)\)-orthogonal, each depends only on edge tables \(A_F\), and is *completely degenerate* in every coordinate in \(F\). Let \(U_E\) denote the top-order (all-\(m\)-edge) component.
+
+**Theorem B (near-full-edge resilience).** Under the same hypotheses and sufficient bound \(c>\max\{6,9/\gamma\}\),
+\[
+ \boxed{
+ \sum_{\varnothing\ne F\subsetneq E}\|U_F\|_2^2=o(1),
+ \qquad
+ \|U_E\|_2^2\longrightarrow e^{-1}(1-e^{-1}).
+ }
+\tag{15}
+\]
+Equivalently, the centered SAT bit is \(o(1)\) close in \(L^2\) to a function whose edge-block Hoeffding support is *entirely on all \(m=3k/2\) edge tables*:
+\[
+ \boxed{\|U-\alpha_k-U_E\|_2=o(1).}
+\tag{16}
+\]
+
+**Proof.** For each edge \(e\), put \(g_e(A_{-e})=\mathbb E[U\mid A_{-e}]\).
+By (9), the fact that \(\alpha_k=\mathbb E g_e\), and boundedness \(0\le g_e\le1\),
+\[
+ \begin{aligned}
+ \|g_e-\alpha_k\|_2^2
+ &\le \mathbb E|g_e-\alpha_k|\\
+ &\le2\left(\mathbb E Y_e+p+\sqrt{\eta_k}\right)
+ =:2\delta_k.
+ \end{aligned}
+\]
+Equations (3), (5) and \(c>\max\{6,9/\gamma\}\) imply \(m\delta_k=o(1)\).
+But, by orthogonal projection and the ANOVA decomposition,
+\[
+ g_e-\alpha_k=\sum_{\varnothing\ne F\subseteq E\setminus\{e\}}U_F.
+\]
+Hence
+\[
+ \begin{aligned}
+ \sum_{e\in E}\|g_e-\alpha_k\|_2^2
+ &=\sum_{\varnothing\ne F\subsetneq E}(m-|F|)\|U_F\|_2^2\\
+ &\ge\sum_{\varnothing\ne F\subsetneq E}\|U_F\|_2^2.
+ \end{aligned}
+\]
+The left-hand side is \(\le2m\delta_k=o(1)\), proving the first assertion. Finally,
+\(\operatorname{Var}(U)=\alpha_k(1-\alpha_k)\to e^{-1}(1-e^{-1})\), and the remaining nonconstant variance is precisely the top-edge component, proving (15)–(16).
+
+**Restricted-algorithm consequence.** Let \(T(A)\) be any mean-zero statistic lying in the linear span of functions of **proper** edge-table subsets (each summand may be arbitrarily nonlinear and high-degree *within* its own subset). Then
+\[
+ \boxed{
+ |\mathbb E[U T]|
+ =|\operatorname{Cov}(U,T)|
+ \le o(1)\sqrt{\operatorname{Var}(T)}.
+ }
+\tag{17}
+\]
+In particular, if an algorithm exposes local features each depending on at most \(d\) full edge tables, then any polynomial combination of these features of **degree \(t\) with \(dt<m\)** (regardless of the number of features or overlaps) lies in this proper-edge subspace and cannot have a constant *normalized linear correlation* with the SAT bit. A connected group test on \(|U|\le r\) free vertices reads at most \(3r\) edge tables, so a polynomial degree \(t<k/(2r)\) in such local-test outputs is covered. **This is NOT a lower bound for arbitrary nonlinear thresholding, adaptive branching after seeing all tables, or unrestricted running time.**
+
+**Maximal edge-block resampling sensitivity.** Let \(U^{(e)}\) be the UNSAT indicator after independently resampling the *entire* relation table on one edge \(e\), keeping all other tables. Conditioned on \(A_{-e}\), the two indicators are independent Bernoulli with success probability \(g_e(A_{-e})\). Therefore
+\[
+ \Pr[U\ne U^{(e)}]
+ =2\mathbb E[g_e(1-g_e)]
+ \longrightarrow
+ \boxed{2e^{-1}(1-e^{-1})\approx0.4651}
+\tag{18}
+\]
+uniformly over \(e\). Thus the Boolean SAT predicate is asymptotically *maximally sensitive to resampling any one whole edge table*, in the sense that essentially its entire variance is conditional on that table. This is not a paradox: a biased modular sum of independent large-alphabet coordinates can exhibit analogous full-block-degree behavior.
+
+**Attribution:** the orthogonal Hoeffding/ANOVA decomposition, projection identity, and high-degree/resilience interpretation are classical tools in analysis of functions on product spaces. The claim here is their quantitative consequence for the *specific critical random cubic-expander CSP*. Priority relative to prior random-CSP literature has not been audited.
+
 ## 6. Algorithmic research question: enumerate polynomially many near-solutions without exponential search
 
 For every deleted edge \(e=uv\), the typical random instance \(\Gamma_{-e}\) has only
