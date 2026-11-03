@@ -136,3 +136,18 @@ Because $q=k^c$ and $3^k=q^{o(k)}$, this is a sub-$q^k$ solver.
 - For arbitrary full-rank relation tables without spectral structure the critical-density conjecture and HOM implications remain open. Neither full rank nor dense allowed-partner rows guarantees a hard instance.
 
 **Related results:** Spectral expander mixing and greedy embedding, superregular pairs/blow-up-lemma methodology, and classical dense graph CSP/graph homomorphism ideas. Novelty beyond the elementary argument was not audited. Previous notes [40](40_nguyen_grouping_overhead_and_random_csp_greedy.md) (random dense relations) and [42](42_robust_alphabet_quotients_fullrank_dense_csp.md) (near-complete quotient).
+
+
+## 6. Critical-density random-table threshold is outside the robust-lifting regime
+
+This is a sharp **limitation of the method**, not a universal CSP lower bound.
+
+Let the constraint graph have average degree $d=\sqrt{\log k}$ and let the random independent relation density be $\rho_\star=q^{-2/d}$, the first-moment satisfiability scale for $m\approx kd/2$ (see [note 40](40_nguyen_grouping_overhead_and_random_csp_greedy.md)). At a vertex with exactly $d$ neighbors, for any fixed assignment of those neighbors, the number of compatible values is binomial with mean
+\[
+q\rho_\star^d=q\cdot q^{-2}=q^{-1}.
+\]
+By Markov's inequality, with probability at least $1-q^{-1}$ **no compatible value exists for that fixed neighbor assignment**. Thus the extremely strong property that *every* permitted coarse assignment lifts by local greedy choices is not realistic at the random satisfiability threshold.
+
+In fact, even before checking the spectral certificate, if a coarse quotient has only one class per vertex (so every coarse assignment is trivially allowed), a dense CSP sampled at $\rho_\star$ generally violates the universal neighbor-extension property. The spectral greedy method is therefore an excellent tractability criterion for robust constant-density pseudorandom CSPs, but not a route to a universal near-threshold $q^{o(k)}$ CSP algorithm without a qualitatively different global argument.
+
+**More verification:** Direct exact-integer calculations for the explicit $M$ at $L=4,16$ yield nonzero determinants $1,4096$ respectively. Numerical ranks were checked at $L=4,16,64$. These computations are sanity checks; the symbolic determinant argument in §2 is the proof.
