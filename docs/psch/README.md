@@ -76,6 +76,8 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 24. [Sharp decision-only algebraic-degree barrier and randomized bypass](../47_decision_only_linear_matroid_source_degree_and_randomness.md) — for a deterministic source-polynomial PCC→r-linear-matroid matching compiler with N output rows and source degree D, rND≥binom(K,2), even without preserving original witnesses; tight on the unique-clique source cube, but two random affine parity sketches defeat any analogous bounded-error claim.
 
+25. [Adaptive public fingerprint and all-fields additive-feature barriers](../48_adaptive_hash_and_all_fields_additive_feature_barriers.md) — an explicit genuine NO PCC with 2^{Θ(K)} false witnesses defeats obliviously random linear violation hashes unless sketch bits total Ω(K); all-fields Rónyai–Babai–Ganapathy counting rules out approximate status-preserving rank o(K²/logK) quadratic fingerprints and low-degree polynomial predicates of O(K) additive features.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
