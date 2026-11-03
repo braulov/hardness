@@ -175,6 +175,15 @@ The centered matrices \(B_e=A_e-pJ\) are a sparse \(0/1\) random relation matrix
 
 [Follow-up note 38](38_flat_cut_spectrum_backtracking_barrier_and_two_factor_enumeration.md) computes **all singular values** of the degree-\(m\) global Fourier function \(W(A)\) across an arbitrary edge-table bipartition: exactly \(q^{|B|}\) equal nonzero values, with \(B\) the shared endpoint set. On cubic expanders balanced cuts have \(|B|\ge\gamma k/18\), ruling out small-bond **L2 function-space** decompositions. It also rules out naive edgewise SVD and fixed-order backtracking in precisely specified models; conversely, it gives an unconditional \(q^{k/3}\operatorname{poly}\) expected-time exact solver for the random bipartite cubic model via a perfect matching and cycle-cover enumeration. These observations do not prove computational hardness or contradict any general tensor contraction theorem.
 
+## November 3: strong full-edge block spectrum of the Boolean SAT/UNSAT function
+
+[Note 47](47_conditional_poisson_after_one_edge_and_endpoint_injectivity.md) derives a **different** Fourier statement from the conditional Poisson last-edge theorem: while this note analyzes the *solution count likelihood ratio* \(Z\) in single-table-bit Fourier degree, note 47 analyzes the **Boolean UNSAT indicator** \(U=1_{Z=0}\) in the product space whose coordinates are entire **edge-relation tables**. It proves
+\[
+ \sum_{\emptyset\ne F\subsetneq E}\|U_F\|_2^2=o(1),\qquad
+ \|U_E\|_2^2\to e^{-1}(1-e^{-1})
+\]
+in the Hoeffding/ANOVA decomposition, for cubic high-girth expanders with sufficiently large polynomial alphabet. The SAT predicate thus behaves like a parity/resilient function at the level of whole edge blocks. This is a strong restricted-statistics structural statement, not a Boolean circuit lower bound.
+
 ## 5. Research implication
 
 The random model has a sharp global statistical signature concentrated in full-edge Fourier degree \(m\), while standalone path composition saturates at four edges. Therefore the natural next **algorithmic** target is not local messages or independent short-path projections; it is a method that compresses or evaluates the fully coupled degree-\(m\) multilinear form \(W_E\) faster than the claimed \(q^{O(k/\sqrt{\log k})}\) tensor algorithm. A determinant, signed trace, or global algebraic transformation could still do this efficiently despite degree \(m\), so the low-degree barrier does **not** settle the algorithmic research question.
