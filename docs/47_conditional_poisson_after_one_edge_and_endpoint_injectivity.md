@@ -4,6 +4,8 @@
 
 Related prior checkpoints: [35 — Poisson and arc consistency](35_critical_expander_csp_poisson_and_arc_consistency.md), [36 — minimal UNSAT and missing-edge planted/null indistinguishability](36_critical_random_csp_minimal_unsat_and_all_edge_statistical_dependence.md), [37 — Fourier spectrum](37_critical_expander_low_degree_fourier_and_path_saturation.md), [44 — bad-order overlapping tree lookahead](44_overlapping_tree_lookahead_actual_search_lower_bound_on_spaced_prefix.md).
 
+> **STRONGER RESULT / IMPORTANT NEGATIVE CONTROL (2026-11-03):** [Note 48](48_karger_cut_counting_conditional_poisson_and_easy_prism_counterexample.md) replaces the expander plus logarithmic-girth premises of the statistical theorems in this note by **simple cubic 3-edge-connectivity**, with the clean sufficient condition \(q=k^c,c>9\). This uses Karger's cut-counting theorem and gives the same uniform endpoint-injectivity, conditional Poisson, adaptive missing-table, and SAT-bit full-edge ANOVA conclusions. Even bounded-treewidth **prism graphs** satisfy all these statistical properties while allowing exact CSP in \(O(kq^6)\) time. Therefore they are **not evidence of computational hardness**. The *local connected tree-lookahead* gap in Section 5 of THIS note still requires high girth. The original proofs are retained as a valid, more restrictive route.
+
 ## 1. Ensemble and the strengthened theorem
 
 Let \(G=(V,E)\) be a fixed **simple, 3-regular, \(\gamma\)-edge-expander** on \(k\) vertices with girth
