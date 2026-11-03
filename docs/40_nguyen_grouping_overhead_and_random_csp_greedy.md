@@ -90,3 +90,6 @@ Related: [critical-density HOM source](35_critical_density_csp_to_degen2_hom.md)
 
 
 **Strengthening (2026-11-02):** [Note 41](41_uniform_coarse_partitions_and_row_sensitive_grouping.md) proves that all graph-adaptive balanced coarse partitions have pairwise matching saturation, simultaneously with high probability. Replacing $gP/K$ by a row-sensitive sum does not change the order for this specific cover-factorization; an oracle-model example also requires algorithms to account for internal weights rather than external capacity alone.
+
+
+**Random near-threshold update (2026-11-03):** [Note 44](44_random_binary_csp_second_moment_and_search_gap.md) upgrades the first-moment heuristic here: in the precise independent Bernoulli relation model on $G(k,\sqrt{\log k}/k)$, for $q=k^c$ with $c>1$, a second-moment calculation proves SAT w.h.p. for every fixed $\gamma<2$ at density $\rho=q^{-\gamma/\sqrt{\log k}}$, and a first moment proves UNSAT w.h.p. for $\gamma>2$. A different polynomial-time degeneracy-order greedy argument succeeds for $\gamma<1$ and any fixed $c>0$. This is not a worst-case CSP algorithm or a claim of novelty relative to random CSP threshold work.
