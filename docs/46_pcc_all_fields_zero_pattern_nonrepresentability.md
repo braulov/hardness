@@ -116,7 +116,7 @@ This result is INDEPENDENT of the claimed 2026 OpenAI/Nguyen tensor/CSP algorith
 
 ## 5. Primary citations
 
-- L. Rónyai, L. Babai, M. K. Ganapathy (2001), *On the Number of Zero-Patterns of a Sequence of Polynomials*, JAMS 14, 717–735, DOI https://doi.org/10.1090/S0894-0347-01-00384-6 . The version used is the all-characteristics integer-polynomial zero-pattern theorem.
+- L. Rónyai, L. Babai, M. K. Ganapathy (2001), *On the Number of Zero-Patterns of a Sequence of Polynomials*, JAMS 14, 717–735, DOI https://doi.org/10.1090/S0894-0347-01-00367-8 . The version used is the all-characteristics integer-polynomial zero-pattern theorem.
 - Peter Nelson (2018), *Almost all matroids are nonrepresentable*, BLMS 50, 245–248, https://doi.org/10.1112/blms.12141 ; arXiv https://arxiv.org/abs/1605.04288 ; convenient theorem+proof at https://matroidunion.org/?p=1986 .
 - Nelson–van der Pol (2018), *Doubly Exponentially Many Ingleton Matroids*, https://doi.org/10.1137/17M1160094 .
 - Project checkpoints [20](20_two_layer_affine_nonlinear_pcc_audit.md), [43](43_matroid_factor_matching_deterministic_2exp.md), [44](44_sparse_paving_matroid_pcc_oracle_equivalence.md), [45](45_pcc_ingleton_fieldsize_and_gf7_edge_gadget.md).
