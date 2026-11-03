@@ -70,6 +70,10 @@ Ordinary (k)-CLIQUE and (k\times k) *multicolored* Clique must not be silently i
 
 21. [Arbitrary PCC as sparse-paving matroid matching](../44_sparse_paving_matroid_pcc_oracle_equivalence.md) — any PCC input reduces exactly to a rank-K sparse-paving matroid with polynomial independence/rank oracle; distinguishing NO from a single hidden accepted permutation requires Ω(K!) oracle queries. Explicit linear representation is the essential difference.
 
+22. [Ingleton property, finite-field size and an exact GF(7) edge gadget](../45_pcc_ingleton_fieldsize_and_gf7_edge_gadget.md) — all PCC-derived paving matroids satisfy Ingleton; a single forbidden pair has an explicit rank-K GF(7) determinant; initial finite-field counting bound, strengthened in checkpoint 46.
+
+23. [All-fields nonrepresentability and robust approximate no-go](../46_pcc_all_fields_zero_pattern_nonrepresentability.md) — using Θ(K⁴) designated permutation minors and the Rónyai–Babai–Ganapathy/Nelson zero-pattern bound, almost every PCC in a polytime-samplable family has NO exact matching-support linear representation over ANY field or dimension; no randomized representation can correctly label even 2/3 of all designated permutations on these inputs.
+
 The repository's older [graphic-rank/span project](../../README.md) is a related but distinct research program. Keep separate statements and assumptions separate.
 
 ## Audit priority
