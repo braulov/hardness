@@ -120,6 +120,15 @@ The quantitative bounds are matched to the \(\sqrt{\log}\) scale of the external
 
 **Connection to HOM:** Theorem 4.2 of the user's HOM preprint https://arxiv.org/abs/2607.09377 uses binary CSP on simple bipartite 3-regular primal graphs. This construction preserves that exact graph class in the *oracle instances*, making promise UniqueBIP3-CSP a plausible hardness source for HOM if the new randomized SqrtLog hypothesis is adopted. **Do not assert the existing CSP-to-HOM reduction preserves uniqueness of HOM assignments** without separately checking its parsimonious properties; decision equivalence alone suffices for conditional hardness.
 
+## 6a. Also a one-query randomized many-one isolation reduction (inverse-polynomial success)
+
+The polynomial number of score-threshold queries is useful for constant-probability success, but not logically essential. After sampling the isolating weights, choose one threshold \(t\) **uniformly at random** from \(\{k,\ldots,B\}\) and output just \(\Gamma_t\). If the source is UNSAT, the output is always UNSAT. If it is SAT, then with probability \(\ge1/2\) there is a unique global minimum-weight solution; conditional on the weights, the chance to choose its score is at least \(1/B\). Hence
+\[
+ \boxed{\Pr[\Gamma_t\text{ has exactly one solution}\mid\Gamma\text{ SAT}]
+ \ge1/(2B)=1/\operatorname{poly}(k,q).}
+\]
+Therefore this is also a **single-output randomized many-one reduction with inverse-polynomial isolation probability** (the standard Valiant–Vazirani type of guarantee), preserving the same \(K=O(k+m)\) and polynomial \(Q\). Polynomially many independent repetitions restore constant success in a randomized Turing reduction. Neither version is deterministic.
+
 ## 7. Research significance and limitations
 
 This **does not** show that the specific random Bernoulli critical-expander ensemble is hard: it only demonstrates that in **worst case** the unique-or-unsatisfiable promise does not make sparse polynomial-alphabet CSP easier under parameter-preserving **randomized oracle reductions**. It therefore defeats the simplistic intuition "only polynomially many near-solutions, so brute force should be easy" as a worst-case principle, but it does not construct an average-case algorithm or average-case lower bound.
