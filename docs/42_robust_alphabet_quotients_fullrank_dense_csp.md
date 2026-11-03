@@ -152,3 +152,6 @@ The algorithm computes all distances, clusters with the given $(r,t)$ threshold,
 This is a robust **adversarial-deletion** generalization of the special full-rank Kronecker family; the allowed rectangles may have arbitrary missing entries, provided defects are bounded per row and column. Note that such arbitrary deletions do not guarantee full rational rank; equation (5) establishes full rank for the explicit Kronecker subclass.
 
 This supplies an actual **multi-edge latent-label extraction** algorithm, not simply an existential encoding or a small interface rank bound. Its limitation is intrinsic: fully general constraint tables need not admit any sufficiently coarse robust quotient.
+
+
+**Spectral strengthening (2026-11-03):** [Note 43](43_spectral_quotient_greedy_and_explicit_hadamard_fullrank.md) replaces near-complete allowed rectangles by a verifiable operator-norm condition $\|M-\rho J\|\le\lambda$ with constant $\rho$ (e.g. $3/4$) and $\lambda=O(\sqrt L)$. It proves a deterministic greedy lifting condition and constructs EXPLICIT full-rank pseudorandom blocks whose hidden coarse 3-color classes are independently Hamming-recoverable. This extends the decision-only quotient beyond the adversarial small-deletion regime; for random near-SAT-threshold sparse relations, universal lifting fails and the method gives no general algorithm.
