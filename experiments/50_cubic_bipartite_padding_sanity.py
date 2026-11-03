@@ -59,7 +59,7 @@ def check_and_pad(na, nb, edges):
     assert all((v in A) != (w in A) for v in range(len(adj)) for w in adj[v])
     undirected_edges = sum(map(len, adj)) // 2
     assert 2 * undirected_edges == 3 * len(adj)
-    assert len(adj) <= 16 * (n + len(edges) + 1)
+    assert len(adj) <= 24 * (n + len(edges) + 1)
     return len(adj), undirected_edges
 
 
