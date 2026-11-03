@@ -175,6 +175,8 @@ For our replacement-ETH / HOM hardness search, the **expander condition remains 
 
 Note that the **local tree-lookahead gap** in Section 5 of note 47 genuinely *does* use large girth and is **not** claimed for the prism family; the extension dropping girth applies only to the Poisson/endpoint/Fourier statements.
 
+**Finite verification:** [experiments/48_prism_cutcount_and_pathwidth_sanity.py](../experiments/48_prism_cutcount_and_pathwidth_sanity.py) explicitly enumerates all cuts for small cubic prisms, checks 3-edge-connectivity, verifies the Karger bound on \(\Xi_G(q)\), and checks the stated six-vertex bags and interval property; only Python's standard library is used. [experiments/47_endpoint_collision_formula_sanity.py](../experiments/47_endpoint_collision_formula_sanity.py) independently compares the exact collision count as a cut sum and as a direct sum over ordered labeling pairs on \(K_{3,3}\). These are **finite sanity tests**, not proofs of the asymptotic theorem.
+
 ## 6. Research redirection
 
 - **Algorithmic:** the polynomially many solutions after deleting one edge could be searched for via output-sensitive enumeration, but the cubic-prism example shows such enumeration is easy on low-treewidth graphs. The challenge is exploiting random tables to handle **linear-treewidth expanders**.
