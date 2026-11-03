@@ -185,3 +185,6 @@ If such a method is found, it would give a meaningful algorithmic result rather 
 
 
 **Average-case versus worst-case caution (2026-11-03):** [Note 44](44_random_binary_csp_second_moment_and_search_gap.md) locates the random independent-table satisfiability threshold at $\rho=q^{-2/\sqrt{\log k}}$ up to fixed gaps for $q=k^c,\ c>1$ and proves polynomial-time greedy SAT at much denser $\rho=q^{-\gamma/\sqrt{\log k}}$ with $\gamma<1$. Its second moment proves *existence* rather than efficient search when $\gamma\in(1,2)$. None of this refutes the worst-case critical-density hardness candidate or yields a generic algorithm for HOM.
+
+
+**Random-model algorithmic barrier (2026-11-03):** [Note 45](45_random_csp_boundary_freezing_and_quiet_planting.md) rigorously rules out a fixed-cut freeze-then-repair strategy for the independent-table random CSP model: rare high-degree boundary vertices preclude completion even when first-moment calculations predict exponentially many extensions. However for $c>1$ and $\gamma<2$ the same random model is quietly plantable (TV=o(1)) by the second moment, so search on an unknown planted instance would transfer to unplanted instances. This is average-case theory only; it neither proves nor refutes critical-density worst-case hardness.
