@@ -152,3 +152,23 @@ This is strictly weaker than universal deterministic lifting of **every** coarse
 - Prior project work: [random threshold first moment and greedy dense-table regime](40_nguyen_grouping_overhead_and_random_csp_greedy.md); [spectral universal fine-lift](43_spectral_quotient_greedy_and_explicit_hadamard_fullrank.md).
 
 **Next open algorithmic target:** close any part of the $\gamma\in(1,2)$ *random-model search gap*, by developing global repair / adaptive decimation / witness-dependent lifting, rather than requiring compatibility with every arbitrary earlier-neighbor assignment. Track time and success probability, and compare rigorously with known results for random growing-domain binary CSP and Model RB.
+
+
+## 8. A modest distributional search speedup inside 1 < gamma < 2
+
+While the second-moment existence proof does NOT yield polynomial-time search for gamma in (1,2), it does support an elementary **constant-factor exponent saving** for random instances via alphabet restriction.
+
+Fix c>1 and gamma<2. Select any constant
+\[
+\max\{\gamma/2,\ 1/c\}<\beta<1.
+\]
+At every vertex retain only the **same fixed first** $r=\lfloor q^\beta\rfloor$ fine labels; no random restriction is needed. The restricted relation tables remain independent Bernoulli(rho), since the original table entries were independent. The new alphabet has $r=k^{c\beta+o(1)}$, with $c\beta>1$, and the effective parameter relative to r is
+\[
+\rho=q^{-\gamma/d}=r^{-\gamma'/d},
+\qquad \gamma'=\gamma/\beta+o(1)<2.
+\]
+By Theorem 1, the restricted CSP is satisfiable w.h.p. Thus a *deterministic exhaustive search* restricted to these fixed r labels finds a satisfying assignment on a random input with probability $1-o(1)$, in time
+\[
+r^k\operatorname{poly}(L)=q^{(\beta+o(1))k}\operatorname{poly}(L).
+\]
+This is an improvement over brute-force $q^k$ by a **constant factor in the exponent**, but is **not** $q^{o(k)}$, and it has no worst-case guarantee of finding a solution on every satisfiable input. In the $\gamma<1$ regime, the polynomial greedy algorithm of §5 is strictly stronger. The actual open challenge is to improve the distributional search exponent substantially for fixed $\gamma\in(1,2)$ without relying on exhaustive enumeration of a still-polynomial alphabet.
