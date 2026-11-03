@@ -5,6 +5,8 @@
 
 This is a continuation of [note 35: Poisson and arc consistency](35_critical_expander_csp_poisson_and_arc_consistency.md) and [note 36: irredundancy and missing-edge planted indistinguishability](36_critical_random_csp_minimal_unsat_and_all_edge_statistical_dependence.md).
 
+> **2026-11-03 negative control:** [Note 48](48_karger_cut_counting_conditional_poisson_and_easy_prism_counterexample.md) shows that the Poisson and full-edge Fourier-spectral conclusions in this research line are valid on **any 3-edge-connected cubic graph** at a sufficiently large polynomial alphabet, including **prism graphs of treewidth at most 5** with polynomial-time exact CSP algorithms. Consequently the all-edge likelihood-ratio spectrum in this note is **not** by itself support for average-case computational hardness. Only structural bounds such as *expander-specific large cut/frontier width* distinguish these easy examples from our intended source.
+
 ## 1. Exact likelihood-ratio Fourier spectrum
 
 Fix a connected simple cubic edge-expander \(F_k=(V,E)\), \(|V|=k\), \(|E|=m=3k/2\), edge expansion \(\gamma>0\). For each \(e=uv\in E\) and \((a,b)\in[q]^2\), independently include \((a,b)\) in its relation with probability \(p=q^{-2/3}\). This defines the **null** law \(\mathsf P_0\) on the \(mq^2\) table bits \(A_{e,a,b}\). The **planted** law \(\mathsf P_1\) draws uniform \(\sigma\in[q]^V\), then forces \((\sigma(u),\sigma(v))\) into every edge table and samples the other entries as in \(\mathsf P_0\).
