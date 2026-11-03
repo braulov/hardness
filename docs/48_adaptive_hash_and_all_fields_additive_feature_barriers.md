@@ -133,3 +133,12 @@ For a FIXED input-independent P the coefficient-variable term binom(r+d,d) disap
 - Project [checkpoint 40](40_lowrank_pcc_group_algebra_effective_rank.md) and [checkpoint 46](46_pcc_all_fields_zero_pattern_nonrepresentability.md).
 
 **Bottom line:** An explicit NO instance exposes the quantifier-order failure of public low-bit random defect hashing; and a robust all-fields counting theorem shuts down an entire family of low-dimensional, low-degree additive-feature status-preserving encodings. Neither result settles unrestricted decision-only PCC linearization. Novelty against all literature not verified.
+
+
+## 6. Fundamental guardrail: pure size-only lower bounds cannot exclude decision-only linearization
+
+For EVERY PCC input A, irrespective of computational time, there exists a rank-K representable linear matroid over the TWO-element field on the original K×K candidate positions whose independent perfect matchings exist iff PCC(A) is YES.
+
+Proof: If PCC(A) is YES, let v_{i,i}=e_i∈F_2^K and every off-diagonal vector zero. Then the only independent perfect matching is the identity and it exists. If PCC(A) is NO, set every candidate vector to zero; then no independent perfect matching exists. Both representations have dimension exactly K, field F_2, and O(K³) explicitly written field entries. The difficulty lies ENTIRELY in computing WHICH of the two templates to output, since that selection itself answers PCC.
+
+Thus a **pure existence/counting argument** about the number of small linear matroids, the number of output perfect matchings or dimensions/field sizes CANNOT rule out a decision-only PCC→linear-matroid compiler without imposing restrictions on computation of the output. Any meaningful no-go for the general decision-only branch must use a computational hypothesis (such as RPCC-H) or genuinely restrict source preprocessing (e.g. deterministic low-degree entry functions as in checkpoint 47, source locality, uniform sparse circuits). This is not a breakthrough; it is an important quantifier sanity check preventing misuse of the all-fields solution-preservation counting lemmas.
