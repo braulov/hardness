@@ -8,6 +8,8 @@ Related checkpoints:
 - [44: arbitrary PCC as oracle-specified rank-K sparse paving matroid, and Ω(K!) query lower bound](44_sparse_paving_matroid_pcc_oracle_equivalence.md).
 - [20: independent Θ(K^4) PCC compatibility bits with different full solution sets](20_two_layer_affine_nonlinear_pcc_audit.md).
 
+> **2026-11-03 STRONGER FOLLOW-UP:** [Checkpoint 46](46_pcc_all_fields_zero_pattern_nonrepresentability.md) proves that almost all **actual PCC-derived** sparse paving matroids in our random family are NONREPRESENTABLE OVER **ANY** FIELD, even allowing arbitrarily high-dimensional matching-support vectors. It applies the all-fields Rónyai–Babai–Ganapathy/Nelson zero-pattern theorem only to Θ(K⁴) designated permutation minors. That theorem strictly supersedes the finite-field d log q lower bound below. The remaining question is an explicitly named deterministic instance with a human-checkable certificate, and, separately, decision-only compilation.
+
 ## 1. Every PCC-derived paving matroid satisfies Ingleton (PROVED)
 
 For K≥4 let E=[K]×[K] and P={S_pi : pi∈S_K}, where S_pi={(i,pi(i)):i∈[K]}. For ANY subset C⊆P (not necessarily the invalid permutations of a graph), define rank-K sparse paving matroid M_C on E whose K-element nonbases/circuit-hyperplanes are exactly C. The matroid exists because two distinct permutation sets share at most K−2 elements, so C is a stable set of the Johnson graph.
@@ -32,7 +34,7 @@ Peter Nelson's published bound states that the number of representable matroids 
     1 − 2^{2K^6−K!}
 for sufficiently large K. ALL these matroids satisfy Ingleton by Section 1.
 
-**Crucial scope:** Here C is an ARBITRARY SUBSET of K! permutations. Its membership oracle may require exponential data/time; C need not equal the invalid-permutation set of a PCC graph described by O(K^4) adjacency bits. Thus this all-fields nonrepresentability theorem does **NOT** prove that some polynomial-oracle PCC-derived M_A is nonrepresentable over every field. The latter explicit-source question remains OPEN in this note.
+**Crucial scope:** Here C is an ARBITRARY SUBSET of K! permutations. Its membership oracle may require exponential data/time; C need not equal the invalid-permutation set of a PCC graph described by O(K^4) adjacency bits. This coarse total-matroid count by itself does **NOT** prove that some polynomial-oracle PCC-derived M_A is nonrepresentable over every field. **That existence question has now been settled positively by checkpoint 46**, using a restricted zero-pattern bound; a deterministic explicit *named* example with a short algebraic nonrepresentability certificate is still open.
 
 Source: Peter Nelson, *Almost all matroids are non-representable*, BLMS 2018, https://doi.org/10.1112/blms.12141 ; elementary bound and proof https://matroidunion.org/?p=1986 .
 
@@ -109,7 +111,7 @@ This connects with the previously analyzed fingerprint/accumulator models, while
 Suppose a polynomial-time compiler maps EVERY PCC(K) to a linear-matroid-constrained perfect matching on K rows and K columns with explicitly tabulated vectors in dimension poly(K) over a polynomial-bit finite field, preserving only YES/NO (not the exact valid-permutation set). Checkpoint 43 then implies a DETERMINISTIC 2^{O(K)} poly(K) algorithm for unrestricted PCC. This would refute the separate unproved RPCC-H hypothesis, but cannot be rejected solely by the counting arguments above.
 
 Three precise open directions:
-(A) Find a concrete PCC-derived M_A that is provably nonrepresentable over EVERY field; Ingleton cannot be the certificate.
+(A) Find a specific deterministically described PCC-derived M_A with a short nonrepresentability certificate valid over EVERY field. Existence with overwhelming probability in a polytime-samplable source family is already proved in checkpoint 46; Ingleton cannot be the certificate.
 (B) Find an efficient way to compose the one-pair GF(7) determinant gadgets **by AND** without one independent matroid layer per conflict, perhaps via added auxiliary matching positions or a different algebraic family.
 (C) Search for a genuinely decision-only linearization that bypasses preserving each valid permutation; its success would be an algorithmic PCC breakthrough.
 
