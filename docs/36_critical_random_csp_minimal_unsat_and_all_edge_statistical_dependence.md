@@ -146,6 +146,10 @@ The restriction to **whole-edge-table** queries is essential: an algorithm readi
 
 The conditional-expectation indistinguishability estimates above can be strengthened to an exact \(p\)-biased Fourier statement. [Note 37](37_critical_expander_low_degree_fourier_and_path_saturation.md) computes the full likelihood-ratio spectrum and proves \(\|L^{\le m-1}-1\|_2=o(1)\) for \(m=3k/2\) under \(c>\max(3/2,3/\gamma)\). Thus *any* normalized polynomial statistic of the full explicit input of degree \(<m\) has vanishing difference in planted-vs-null means. The technique is the standard low-degree likelihood-ratio method and does not establish computational hardness. The same note shows path-composition saturation at length four and a simple \(o(q^2)\) individual-bit query lower bound.
 
+## November 3 strengthening: conditionally Poisson after any one missing relation
+
+[Note 47](47_conditional_poisson_after_one_edge_and_endpoint_injectivity.md) upgrades the planted-vs-null indistinguishability in Section 3 to a direct statement about **actual SAT/UNSAT**. Under fixed cubic expansion and logarithmic girth and sufficiently large polynomial alphabet, deleting any edge leaves \((1+o(1))q^{2/3}\) solutions with **distinct endpoint-label pairs**. Conditional on all other \(m-1\) relation tables, reinstating the edge yields an **exact** \(\operatorname{Binomial}(N_e,q^{-2/3})\) full solution count, asymptotically \(\mathrm{Poisson}(1)\). The SAT/UNSAT bit has essentially all its edge-block Hoeffding variance in the full-\(m\)-table component. This yields an order-independent no-prediction theorem for algorithms omitting any complete relation table, **not** a full-input time lower bound. A direct finite identity check is in [experiments/47](../experiments/47_endpoint_collision_formula_sanity.py).
+
 ## 4. What this means for the hardness search
 
 - A fixed-expander **random-source distribution** has nontrivial SAT/UNSAT probabilities, but local supports, all proper CSP subinstances, and any proper collection of whole relation tables reveal little global consistency information.
