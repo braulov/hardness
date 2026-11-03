@@ -154,3 +154,6 @@ In fact, even before checking the spectral certificate, if a coarse quotient has
 
 
 **Follow-up on existential rather than universal lifting (2026-11-03):** [Note 44](44_random_binary_csp_second_moment_and_search_gap.md) proves that in the critical-density random graph model, independent sparse Bernoulli fine relation blocks at density $\rho=q^{-\gamma/\sqrt{\log k}}$ admit a satisfying fine assignment w.h.p. for $\gamma<2$ if $q=k^c,\ c>1$. This uses the exact overlap second moment, **not** universal spectral local extension. For $\gamma<1$ a polynomial-time degeneracy-order greedy lift exists w.h.p. This makes explicit that universal lifting and existence of even one lift can have different density thresholds.
+
+
+**Existential lifting caution (2026-11-03):** [Note 45](45_random_csp_boundary_freezing_and_quiet_planting.md) shows that a large frozen boundary chosen without cross-constraint information typically blocks all possible fine lifts, even when the unconditional global CSP has many solutions. Thus the existential global search problem must correlate variable choices across the boundary. It also derives quiet planting from note 44 and rules out exact recovery of the ORIGINAL planted witness (not finding a different satisfying assignment).
