@@ -198,6 +198,10 @@ For *disjoint* \(U_i\), the events depend on disjoint edge tables and independen
 
 Classical source: Harris (1960) / FKG (1971), positive association of increasing events under product measures.
 
+## Follow-up: actual overlapping-check failure for a deliberately separated prefix
+
+[Note 44](44_overlapping_tree_lookahead_actual_search_lower_bound_on_spaced_prefix.md) proves a stronger but **order-specific** result. On cubic high-girth expanders, choose a first prefix of size \(s\ge k/46\) whose vertices have pairwise graph distance at least five. For \(r=C\ln k<g(G)-1\) and sufficiently large polynomial alphabet, with high probability **almost every** assignment on that prefix passes *all simultaneously imposed overlapping* connected-tree checks of size \(\le r\) on **every** intermediate prefix. On a constant \(e^{-1}-o(1)\) fraction of random null inputs that are UNSAT, the real DFS with this chosen variable order explores \(q^{\Omega(k)}\) prefixes. The proof uses an explicit anchored-tree second moment, not a disjoint-group factorization. **This does not resolve the optimal-order or data-dependent-order question**, nor does it contradict any \(q^{o(k)}\) tensor algorithm.
+
 ## What is / is not closed
 
 **CLOSED negatively:**
